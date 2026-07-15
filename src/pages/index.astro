@@ -1,49 +1,456 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { getImage } from 'astro:assets';
+import iniSearch1 from '../assets/ini-search-1.png';
+import ini2fa1 from '../assets/ini-2fa-1.png';
+
+const [optIniSearch1, optIni2fa1] = await Promise.all(
+  [iniSearch1, ini2fa1].map((img) => getImage({ src: img, width: 800, format: 'webp' }))
+);
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<BaseLayout
+  title="Alizée Bompan — Product Designer UX UI"
+  description="Je transforme la complexité en interfaces qui ont du sens."
+>
+
+  <!-- ============================================================
+       NAVIGATION
+       ============================================================ -->
+  <header class="w-full flex justify-center items-center">
+    <nav class="z-[9999] fixed top-0 flex justify-center items-center gap-6 lg:gap-8 mx-auto mt-[.8rem] py-[.8rem] pl-6 lg:pl-8 pr-[.8rem] bg-[#f9f9fe0f] border border-[#b3b1b91f] rounded-full backdrop-blur-[15px] shadow-[0_2px_14px_-8px_#7659e952,inset_0_-6px_6px_-12px_#b09ccf33]">
+      <a href="#home" class="no-underline">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Accueil</span>
+      </a>
+      <a href="#project" class="no-underline">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Projets</span>
+      </a>
+      <a href="#expertise" class="no-underline">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Expertises</span>
+      </a>
+      <a href="mailto:a.bpn148@gmail.com?subject=collaborons%20-" class="shimmer-btn relative z-10 flex justify-center items-center px-[1.7rem] py-[.8rem] rounded-[50vw] bg-brand-light no-underline overflow-hidden active:bg-brand-deep active:scale-[.97]">
+        <span class="relative z-10 font-['Plus_Jakarta_Sans',sans-serif] text-[1.1rem] font-normal text-surface-card">Collaborons</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="w-full">
+    <!-- ============================================================
+         HERO SECTION
+         ============================================================ -->
+    <section id="home" class="z-[1] sticky top-0 w-full h-screen overflow-hidden bg-[url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69c42950c1450604d9204d95_Rectangle%20(1).svg')] bg-cover bg-[0_0]">
+
+      <div id="cursor-light" class="fixed w-[300px] h-[300px] rounded-full pointer-events-none z-50" style="background:radial-gradient(circle,rgba(131,78,255,0.45) 0%,transparent 70%);transform:translate(-50%,-50%);mix-blend-mode:screen;"></div>
+
+      <div class="group cursor-pointer absolute bottom-[25%] right-[25%] max-sm:bottom-[2%] max-sm:right-[2%] max-sm:w-8 z-[2]">
+        <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e903cbb2a0f6b9c529e1f5_Fichier%201etoile-1.svg" loading="lazy" alt="" class="img w-10 z-[2] relative group-hover:scale-125 transition-transform duration-500" />
+        <div class="z-[2] opacity-0 group-hover:opacity-100 absolute w-40 h-40 p-4 bg-[#e8d5f5] rotate-[-3deg] shadow-[0_1px_12px_-4px_#846cc559] transition-opacity duration-500">
+          <p class="text-left font-['Caveat',Georgia,sans-serif] text-[1.3rem] leading-[100%]">Progressive disclosure ou écran par étapes ?</p>
+        </div>
+      </div>
+
+      <div class="z-[1] flex flex-col justify-end items-start w-full h-full mb-0 pt-0 pb-20 pl-20 pr-20 gap-4 max-lg:pb-0 max-lg:pl-0 max-md:pb-12 max-md:pl-6 max-md:pr-6 max-sm:justify-center max-sm:items-center max-sm:pb-8 max-sm:pl-4 max-sm:pr-4 max-sm:overflow-visible">
+
+        <div class="group cursor-pointer z-10 relative">
+          <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e903cb889ee6a3e4bf5808_Fichier%204etoile-4.svg" loading="lazy" alt="" class="img w-12 z-[1] max-sm:w-8 group-hover:scale-125 transition-transform duration-500" />
+          <div class="z-10 opacity-0 group-hover:opacity-100 absolute w-40 h-40 p-4 bg-[#e8d5f5] rotate-[-4deg] shadow-[0_2px_5px_#846cc559] transition-opacity duration-500">
+            <p class="text-left font-['Caveat',Georgia,sans-serif] text-[1.3rem] leading-[100%]">Si 8 à 90° = ∞ <br/>&nbsp;or U(=ↀωↀ=)X<br/>&nbsp;donc UX for ∞</p>
+          </div>
+        </div>
+
+        <div class="z-[1] flex flex-col gap-[1.2rem] static max-sm:text-center max-sm:justify-center max-sm:items-center max-sm:my-8">
+          <div class="reveal-on-load flex items-center gap-[.6rem] mb-2 max-md:justify-center">
+            <span class="w-[7px] h-[7px] rounded-full bg-[#7b4fd4] flex-shrink-0"></span>
+            <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[#7b4fd4] max-md:text-[.9rem] max-sm:text-[.8rem] text-[1.1rem] font-semibold tracking-[.18em] uppercase max-md:text-center">Alizée Bompan</span>
+            <span class="w-[7px] h-[7px] rounded-full bg-[#7b4fd4] flex-shrink-0"></span>
+          </div>
+          <div class="z-[2] relative max-sm:text-center">
+            <h1 class="reveal-on-load mt-0 mb-0 font-['Pphatton',Georgia,sans-serif] 2xl:text-[6rem] max-md:text-[3rem] max-sm:text-[2.2rem] text-[3rem] font-bold leading-[1.1] text-brand max-sm:text-center max-md:text-center inline">Product Designer <span class="text-text-heading">UX UI</span></h1>
+          </div>
+        </div>
+
+        <p class="reveal-on-load z-[1] relative mt-4 mb-8 font-['Plus_Jakarta_Sans',sans-serif] text-text-muted 2xl:text-[1.5rem] max-md:text-[1.1rem] max-sm:text-[.95rem] max-sm:leading-[1.6rem] text-[1.25rem] font-normal leading-[1.6] max-md:text-center max-sm:text-center">
+          Je transforme la complexité en interfaces qui ont du sens.
+        </p>
+
+        <div class="flex flex-col">
+          <div class="reveal-on-load flex gap-12 max-md:justify-center max-md:items-center">
+            <div class="reveal-on-load flex flex-col justify-center items-center w-[6.5rem] h-[6.5rem] border border-[#cbccd65c] rounded-[.8rem] relative">
+              <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[2rem] font-extrabold leading-[1] tracking-[-.02em]">2+</span>
+              <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[.7rem] font-medium tracking-[.15em] uppercase">Ans d'exp.</span>
+              <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
+            </div>
+            <div class="flex flex-col justify-center items-center w-[6.5rem] h-[6.5rem] border border-[#cbccd65c] rounded-[.8rem] relative">
+              <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[2rem] font-extrabold leading-[1] tracking-[-.02em]">10+</span>
+              <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[.7rem] font-medium tracking-[.15em] uppercase">Projets</span>
+              <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="group cursor-pointer absolute top-[8%] right-[8%] max-sm:top-[2%] max-sm:right-[2%] max-sm:w-8">
+        <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e903cbfe85c8c305f9e75b_Fichier%203etoile-3.svg" loading="lazy" alt="" class="img w-12 z-[2] relative max-sm:w-8 group-hover:scale-125 transition-transform duration-500" />
+        <div class="z-[2] opacity-0 group-hover:opacity-100 absolute w-40 h-40 p-4 bg-[#e8d5f5] rotate-[-3deg] shadow-[0_1px_12px_-4px_#846cc559] transition-opacity duration-500">
+          <p class="text-left font-['Caveat',Georgia,sans-serif] text-[1.3rem] leading-[100%]">Vérifier l'affordance du bouton</p>
+        </div>
+      </div>
+
+      <a id="cat-cv-link" href="/cv_alizeebompan.pdf" target="_blank" class="z-[2] absolute bottom-[2%] right-[5%] max-sm:bottom-[2%] max-sm:right-[4%]" style="pointer-events: none; cursor: pointer;" rel="noopener noreferrer">
+        <img id="cat-cv-img" src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb6d779c0dd553dea4113d_chat-cv.PNG" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[6vw] min-w-[44px] max-w-[80px] h-auto opacity-100" style="visibility: hidden;" />
+      </a>
+    </section>
+
+    <!-- ============================================================
+         PROJECTS SECTION
+         ============================================================ -->
+    <section id="project" class="z-30 w-full bg-surface-card flex justify-center pt-[80px] lg:pt-[100px] pb-[80px] lg:pb-[100px] relative border-b border-[#eff9fc1a] max-lg:pt-[120px] max-lg:pb-[120px] max-md:pt-[80px] max-md:pb-[80px] max-sm:pt-[60px] max-sm:pb-[60px]">
+
+      <div class="z-[25] grid grid-cols-[minmax(5vw,1fr)_minmax(auto,1400px)_minmax(5vw,1fr)] 2xl:grid-cols-[minmax(2vw,1fr)_minmax(auto,1700px)_minmax(2vw,1fr)] grid-rows-[auto] w-full relative max-md:grid-cols-[1vw_minmax(auto,100%)_1vw] max-md:overflow-hidden max-sm:grid-cols-[0_minmax(0,100%)_0] max-sm:mx-0 max-sm:overflow-hidden">
+        <div class="grid grid-cols-1 gap-x-4 gap-y-12" style="grid-area: 1 / 2 / 2 / 3;">
+          <div class="grid grid-cols-1 gap-x-12 gap-y-[100px] lg:gap-y-[140px] 2xl:gap-y-[180px] max-md:gap-y-[80px]">
+
+            <!-- Project 0: Initiative CRM (NEW) — left image grows rightward -->
+            <article class="grid grid-cols-[1fr_65%] gap-x-12 lg:gap-x-20 2xl:gap-x-24 gap-y-4 mb-8 pt-8 border-t-0 max-lg:grid-cols-1 max-lg:gap-y-20 max-md:gap-y-10 max-md:mx-8 max-sm:grid-cols-1 max-sm:gap-y-6 max-sm:mt-4 max-sm:mx-4">
+              <div class="flex flex-col justify-between max-w-[500px] max-sm:max-w-full">
+                <div>
+                  <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
+                    <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
+                      <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">UX UI Designer — Alternance 2 ans</span>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Initiative CRM</h2>
+                    </div>
+                    <div class="max-w-[500px]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                        Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <a href="/project-ux/initiative-crm" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                    <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                  </a>
+                </div>
+              </div>
+              <div class="max-md:max-w-full max-md:overflow-hidden">
+                <div class="gsap-trigger-left h-[35vw] max-lg:h-[45vw] max-md:h-[60vw] max-sm:h-[55vw] 2xl:max-h-[650px] overflow-hidden flex flex-nowrap w-full relative">
+                  <div class="gsap-target relative z-10 flex-[0_auto] w-[40%] h-full mr-6 overflow-visible flex-shrink-0 bg-accent-peach bg-cover bg-center" style={`background-image:url(${optIniSearch1.src})`}></div>
+                  <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-azure bg-cover bg-center" style={`background-image:url(${optIni2fa1.src})`}></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 1: Bibliothèque de Bordeaux -->
+            <article class="grid grid-cols-[1fr_65%] gap-x-12 lg:gap-x-20 2xl:gap-x-24 gap-y-4 mb-8 pt-8 border-t-0 max-lg:grid-cols-1 max-lg:gap-y-20 max-md:gap-y-10 max-md:mx-8 max-sm:grid-cols-1 max-sm:gap-y-6 max-sm:mt-4 max-sm:mx-4">
+              <div class="flex flex-col justify-between max-w-[500px] max-sm:max-w-full">
+                <div>
+                  <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
+                    <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
+                      <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">Projet de fin d'étude &nbsp;UX UI</span>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.2] text-[#423e46]">Bibliothèque de Bordeaux</h2>
+                    </div>
+                    <div class="max-w-[500px]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                        Faciliter le quotidien des abonnés avec un compagnon de service mobile : une interface pour explorer le catalogue, réserver un titre et suivre ses listes de lecture.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <a href="/project-ux/application-bibliotheque-de-bordeaux" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                    <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                  </a>
+                </div>
+              </div>
+              <div class="max-md:max-w-full max-md:overflow-hidden">
+                <div class="gsap-trigger-right h-[35vw] max-lg:h-[45vw] max-md:h-[60vw] max-sm:h-[55vw] 2xl:max-h-[650px] overflow-hidden flex flex-nowrap w-full relative">
+                  <div class="flex-1 w-[40%] h-full mr-6 relative z-[1]">
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69ea58e02e8f820ce139a897_bibliomoque%20(1).png')"></div>
+                  </div>
+                  <div class="gsap-target relative z-10 flex-[0_auto] w-[35%] h-full mr-0 overflow-visible flex-shrink-0 bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69ea5923531fe6400e4f9e7e_Gemini_Generated_Image_bbupskbbupskbbup%20(1).png')"></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 2: Netflix -->
+            <article class="grid grid-cols-[1fr_65%] gap-x-12 lg:gap-x-20 2xl:gap-x-24 gap-y-4 mb-8 pt-8 border-t-0 max-lg:grid-cols-1 max-lg:gap-y-20 max-md:gap-y-10 max-md:mx-8 max-sm:grid-cols-1 max-sm:gap-y-6 max-sm:mt-4 max-sm:mx-4">
+              <div class="flex flex-col justify-between max-w-[500px] max-sm:max-w-full">
+                <div>
+                  <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
+                    <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
+                      <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">UX Research & Design — 2024</span>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Netflix</h2>
+                    </div>
+                    <div class="max-w-[500px]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                        Safe N Chill, un dispositif UX permettant de filtrer l'exposition à la violence cinématographique, couplé à Chill N learn, un système d'apprentissage autonome pour approfondir ses connaissances.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <a href="/project-ux/netflix" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                    <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                  </a>
+                </div>
+              </div>
+              <div class="max-md:max-w-full max-md:overflow-hidden">
+                <div class="gsap-trigger-left h-[35vw] max-lg:h-[45vw] max-md:h-[60vw] max-sm:h-[55vw] 2xl:max-h-[650px] overflow-hidden flex flex-nowrap w-full relative">
+                  <div class="gsap-target relative z-10 flex-[0_auto] w-[40%] h-full mr-6 overflow-visible flex-shrink-0 bg-surface-card bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91832f91f6186e60d2768_behance-680e7adfc558d_pages-to-jpg-0065.jpg')"></div>
+                  <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91918cae8f8256abc3fd9_f872ce224611677.Y3JvcCwxNDI0LDExMTQsNyww.png')"></div>
+                </div>
+              </div>
+            </article>
+
+            <!-- Project 3: Reggae Music -->
+            <article class="grid grid-cols-[1fr_65%] gap-x-12 lg:gap-x-20 2xl:gap-x-24 gap-y-4 mb-8 pt-8 border-t-0 max-lg:grid-cols-1 max-lg:gap-y-20 max-md:gap-y-10 max-md:mx-8 max-sm:grid-cols-1 max-sm:gap-y-6 max-sm:mt-4 max-sm:mx-4">
+              <div class="flex flex-col justify-between max-w-[500px] max-sm:max-w-full">
+                <div>
+                  <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
+                    <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
+                      <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">Google UX Design — 2023</span>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Billetterie en ligne Reggae</h2>
+                    </div>
+                    <div class="max-w-[500px]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                        Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae. Décliné sur trois devices (desktop, mobile, tablette).
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="flex justify-end mt-6">
+                  <a href="/project-ux/reggae-music-billetterie" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                    <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                  </a>
+                </div>
+              </div>
+              <div class="max-md:max-w-full max-md:overflow-hidden">
+                <div class="gsap-trigger-right h-[35vw] max-lg:h-[45vw] max-md:h-[60vw] max-sm:h-[55vw] 2xl:max-h-[650px] overflow-hidden flex flex-nowrap w-full relative">
+                  <div class="flex-1 w-[40%] h-full mr-6 relative z-[1]">
+                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat bg-surface-card" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e071b51c954a19e51998_209%201.png');background-position:0%"></div>
+                  </div>
+                  <div class="gsap-target relative z-10 flex-[0_auto] w-[35%] h-full mr-0 overflow-visible flex-shrink-0 bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png')"></div>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         EXPERTISE SECTION
+         ============================================================ -->
+    <section id="expertise" class="z-20 w-full bg-[#e5e9f3] relative bg-[linear-gradient(#f9f9fe_15%,#eeeefd_87%)] bg-[0_0] bg-auto"
+             style="background-image:linear-gradient(#f9f9fe 15%,#eeeefd 87%),url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69c42950c1450604d9204d95_Rectangle%20(1).svg');background-position:0 0,0 0;background-size:auto,cover;">
+
+      <div class="max-w-7xl mx-auto px-6 md:px-12 pt-40 pb-60 max-sm:py-20">
+        <div class="flex flex-col gap-[1.8rem] w-[60%] mb-20 mx-auto max-lg:w-[90%] max-md:w-[95%] max-sm:w-full">
+          <h2 class="reveal-on-load text-center font-['Pphatton',Georgia,sans-serif] 2xl:text-[4rem] max-md:text-[2.5rem] max-sm:text-[1.8rem] text-[2.8rem] font-extrabold leading-[1.1] text-text-primary">
+            Design & Stratégie Produit
+          </h2>
+          <p class="split-words text-center w-full font-['Plus_Jakarta_Sans',sans-serif] text-text-muted 2xl:text-[1.2rem] max-sm:text-[.9rem] text-[1.1rem] leading-[140%]">
+            De la recherche utilisateur au design system, j'accompagne chaque étape de la conception avec rigueur et des outils modernes.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 gap-16 max-w-7xl w-full mt-8 mx-auto">
+          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative flex-1 min-h-0 overflow-hidden">
+              <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e67492dcd4d8d2526b81dd_desi-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="Design System" />
+              <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb87548bba4bad1f468a5e_S%C3%A9quence%2001_4_1_poster.0000000.jpg">
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb87548bba4bad1f468a5e_S%C3%A9quence%2001_4_1_mp4.mp4" type="video/mp4" />
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb87548bba4bad1f468a5e_S%C3%A9quence%2001_4_1_webm.webm" type="video/webm" />
+              </video>
+            </div>
+            <div class="gsap-text-box p-8 md:p-10 bg-white">
+              <h3 class="font-['Plus_Jakarta_Sans',sans-serif] text-2xl font-bold mb-4 text-text-heading">Design System & Scalabilité UI</h3>
+              <p class="text-text-body text-base leading-relaxed">Conception de bibliothèques de composants et de structures de tokens robuste, assurant cohérence visuelle et continuité vers le développement.</p>
+            </div>
+          </article>
+
+          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative flex-1 min-h-0 overflow-hidden">
+              <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e67ac832a294fabca106af_uxres-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="UX Research" />
+              <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8a79e5bb2f3f9c6f3f3e_S%C3%A9quence%2002_2_poster.0000000.jpg">
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8a79e5bb2f3f9c6f3f3e_S%C3%A9quence%2002_2_mp4.mp4" type="video/mp4" />
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8a79e5bb2f3f9c6f3f3e_S%C3%A9quence%2002_2_webm.webm" type="video/webm" />
+              </video>
+            </div>
+            <div class="gsap-text-box p-8 md:p-10 bg-white">
+              <h3 class="font-['Plus_Jakarta_Sans',sans-serif] text-2xl font-bold mb-4 text-text-heading">UX Research & Architecture de l'Information</h3>
+              <p class="text-text-body text-base leading-relaxed">Structuration de flux complexes et traduction des insights utilisateur en architectures logiques et intuitives, adaptées aux environnements métiers exigeants.</p>
+            </div>
+          </article>
+
+          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative flex-1 min-h-0 overflow-hidden">
+              <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e7d4e3fa55e49d03f6b0b0_Squence01_3-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="AI-Driven" />
+              <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8b00b7dad6400aa45410_S%C3%A9quence%2001_3_poster.0000000.jpg">
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8b00b7dad6400aa45410_S%C3%A9quence%2001_3_mp4.mp4" type="video/mp4" />
+                <source src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8b00b7dad6400aa45410_S%C3%A9quence%2001_3_webm.webm" type="video/webm" />
+              </video>
+            </div>
+            <div class="gsap-text-box p-8 md:p-10 bg-white">
+              <h3 class="font-['Plus_Jakarta_Sans',sans-serif] text-2xl font-bold mb-4 text-text-heading">Design & Prototypage AI-Driven</h3>
+              <p class="text-text-body text-base leading-relaxed">Création d'interfaces haute fidélité et de prototypes interactifs vibe codé.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         FOOTER
+         ============================================================ -->
+    <footer class="z-30 w-full bg-text-heading pt-20 pb-10 relative">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 flex flex-col items-center gap-8">
+        <h2 class="dia-reveal text-center font-['Pphatton',Georgia,sans-serif] text-surface-card 2xl:text-[3rem] max-sm:text-[1.8rem] text-[2.5rem] font-medium">Alizée Bompan</h2>
+        <div class="flex justify-center items-center gap-8 max-sm:flex-col">
+          <a href="https://www.behance.net/alizeebompan" target="_blank" class="reveal-on-load flex justify-center items-center gap-[.3rem] pb-[2px] font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[#786cba] no-underline hover:opacity-60">
+            <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb85330641e166aca7d167_tabler-icon-brand-behance.svg" alt="" loading="lazy" class="w-[1.6rem]" />
+            <span class="opacity-90 font-['Plus_Jakarta_Sans',sans-serif] text-surface-card">Behance</span>
+          </a>
+          <a href="https://www.linkedin.com/in/aliz%C3%A9e-bompan-b86616198/" target="_blank" class="reveal-on-load flex justify-center items-center gap-[.3rem] font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[#786cba] no-underline hover:opacity-60">
+            <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb853347c8519125823bd7_tabler-icon-brand-linkedin.svg" alt="" loading="lazy" class="w-5 h-5" />
+            <span class="opacity-90 font-['Plus_Jakarta_Sans',sans-serif] text-surface-card">Linkedin</span>
+          </a>
+        </div>
+        <p class="reveal-on-load text-center font-['Caveat',Georgia,sans-serif] text-[1rem] text-accent-lavender max-lg:text-center">
+          Designé avec du ☕ et trop de post-its<br/>Moi si j'étais vous, je passerais la souris sur les étoiles du hero. (Juste un indice...)
+        </p>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    import gsap from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+    // Sheryjs n'a pas d'équivalent npm ; l'URL est figée sur un commit précis
+    // (au lieu de @main) pour éviter qu'un changement en amont, hors de notre
+    // contrôle, ne modifie silencieusement le code exécuté sur le site.
+    (function loadShery(cb) {
+      var s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/gh/aayushchouhan24/sheryjs@2cca9f312acc80bf31ce18ec0831e7ff769efd04/dist/Shery.js';
+      s.onload = cb;
+      document.head.appendChild(s);
+    })(function() {
+      gsap.registerPlugin(ScrollTrigger);
+
+      gsap.from('#home .reveal-on-load', {
+        y: 30, opacity: 0, filter: 'blur(15px)', duration: 0.8, ease: 'power3.out', stagger: 0.1
+      });
+
+      // Cat CV animation: fall from top with bounce & rotation, loop 8x
+      var catLink = document.getElementById('cat-cv-link');
+      var catImg = document.getElementById('cat-cv-img');
+      if (catLink && catImg) {
+        // Set initial state: well above viewport, rotated, invisible
+        gsap.set(catLink, { y: -window.innerHeight, opacity: 0, rotation: -8 });
+
+        // Animate: fall across the whole screen with natural bounce, slight rotation — loop 8 times
+        gsap.to(catLink, {
+          y: 0,
+          opacity: 1,
+          rotation: 5,
+          duration: 1.5,
+          ease: 'bounce.out',
+          delay: 0.3,
+          repeat: 7,
+          repeatDelay: 2.5,
+          onStart: function() {
+            catImg.style.visibility = 'visible';
+          },
+          onComplete: function() {
+            catLink.style.pointerEvents = 'auto';
+          }
+        });
+      }
+
+      var light = document.getElementById('cursor-light');
+      if (light) {
+        document.addEventListener('mousemove', function(e) {
+          gsap.to(light, { left: e.clientX, top: e.clientY, duration: 0.3, ease: 'power2.out' });
+        });
+      }
+
+      gsap.utils.toArray('#project .reveal-on-load, #expertise .reveal-on-load, footer .reveal-on-load').forEach(function(el) {
+        gsap.from(el, {
+          y: 10, opacity: 0, filter: 'blur(4px)', duration: 0.4, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 95%', toggleActions: 'play none none none' }
+        });
+      });
+
+      gsap.utils.toArray('.split-words').forEach(function(el) {
+        var text = el.textContent.trim();
+        var words = text.split(' ');
+        el.innerHTML = '';
+        words.forEach(function(word) {
+          var span = document.createElement('span');
+          span.textContent = word + ' ';
+          span.style.color = 'rgba(71,84,103,0.06)';
+          el.appendChild(span);
+        });
+        gsap.to(el.querySelectorAll('span'), {
+          color: '#475467',
+          stagger: 0.015,
+          scrollTrigger: { trigger: el, start: 'top 98%', end: 'bottom 30%', scrub: true }
+        });
+      });
+
+      gsap.utils.toArray('.gsap-trigger-right').forEach(function(section) {
+        var target = section.querySelector('.gsap-target');
+        if (!target) return;
+        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: true } });
+      });
+      gsap.utils.toArray('.gsap-trigger-left').forEach(function(section) {
+        var target = section.querySelector('.gsap-target');
+        if (!target) return;
+        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: true } });
+      });
+
+      gsap.utils.toArray('.expertise-card').forEach(function(card) {
+        var media = card.querySelector('.gsap-media');
+        var textBox = card.querySelector('.gsap-text-box');
+        if (!media || !textBox) return;
+        gsap.to(media, { scale: 1, ease: 'none', scrollTrigger: { trigger: card, start: 'top bottom', end: 'bottom top', scrub: true } });
+        gsap.from(textBox, { y: 40, opacity: 0, duration: 1, ease: 'power3.out', scrollTrigger: { trigger: card, start: 'top 75%' } });
+      });
+
+      // Dia reveal: character-by-character shimmer
+      var diaEl = document.querySelector('.dia-reveal');
+      if (diaEl) {
+        var text = diaEl.textContent;
+        diaEl.textContent = '';
+        for (var i = 0; i < text.length; i++) {
+          var span = document.createElement('span');
+          span.textContent = text[i];
+          span.style.opacity = '0';
+          span.style.display = 'inline-block';
+          diaEl.appendChild(span);
+        }
+        gsap.to(diaEl.querySelectorAll('span'), {
+          opacity: 1,
+          duration: 0.08,
+          stagger: 0.06,
+          ease: 'power2.out',
+          scrollTrigger: { trigger: diaEl, start: 'top 85%' }
+        });
+      }
+
+      // Shimmer button effect
+      document.querySelectorAll('.shimmer-btn').forEach(function(btn) {
+        btn.addEventListener('mouseenter', function() {
+          var overlay = document.createElement('span');
+          overlay.style.cssText = 'position:absolute;top:0;left:-100%;width:60%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);pointer-events:none;';
+          btn.appendChild(overlay);
+          gsap.to(overlay, { left: '200%', duration: 0.6, onComplete: function() { overlay.remove(); } });
+        });
+      });
+
+      Shery.imageEffect('.img', { style: 2, debug: true, config: { gooey: true, infinite: true, uSpeed: 0.3, uStrength: 5, displace: 1, respo: true } });
+    });
+  </script>
+</BaseLayout>

@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://alizeebompan.vercel.app/sitemap-index.xml

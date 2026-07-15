@@ -1,0 +1,1581 @@
+---
+import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import TableOfContents from '../../components/TableOfContents';
+---
+
+<CaseStudyLayout
+  title="Bibliothèques de Bordeaux — Alizée Bompan"
+  bodyClass="w-full bg-[#F4FBFB] font-['Plus_Jakarta_Sans',sans-serif] text-[#222123]"
+>
+
+  <!-- ==================== PROJECT HEADER ==================== -->
+  <main id="section-hero" class="w-full">
+    <div class="flex flex-col gap-10 w-full max-w-[900px] mx-auto pt-8 pb-16 px-6 md:px-12">
+      <span class="text-[#357E7D] tracking-[.12em] uppercase text-xs font-medium max-sm:text-[.7rem]">Projet de Fin d'Études · Manager de Projets Digitaux UX/UI · 2026</span>
+      <h1 class="font-['Lora',serif] [overflow-wrap:anywhere] max-lg:text-[3rem] max-md:text-[2.4rem] max-sm:text-[1.9rem] text-[4rem] font-extrabold leading-[1] text-[#204140]">Bibliothèques de Bordeaux</h1>
+      <p class="font-['Plus_Jakarta_Sans',sans-serif] text-[#656366] text-[1.4rem] leading-[1.6] max-sm:text-[1rem]">
+        Modernisation de l'écosystème digital d'un réseau de 11 bibliothèques. Refonte d'un site web desktop-first et conception d'une application mobile compagnon, du cadrage utilisateur aux tests d'itération.
+      </p>
+      <hr class="border-[#00000012] w-full" />
+      <div class="flex flex-wrap gap-12 gap-y-6">
+        <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">2026</span></div>
+        <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">Figma, React, PWA, Design System</span></div>
+        <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">bibliotheque-bordeaux</span></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ==================== HERO / COVER ==================== -->
+  <section class="relative w-full min-h-screen flex items-center overflow-hidden" style="background:linear-gradient(45deg,#F4FBFB 0%,#FFFFFF 81%)">
+    <div class="w-full max-w-[1400px] mx-auto px-6 md:px-16 py-20 grid md:grid-cols-[1fr_auto] gap-12 items-center">
+      <div class="min-w-0 flex flex-col gap-6">
+        <span class="text-[#357E7D] tracking-[.12em] uppercase text-sm font-semibold max-sm:text-[.7rem]">Projet de Fin d'Études · Manager de Projets Digitaux UX/UI · 2026</span>
+        <h2 class="font-['Lora',serif] text-[1.5rem] md:text-[2.5rem] font-bold leading-[1.2] text-[#204140]">Modernisation de l'Écosystème</h2>
+        <h1 class="font-['Lora',serif] [overflow-wrap:anywhere] text-[2.5rem] md:text-[5rem] font-bold leading-[1] text-[#204140] max-sm:leading-[1.1]">Bibliothèques<br/>de Bordeaux</h1>
+        <div class="flex flex-col gap-3 mt-4 max-sm:gap-2">
+          {[
+            { num: '01.', label: 'Contexte' },
+            { num: '02.', label: 'Design System' },
+            { num: '03.', label: 'Spécifications fonctionnelles' },
+            { num: '04.', label: 'Tests Utilisateur & Itération' }
+          ].map((item) => (
+            <div class="inline-flex items-center gap-3 self-start bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl px-6 py-3">
+              <span class="font-['Lora',serif] font-bold text-[#7D193E] text-lg">{item.num}</span>
+              <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-xl">{item.label}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="hidden md:flex flex-col items-center gap-4">
+        <div class="w-[280px] h-[580px] bg-[#204140] rounded-[2.5rem] p-2 shadow-2xl">
+          <div class="w-full h-full bg-white rounded-[2rem] overflow-hidden">
+            <img src="/images/bibliotheque-bordeaux/cover-iphone.png" alt="Mockup application Bibliothèques de Bordeaux" class="w-full h-full object-cover" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== SECTION DIVIDER: CONTEXTE ==================== -->
+  <div id="section-contexte" class="w-full bg-[#F4FBFB] py-16">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-16 text-center">
+      <h2 class="font-['Lora',serif] text-[3rem] md:text-[4rem] font-bold text-[#204140] tracking-[-0.02em] max-sm:text-[2rem]">CONTEXTE</h2>
+    </div>
+  </div>
+
+  <!-- ==================== LE RÉSEAU : UN PILIER CULTUREL ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-reseau">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Le Réseau : Un Pilier Culturel</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <p class="text-[1.25rem] md:text-[1.5rem] leading-[1.5] text-[#222123] mb-12 max-w-[900px] max-sm:text-[1rem]">
+        Le réseau des bibliothèques de Bordeaux est le premier acteur culturel de proximité, desservant <strong>261 000 habitants.</strong>
+      </p>
+
+      <!-- Stats cards -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-12">
+        {[
+          { icon: '🏛', num: '11', label: 'Bibliothèques\n(dont Mériadeck)' },
+          { icon: '📚', num: '1,3 M', label: 'documents\ndisponibles' },
+          { icon: '👪', num: '20 %', label: "taux d'inscription\n(sup. moy. nationale)" },
+          { icon: '📖', num: '1,3 M', label: "d'emprunts\n(inférieurs à d'autres réseaux comparables)" }
+        ].map((stat) => (
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 flex flex-col items-center text-center gap-2">
+            <span class="text-3xl">{stat.icon}</span>
+            {stat.num && <span class="font-['Lora',serif] text-[2rem] font-bold text-[#204140]">{stat.num}</span>}
+            <span class="text-sm text-[#828183] whitespace-pre-line leading-[1.3]">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Mission & Enjeu -->
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#E1F7F6] rounded-2xl p-8">
+          <span class="text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm">MISSION</span>
+          <p class="text-[1.1rem] leading-[1.5] text-[#656366] mt-4">Rendre la culture et le savoir accessibles à tous, gratuitement, quel que soit le milieu.</p>
+        </div>
+        <div class="bg-[#E1F7F6] rounded-2xl p-8">
+          <span class="text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm">ENJEU NUMÉRIQUE</span>
+          <p class="text-[1.1rem] leading-[1.5] text-[#656366] mt-4">Moderniser l'écosystème digital pour rester un acteur de proximité pertinent et inclusif.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== DIAGNOSTIC UX ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-diagnostic">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Diagnostic UX : Complexité & Défis</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="grid md:grid-cols-[1fr_500px] gap-x-8 max-md:grid-cols-1 max-md:gap-y-6">
+        <!-- Left column: cards + link pushed to bottom -->
+        <div class="flex flex-col">
+          <div class="mt-auto flex flex-col gap-6">
+            <div class="grid md:grid-cols-2 gap-6">
+              <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl p-8">
+                <span class="text-4xl">⚠️</span>
+                <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mt-4 mb-2">60+ sous-pages</span>
+                <span class="block text-[#7D193E] font-semibold tracking-[.08em] uppercase text-sm mb-4">SURCHARGE COGNITIVE</span>
+                <p class="text-[1.05rem] leading-[1.5] text-[#656366]">Architecture dense : 8 sections de menu avec 6 à 11 sous-pages chacune. Des intitulés peu évocateurs et une navigation qui ouvre fréquemment de nouvelles pages rendent le retour en arrière difficile, notamment sur mobile.</p>
+              </div>
+              <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl p-8">
+                <span class="text-4xl">📱</span>
+                <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mt-4 mb-2">Approche Desktop-first</span>
+                <span class="block text-[#7D193E] font-semibold tracking-[.08em] uppercase text-sm mb-4">DÉFICIT MOBILE</span>
+                <p class="text-[1.05rem] leading-[1.5] text-[#656366]">Une approche historiquement "Desktop-first". Des icônes sans libellés, des zones tactiles exiguës et une conformité RGAA partielle (74,7%) freinent l'inclusion numérique.</p>
+              </div>
+            </div>
+            <!-- Link aligned with bottom of image -->
+            <a href="https://bibliotheque.bordeaux.fr/" target="_blank" rel="noopener" class="inline-block bg-[#E1F7F6] rounded-full px-6 py-2 self-start">
+              <span class="font-['Lora',serif] font-bold text-[#204140] underline text-base">Lien du site Bibliothèques de Bordeaux</span>
+            </a>
+          </div>
+        </div>
+        <!-- Mockup image on the right -->
+        <img src="/images/image-pc-desktop.png" alt="Mockup desktop et mobile du site Bibliothèques de Bordeaux" class="w-full h-auto rounded-xl" loading="lazy" />
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== CIBLES & PROFILS ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-cibles">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Cibles & Profils Utilisateurs</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <p class="text-[1.25rem] leading-[1.4] text-[#222123] mb-8 max-w-[900px] max-sm:text-[1rem]">Trois archétypes structurent les priorités UX, ils peuvent coexister chez un même usager</p>
+
+      <!-- Demographics -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+        {[
+          { num: '65 %', label: 'Adultes (18-64 ans)' },
+          { num: '25 %', label: 'Scolaires' },
+          { num: '11 %', label: 'Étudiants' },
+          { num: '11 %', label: 'Retraités' }
+        ].map((d) => (
+          <div class="bg-[#E1F7F6] rounded-2xl p-6 text-center">
+            {d.num && <span class="block font-['Lora',serif] text-[2rem] font-bold text-[#204140]">{d.num}</span>}
+            <span class="block text-sm text-[#357E7D] mt-1">{d.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Personas -->
+      <div class="grid md:grid-cols-3 gap-6">
+        {[
+          { icon: '🎓', title: 'Étudiant/Scolaire/Professionnel', focus: 'Focus : Efficacité', items: ['Recherche documentaire précise', 'Vérification de disponibilité immédiate', 'Réservation de salles d\'étude', 'Localisation exacte (étage, rayon, cote)', 'Accès aux ressources numériques en ligne'] },
+          { icon: '🛋️', title: 'Le Flâneur', focus: 'Focus : Découverte', items: ['Recommandations selon ses goûts', 'Navigation par genres & ambiances', 'Événements, ateliers, clubs, nouveautés', 'Suggestions éditoriales des bibliothécaires', 'Découverte spontanée du catalogue'] },
+          { icon: '♿', title: 'Public Fragile', focus: 'Focus : Inclusion', items: ['Clarté cognitive maximale', 'Conformité RGAA (accessibilité complète)', 'Accès gratuit à Internet sur place', 'Accompagnement aux démarches admin.', 'Aide à la recherche d\'emploi'] }
+        ].map((p) => (
+          <div class="min-w-0 bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+            <span class="text-4xl">{p.icon}</span>
+            <span class="block [overflow-wrap:anywhere] text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm mt-4 mb-2">{p.title}</span>
+            <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-4">{p.focus}</span>
+            <ul class="space-y-2">
+              {p.items.map((item) => (
+                <li class="text-sm text-[#656366] leading-[1.4] flex gap-2"><span class="text-[#357E7D]">•</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== FRUSTRATIONS UTILISATEURS ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-frustrations">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Les frustrations Utilisateurs</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="grid md:grid-cols-3 gap-6 mb-8">
+        {[
+          { title: "L'aversion au risque (L'investissement temps)", text: "Lire exige un engagement temporel fort. L'usager a un besoin crucial de certitude et de réassurance avant d'emprunter, ce qui rend la recherche du \"bon\" livre particulièrement exigeante." },
+          { title: 'Le refuge de la popularité', text: "Face à la difficulté de trouver une correspondance parfaite avec leurs goûts, les lecteurs se rabattent sur les best-sellers pour minimiser le risque de déception, invisibilisant ainsi le reste du catalogue." },
+          { title: 'La friction du parcours in situ', text: "Même lorsque le choix est fait, la recherche physique de l'ouvrage en bibliothèque reste difficile (déchiffrage de la signalétique, contraintes ergonomiques nécessitant de se pencher pour scruter les rayonnages)." }
+        ].map((f) => (
+          <div class="bg-[#FEF6F9] border border-[#F8E2EA] rounded-2xl p-8">
+            <span class="block font-['Lora',serif] font-bold text-[#7D193E] text-lg mb-4">{f.title}</span>
+            <p class="text-[1rem] leading-[1.5] text-[#222123]">{f.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Green pills -->
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="bg-[#E1F7F6] rounded-2xl p-6 flex items-center justify-center">
+          <p class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-base text-center">Les recommandations et les avis sont plébiscités</p>
+        </div>
+        <div class="bg-[#E1F7F6] rounded-2xl p-6 flex items-center justify-center">
+          <p class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-base text-center">80 % du temps passé sur le web se fait sur smartphone et 94 % de ce temps est consacré aux applications mobiles.</p>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== LA PROBLÉMATIQUE ==================== -->
+  <details open class="w-full py-20 md:py-32 text-center subsection" id="sub-problematique">
+    <summary class="subsection-summary max-w-[1000px] mx-auto px-6 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">La Problématique</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1000px] mx-auto px-6">
+      <p class="font-['Lora',serif] text-[1.5rem] md:text-[2rem] leading-[1.3] text-[#357E7D] font-semibold tracking-[-0.022em]">
+        Comment simplifier l'exploration d'un catalogue numérique massif en proposant une expérience mobile fluide, pour stimuler la découverte de titres et relancer la dynamique d'emprunt ?
+      </p>
+    </div>
+  </details>
+
+  <!-- ==================== STRATÉGIE DIGITALE HYBRIDE ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-strategie">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Une Stratégie Digitale Hybride</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="grid md:grid-cols-3 gap-6 items-start max-sm:grid-cols-1">
+        <!-- Stratégie hybride card -->
+        <div class="bg-[#E1F7F6] rounded-2xl p-8 self-center">
+          <span class="text-4xl">💡</span>
+          <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mt-4 mb-2">Stratégie hybride</span>
+          <span class="block text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm mb-4">RÉPONSE PROPOSÉE</span>
+          <p class="text-[1rem] leading-[1.5] text-[#656366]">Deux écosystèmes complémentaires pour répondre à deux modes d'usage distincts</p>
+        </div>
+        <!-- App Compagnon -->
+        <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+          <span class="text-4xl">📱</span>
+          <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mt-4 mb-2">Usage Fonctionnel</span>
+          <span class="block text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm mb-4">APP COMPAGNON</span>
+          <ul class="space-y-2">
+            {['Scan ISBN en rayon (accès fiche instantané)', 'Carte numérique adhérent (code-barres)', 'Réservation de services & salles', 'Emprunts en cours & prochains retours', 'Suggestions personnalisées', 'Navigation dans les espaces physiques'].map((item) => (
+              <li class="text-sm text-[#656366] leading-[1.4] flex gap-2"><span class="text-[#357E7D]">•</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <!-- Site Web Refondu -->
+        <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+          <span class="text-4xl">🖥️</span>
+          <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mt-4 mb-2">Usage Informationnel</span>
+          <span class="block text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm mb-4">SITE WEB REFONDU</span>
+          <ul class="space-y-2">
+            {['Point d\'entrée pour nouveaux visiteurs', 'Catalogue patrimonial & ressources Séléné', 'Agenda culturel & actualités du réseau', 'Inscription et découverte du réseau', 'Architecture simplifiée mobile-first', 'Conformité RGAA renforcée'].map((item) => (
+              <li class="text-sm text-[#656366] leading-[1.4] flex gap-2"><span class="text-[#357E7D]">•</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== SECTION DIVIDER: SPÉCIFICATIONS ==================== -->
+  <div id="section-specs" class="w-full py-16 md:py-20 text-center" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="font-['Lora',serif] text-[3rem] md:text-[4rem] font-bold text-[#204140] tracking-[-0.02em] mb-4 max-sm:text-[2rem]">SPÉCIFICATIONS FONCTIONNELLES</h2>
+      <p class="text-[1.5rem] md:text-[1.75rem] text-[#357E7D] leading-[1.4] max-sm:text-[1.1rem]">Construction de l'application mobile</p>
+    </div>
+  </div>
+
+  <!-- ==================== FONCTIONNALITÉS DE L'APPLICATION ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-fonctionnalites" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Fonctionnalités de l'Application</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="space-y-[72px]">
+        {[
+          {
+            num: '01', icon: '🏠', title: "Page d'accueil", items: ['Bibliothèque favorite en premier plan', 'Reprendre la lecture (livre numérique en cours)', 'Prochains retours avec dates limites', 'Services à venir & réservations actives'],
+            imgs: ['/images/bibliotheque-bordeaux/page_acceuil_1.png', '/images/bibliotheque-bordeaux/page_acceuil_2.png']
+          },
+          {
+            num: '02', icon: '🔍', title: 'Recherche & Catalogue', items: ['Barre de recherche globale', 'Filtres rapides (chips) + filtres avancés', 'Catalogue de suggestions personnalisées par historique', 'Catégories thématiques & par type'],
+            imgs: ['/images/bibliotheque-bordeaux/recherche_1.png', '/images/bibliotheque-bordeaux/recherhce_2.png']
+          },
+          {
+            num: '03', icon: '📅', title: 'Réservation de services', items: ['Salles d\'étude & studios musique', 'Instruments de musique & prêt d\'objets', 'Ateliers numériques & soutien scolaire', 'Choix de créneau + confirmation'],
+            imgs: ['/images/bibliotheque-bordeaux/service.png']
+          },
+          {
+            num: '04', icon: '👤', title: 'Mon espace', items: ['Emprunts numériques & physiques en cours', 'Listes (favoris, à lire, personnalisées)', 'Historique complet & commentaires', 'Paramètres accessibilité & bibliothèque fav.', 'Ma Carte adhérent (code-barres plein écran)'],
+            imgs: ['/images/bibliotheque-bordeaux/espace_1.png', '/images/bibliotheque-bordeaux/espace_2.png']
+          },
+          {
+            num: '05', icon: '📰', title: 'Actualités & Agenda', items: ['Actualités du réseau', 'Agenda culturel filtrable', 'Événements à ajouter en favoris', 'Ateliers, rencontres d\'auteurs, projections'],
+            imgs: ['/images/bibliotheque/fonct_agenda.png']
+          },
+          {
+            num: '06', icon: '📷', title: 'Recherche scan ISBN', items: ['Scanner ISBN → fiche ressource instantanée', 'FAB ISBN'],
+            imgs: ['/images/bibliotheque-bordeaux/isbn_scan.png']
+          }
+        ].map((feat) => (
+<div class="flex flex-row gap-10 items-start flex-wrap">
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8 md:w-[400px]">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 bg-[#E1F7F6] rounded-xl flex items-center justify-center text-2xl">{feat.icon}</span>
+              <span class="text-[#357E7D] font-semibold text-sm">{feat.num}</span>
+            </div>
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mb-4">{feat.title}</h4>
+              <ul class="space-y-2">
+                {feat.items.map((item) => (
+                  <li class="text-sm text-[#656366] leading-[1.4] flex gap-2"><span class="text-[#357E7D] mt-[2px]">●</span>{item}</li>
+                ))}
+              </ul>
+            </div>
+            {feat.imgs && feat.imgs.length > 0 && (
+              <div class="flex flex-wrap gap-4">
+                {feat.imgs.map((img) => (
+                  (img.includes('fonct_agenda') || img.includes('page_acceuil') || img.includes('recherhce_') || img.includes('recherche_1') || img.includes('service') || img.includes('espace_') || img.includes('isbn_scan')) ? (
+                    <img src={img} alt={feat.title} class="w-[260px] h-auto rounded-xl" loading="lazy" />
+                  ) : (
+<div class="w-[260px] bg-[#204140] rounded-[2rem] p-2 shadow-lg">
+                      <img src={img} alt={feat.title} class="w-full h-auto rounded-[1.5rem]" loading="lazy" />
+                    </div>
+                  )
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== SYSTÈME DE FILTRAGE & TRI ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-filtrage">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Système de Filtrage & Tri</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="inline-block bg-[#E1F7F6] rounded-full px-6 py-2 mb-12">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-sm">Logique de filtrage en cascade</span>
+      </div>
+
+      <div class="space-y-[72px]">
+        {[
+          { title: 'Barre de filtrage & tri', desc: 'Scrollable horizontalement · commune à Catalogue & Recherche. Boutons : Trier, Bibliothèque, Genre & Thématique, Plus de filtres.', img: '/images/bibliotheque/filter-5.png' },
+          { title: 'Tri (SortBottomSheet)', desc: '5 options radio, réorganise sans masquer', img: '/images/bibliotheque/filter-1.png' },
+          { title: 'Genre & Thématique', desc: 'Fiction (Roman, BD, Manga + 11 sous-genres) et 6 thématiques documentaires avec des sous-catégories', img: '/images/bibliotheque/filter-2.png' },
+          { title: 'Bibliothèque', desc: '9 bibliothèques physiques + ressources numériques. Sélectionner "Titre numérique" désactive automatiquement les bibliothèques physiques.', img: '/images/bibliotheque/filter-3.png' },
+          { title: 'Plus de filtres', desc: 'Disponibilité, Public (Enfant/Ados/Adulte), Accessibilité (Braille, FALC, LSF…), Année de publication (9 périodes), Langue (12 options).', img: '/images/bibliotheque/filter-4.png' }
+        ].map((f) => (
+<div class="flex flex-row gap-10 items-start flex-wrap">
+            <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 md:w-[400px]">
+              <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">{f.title}</h4>
+              <div class="w-full h-px bg-[#E9E8EA] mb-3"></div>
+              <p class="text-sm text-[#656366] leading-[1.5]">{f.desc}</p>
+            </div>
+            <div>
+              <img src={f.img} alt={f.title} class="w-[260px] h-auto rounded-xl" loading="lazy" />
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== ARBORESCENCE & NAVIGATION ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-arborescence">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Arborescence de l'application & Navigation</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="mb-8">
+        <img src="/images/bibliotheque/arborescence-1.png" alt="Arborescence de l'application Bibliothèques de Bordeaux" class="w-full h-auto rounded-xl" loading="lazy" />
+      </div>
+      <div class="flex flex-col sm:flex-row justify-start gap-4 items-stretch min-h-[100px]">
+        <div class="bg-[#E1F7F6] rounded-2xl px-4 sm:px-6 flex items-center justify-center h-full">
+          <p class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-xs sm:text-sm md:text-base text-center leading-tight">Une barre de navigation en bas pour accéder aux pages les plus importantes</p>
+        </div>
+        <img src="/images/bibliotheque/arborescence-2.png" alt="Barre de navigation basse" class="h-full w-auto rounded-xl" loading="lazy" />
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== PARCOURS : RÉSERVER UN LIVRE ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-parcours">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Parcours : Réserver un livre disponible</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="flex justify-center">
+        <img src="/images/user_flow.png" alt="Parcours utilisateur : Réserver un livre disponible" class="w-full h-auto rounded-xl" loading="lazy" />
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== ACCESSIBILITÉ & SEO ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-accessibilite">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Accessibilité (RGAA) & SEO</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="bg-[#E1F7F6] rounded-2xl p-6 mb-12">
+        <p class="text-[#204140] text-base text-center">Objectif : conformité RGAA totale sur le site refondu · Application mobile conforme iOS HIG & Material Design dès le lancement</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- App Accessibilité -->
+        <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+          <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">App Compagnon - Accessibilité</h4>
+          <p class="text-sm text-[#828183] mb-6">Audit réalisé sur le code source · PWA React + Vite</p>
+          <div class="space-y-3">
+            {[
+              { title: 'Zones tactiles', desc: 'Tous les éléments interactifs à 44px minimum · WCAG 2.5.5 AA', status: 'Conforme' },
+              { title: 'Labels accessibles (ARIA)', desc: 'Boutons icon-only labellisés · icônes décoratives masquées (aria-hidden)', status: 'Conforme' },
+              { title: 'ARIA dialogs et états', desc: '6 modales role="dialog" · BottomNav aria-current · toggles aria-pressed', status: 'Conforme' },
+              { title: 'Focus visible clavier', desc: 'Anneau focus teal sur tous les éléments · Tab / Shift-Tab opérationnels', status: 'Conforme' },
+              { title: 'Sémantique H1 / H2 / H3', desc: '5 pages balisées · H1 sr-only ou visible · H2 sections · H3 CataloguePage', status: 'Conforme' },
+              { title: 'Contraste text-subtle', desc: '#828183 · choix assumé · palier 10 Radix · texte non-essentiel uniquement', status: 'Mineur' },
+              { title: 'Taille de texte ajustable', desc: 'Tokens en px · stable visuellement · conversion rem prévue en V2', status: 'Prévu V2' }
+            ].map((item) => (
+              <div class="bg-white border border-[#E9E8EA] rounded-lg p-4 flex items-start gap-4">
+                <div class="w-1 self-stretch rounded-full" style={`background:${item.status === 'Conforme' ? '#2A7E3B' : item.status === 'Mineur' ? '#C06000' : '#8E8D8F'}`}></div>
+                <div class="flex-1">
+                  <div class="flex items-center justify-between gap-2 mb-1">
+                    <span class="font-bold text-[#204140] text-sm">{item.title}</span>
+                    <span class={`text-xs px-2 py-1 rounded font-semibold ${item.status === 'Conforme' ? 'bg-[#E9F6E9] text-[#2A7E3B]' : item.status === 'Mineur' ? 'bg-[#FFEAD7] text-[#C06000]' : 'bg-[#F1F0F1] text-[#8E8D8F]'}`}>{item.status}</span>
+                  </div>
+                  <p class="text-xs text-[#656366] leading-[1.4]">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- SEO Column -->
+        <div class="flex flex-col gap-6 h-full">
+          <div class="bg-[#E1F7F6] rounded-xl p-6">
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[#297473] text-sm mb-1">ARIA (Accessible Rich Internet Applications)</h4>
+            <p class="font-['Plus_Jakarta_Sans',sans-serif] text-[#297473] text-[13px] leading-5">Attributs HTML qui donnent du contexte aux lecteurs d'écran — annoncent rôles, états et labels des éléments interactifs</p>
+          </div>
+
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8 flex-1">
+            <div class="flex items-center gap-3 mb-2">
+              <span class="w-12 h-12 bg-[#E1F7F6] rounded-xl flex items-center justify-center text-2xl">🔍</span>
+              <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg">SEO — Site Web</h4>
+            </div>
+            <p class="text-sm text-[#828183] mb-6">Optimisation pour l'indexation et la visibilité en ligne</p>
+            <div class="space-y-4">
+              {[
+                { title: 'Balises optimisées', desc: 'title, meta desc., titres H1>H2>H3 hiérarchisés' },
+                { title: 'Arborescence lisible', desc: 'Structure facilitant l\'indexation par les moteurs' },
+                { title: 'Performances', desc: 'Images compressées (WebP), scripts minimisés, LCP optimisé. Lazy-loading pour fluidité sur réseau mobile.' },
+                { title: 'Infos clés mises en avant', desc: 'Horaires, localisation, catalogue directement indexables' },
+                { title: 'Rich data schema.org', desc: 'Structuration pour les contenus culturels (événements, livres)' }
+              ].map((item) => (
+                <div class="border-b border-[#E9E8EA] pb-3 last:border-0">
+                  <span class="block font-bold text-[#204140] text-sm mb-1">{item.title}</span>
+                  <p class="text-xs text-[#656366] leading-[1.4]">{item.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== RGPD & COMPATIBILITÉ ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-rgpd">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">RGPD & Compatibilité</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="bg-[#E1F7F6] rounded-2xl p-6 mb-12">
+        <p class="text-[#204140] text-base text-center">Conformité RGPD dès le lancement · Données hébergées en France · Compatible Android 10+ & iOS 15+ · Audits réguliers planifiés</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <!-- RGPD -->
+        <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+          <div class="flex items-center gap-3 mb-2">
+            <span class="w-12 h-12 bg-[#E1F7F6] rounded-xl flex items-center justify-center text-2xl">🔒</span>
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg">RGPD — Site & Application</h4>
+          </div>
+          <p class="text-sm text-[#25706F] mb-6">Collecte minimale · Consentement explicite · Droits garantis</p>
+          <div class="space-y-3">
+            {[
+              { title: 'Collecte minimale', desc: 'Compte lecteur, réservations, emprunts uniquement' },
+              { title: 'Transparence sur l\'usage des données', desc: 'Politique de confidentialité accessible et compréhensible.' },
+              { title: 'Gestion du consentement (web)', desc: 'Bannière cookies conforme CNIL avec choix explicite.' },
+              { title: 'Droits utilisateurs garantis', desc: 'Consulter, modifier ou supprimer compte et données à tout moment.' },
+              { title: 'Stockage sécurisé (recommandation)', desc: 'Chiffrement des données sensibles · double authentification possible.' },
+              { title: 'Connexion conforme CNIL', desc: 'Mot de passe sécurisé · processus conforme aux recommandations CNIL.' }
+            ].map((item) => (
+              <div class="flex items-start gap-3 border-b border-[#E9E8EA] pb-3 last:border-0">
+                <span class="w-2 h-2 rounded-full bg-[#25706F] mt-2 flex-shrink-0"></span>
+                <div>
+                  <span class="block font-bold text-[#25706F] text-sm">{item.title}</span>
+                  <p class="text-xs text-[#656366] leading-[1.4]">{item.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Compatibilité -->
+        <div class="flex flex-col gap-6">
+          <div class="bg-[#E1F7F6] rounded-2xl p-8">
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">Site Web</h4>
+            <p class="text-sm text-[#357E7D] mb-4">Fonctionnement garanti sur tous les navigateurs modernes</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {['Chrome 87+', 'Firefox 78', 'Safari 14', 'Edge 88+'].map((b) => (
+                <span class="bg-white text-[#357E7D] text-xs font-semibold px-3 py-1.5 rounded-full">{b}</span>
+              ))}
+            </div>
+            <ul class="space-y-2">
+              {['Conception mobile-first · smartphones, tablettes & desktop', 'Breakpoints cohérents (375px / 768px / 1240px)', 'Chargement optimisé · images lazy-loaded, scripts différés', 'Désactivation des effets visuels lourds sur anciens appareils'].map((item) => (
+                <li class="text-sm text-[#656366] flex gap-2"><span class="text-[#357E7D]">●</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-[#E1F7F6] rounded-2xl p-8">
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">Application Mobile</h4>
+            <p class="text-sm text-[#357E7D] mb-4">Approche cross-platform via Progressive Web App</p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {['iOS 15+', 'Android 10+', 'PWA'].map((b) => (
+                <span class="bg-white text-[#357E7D] text-xs font-semibold px-3 py-1.5 rounded-full">{b}</span>
+              ))}
+            </div>
+            <ul class="space-y-2">
+              {['PWA React + Vite · installable sur écran d\'accueil iOS & Android', 'Optimisation pour toutes tailles d\'écrans (compact → tablet)', 'Tests multi-versions d\'OS · fluidité, stabilité et accessibilité'].map((item) => (
+                <li class="text-sm text-[#656366] flex gap-2"><span class="text-[#357E7D]">●</span>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== SITE RESPONSIVE ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-white subsection" id="sub-responsive">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Un site responsive</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="bg-[#E1F7F6] rounded-2xl p-6 mb-8">
+        <p class="text-[#204140] text-base text-center">L'URL actuelle resterait inchangée : https://bibliotheque.bordeaux.fr/</p>
+      </div>
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6 items-end mt-8">
+        <!-- Desktop -->
+        <div class="text-center">
+          <video src="/videos/macbook-responsive.webm" class="w-[85vw] max-w-[350px] sm:max-w-[600px] md:w-[700px] h-auto rounded-xl" autoplay loop muted playsinline preload="none" />
+          <span class="block text-xs text-[#828183] mt-2">Desktop · 1240px+</span>
+        </div>
+        <!-- Tablet -->
+        <div class="text-center">
+          <video src="/videos/galaxytab-responsive.webm" class="w-[60vw] max-w-[280px] sm:max-w-[350px] md:w-[400px] h-auto rounded-xl" autoplay loop muted playsinline preload="none" />
+          <span class="block text-xs text-[#828183] mt-2">Tablette · 768px</span>
+        </div>
+        <!-- Mobile -->
+        <div class="text-center">
+          <video src="/videos/iphone-responsive.webm" class="w-[180px] md:w-[200px] h-auto rounded-xl" autoplay loop muted playsinline preload="none" />
+          <span class="block text-xs text-[#828183] mt-2">Mobile · 375px</span>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== SECTION DIVIDER: DESIGN SYSTEM ==================== -->
+  <div id="section-design" class="w-full py-16 md:py-20 text-center" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="font-['Lora',serif] text-[3rem] md:text-[4rem] font-bold text-[#204140] tracking-[-0.02em] mb-4 max-sm:text-[2rem]">DESIGN SYSTEM</h2>
+      <p class="text-[1.5rem] md:text-[1.75rem] text-[#357E7D] leading-[1.4]">Principes & Fondations</p>
+    </div>
+  </div>
+
+  <!-- ==================== IDENTITÉ DE MARQUE ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-identite">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Identité de marque</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="space-y-[72px]">
+        <!-- ROW 1: Color Circles + Palette -->
+        <div>
+          <!-- Brand description pill above circles -->
+          <div class="flex justify-center mb-8">
+            <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl px-6 py-3 inline-flex items-center">
+              <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Mariage du bordeaux historique et d'un vert d'eau moderne et apaisant favorisant la lecture</span>
+            </div>
+          </div>
+
+          <!-- Two large color circles - centered -->
+          <div class="flex flex-wrap gap-4 md:gap-6 justify-center">
+            <div class="text-center">
+              <div class="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[280px] md:h-[280px] rounded-full" style="background:#357E7D"></div>
+              <span class="block font-['Lora',serif] font-bold text-xl text-white mt-[-40px] relative">#357E7D</span>
+            </div>
+            <div class="text-center">
+              <div class="w-[140px] h-[140px] sm:w-[200px] sm:h-[200px] md:w-[280px] md:h-[280px] rounded-full" style="background:#993358"></div>
+              <span class="block font-['Lora',serif] font-bold text-xl text-white mt-[-40px] relative">#993358</span>
+            </div>
+          </div>
+
+          <!-- Brand colors palette -->
+          <div class="mt-6 flex justify-center" style="height: 48px;">
+            <img src="/images/palette-colors.svg" alt="Palette de couleurs de marque" style="height: 48px; width: auto;" loading="lazy" />
+          </div>
+
+          <!-- Accent colors palette -->
+          <div class="mt-6 flex justify-center" style="height: 48px;">
+            <img src="/images/accent-colors.svg" alt="Palette de couleurs d'accentuation" style="height: 48px; width: auto;" loading="lazy" />
+          </div>
+        </div>
+
+        <!-- ROW 2: Plus Jakarta Sans + Lora side by side -->
+        <div class="grid md:grid-cols-2 gap-x-12 gap-y-8 items-start">
+          <!-- LEFT: Plus Jakarta Sans -->
+          <div>
+            <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl px-6 py-3 inline-flex items-center mb-6">
+              <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Police sans empattements aux lignes droites et épurées. Ses formes géométriques simples apportent de la neutralité et une structure visuelle très nette.</span>
+            </div>
+
+            <!-- Plus Jakarta Sans Bold -->
+            <div>
+              <div class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[2rem] md:text-[3rem] leading-tight text-[#204140]">Plus Jakarta Sans</div>
+              <p class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-sm md:text-base leading-relaxed text-[#204140] mt-4">
+                "Une bibliothèque, c'est le carrefour de tous les rêves de l'humanité."<br/>
+                De Julien Green<br/>
+                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+                a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+                1 2 3 4 5 6 7 8 9 0
+              </p>
+            </div>
+
+            <!-- Plus Jakarta Sans Medium -->
+            <div>
+              <p class="font-['Plus_Jakarta_Sans',sans-serif] font-medium text-sm md:text-base leading-relaxed text-[#204140] mt-4">
+                "Une bibliothèque, c'est le carrefour de tous les rêves de l'humanité."<br/>
+                De Julien Green<br/>
+                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+                a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+                1 2 3 4 5 6 7 8 9 0
+              </p>
+            </div>
+          </div>
+
+          <!-- RIGHT: Lora -->
+          <div>
+            <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl px-6 py-3 inline-flex items-center mb-6">
+              <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Police à empattements aux courbes élégantes. Son dessin inspiré de l'imprimerie traditionnelle apporte un style classique et chaleureux.</span>
+            </div>
+
+            <!-- Lora Bold -->
+            <div>
+              <div class="font-['Lora',serif] font-bold text-[2rem] md:text-[3rem] leading-tight text-[#204140]">Lora</div>
+              <p class="font-['Lora',serif] font-bold text-sm md:text-base leading-relaxed text-[#204140] mt-4">
+                "Une bibliothèque, c'est le carrefour de tous les rêves de l'humanité."<br/>
+                De Julien Green<br/>
+                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+                a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+                1 2 3 4 5 6 7 8 9 0
+              </p>
+            </div>
+
+            <!-- Lora Medium -->
+            <div>
+              <p class="font-['Lora',serif] font-medium text-sm md:text-base leading-relaxed text-[#204140] mt-4">
+                "Une bibliothèque, c'est le carrefour de tous les rêves de l'humanité."<br/>
+                De Julien Green<br/>
+                A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br/>
+                a b c d e f g h i j k l m n o p q r s t u v w x y z<br/>
+                1 2 3 4 5 6 7 8 9 0
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 3: Tabler icons -->
+        <div>
+          <div class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-2xl px-6 py-3 inline-flex items-center mb-6">
+            <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Tabler icon - Style aux formes arrondies et aux courbes douces. Un dessin fluide qui apporte de la souplesse et de la légèreté visuelle.</span>
+          </div>
+
+          <!-- Icon grid with real Tabler SVGs -->
+          <div class="flex flex-wrap gap-3 mt-4">
+            <img src="https://api.iconify.design/tabler/book.svg?color=%23000" alt="Book" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/books.svg?color=%23000" alt="Books" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/building-community.svg?color=%23000" alt="Building" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/search.svg?color=%23000" alt="Search" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/user.svg?color=%23000" alt="User" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/settings.svg?color=%23000" alt="Settings" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/bell.svg?color=%23000" alt="Bell" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/menu-2.svg?color=%23000" alt="Menu" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/home.svg?color=%23000" alt="Home" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/world.svg?color=%23000" alt="World" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/device-laptop.svg?color=%23000" alt="Laptop" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/device-mobile.svg?color=%23000" alt="Mobile" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/filter.svg?color=%23000" alt="Filter" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/layout-grid.svg?color=%23000" alt="Grid" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/list.svg?color=%23000" alt="List" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/calendar.svg?color=%23000" alt="Calendar" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/map-pin.svg?color=%23000" alt="Map Pin" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/star.svg?color=%23000" alt="Star" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/bookmark.svg?color=%23000" alt="Bookmark" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+            <img src="https://api.iconify.design/tabler/code.svg?color=%23000" alt="Code" class="w-6 h-6 opacity-60 hover:opacity-100 transition-opacity" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== PRINCIPES & FONDATIONS ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-principes">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Principes & Fondations</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="flex gap-3 mb-6">
+        <span class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-full px-5 py-2 font-['Lora',serif] font-bold text-[#4D0F26]">Primitif</span>
+        <span class="bg-[#F8E2EA] border border-[#F4D2DE] rounded-full px-5 py-2 font-['Lora',serif] font-bold text-[#4D0F26]">Sémantique</span>
+      </div>
+      <p class="text-[1.25rem] leading-[1.4] text-[#222123] mb-12 max-w-[900px]">Tokens en 2 couches · 17 composants core réutilisables · Un design system Web & App</p>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { num: '01', icon: '📏', title: 'Numbers', desc: 'Espacements, grilles et échelles de tokens numériques pour le responsive. Valeurs brutes organisées puis mappées à des alias sémantiques.' },
+          { num: '02', icon: 'T', title: 'Typographie', desc: 'Hiérarchies Lora (titres, serif) & Plus Jakarta Sans (corps, UI). Tokens de taille, poids et interlignage pour une lisibilité optimale.' },
+          { num: '03', icon: '🎨', title: 'Couleurs', desc: 'Primitives (valeurs brutes) et sémantiques (alias contextuels). Teal brand, Bordeaux secondary, neutres et statuts (success, warning, error, info).' },
+          { num: '04', icon: '⬛', title: 'Composants', desc: 'Bibliothèque atomique de 17 composants core (boutons, inputs, cards, badges, navigation…) partagés entre l\'App compagnon et le Site web refondu.' }
+        ].map((p) => (
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8">
+            <div class="flex items-center gap-3 mb-4">
+              <span class="w-12 h-12 bg-[#E1F7F6] rounded-xl flex items-center justify-center text-2xl font-bold text-[#357E7D]">{p.icon}</span>
+              <span class="text-[#357E7D] font-semibold text-sm">{p.num}</span>
+            </div>
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mb-3">{p.title}</h4>
+            <p class="text-sm text-[#656366] leading-[1.5]">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== NUMBERS (TOKENS) ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-numbers">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Numbers</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="bg-[#E1F7F6] rounded-2xl p-6 mb-12">
+        <p class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-2xl text-[#204140] text-center">Une échelle de 8 est utilisée pour les variables de nombres, une couche primitive a été construite avant comportant 20 variables</p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {[
+          {
+            title: 'Padding',
+            desc: 'Espace intérieur d\'un composant entre son contenu et ses bords.',
+            context: 'Raccourcie de "padding" associé à la valeur de size md (medium)',
+            token: '$pad-md',
+            count: '10 tokens',
+            tokenValues: ['0px', '2px', '4px', '6px', '8px', '12px', '16px', '20px', '24px', '32px'],
+            names: ['2xs', 'xs', 'sm', 'md', '2md', 'lg', 'xl', '2xl', '3xl']
+          },
+          {
+            title: 'Sizing',
+            desc: 'Dimensions fixes des éléments d\'interface (icônes, avatars, boutons).',
+            context: 'Raccourcie de "sizing" associé à la valeur de size lg (large)',
+            token: '$sz-lg',
+            count: '7 tokens',
+            tokenValues: ['16px', '20px', '24px', '28px', '32px', '40px', '48px'],
+            names: ['2xs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl']
+          },
+          {
+            title: 'Border radius',
+            desc: 'Arrondi des coins pour les formes',
+            context: 'Raccourcie de "border" associé à la valeur de size md (medium) ou l\'usage layout (les conteneurs de la page ou les éléments ronds).',
+            token: '$br-md',
+            count: '7 tokens',
+            tokenValues: ['2px', '4px', '6px', '8px', '12px', '16px', '9999px'],
+            names: ['2xs', 'xs', 'sm', 'md', 'lg', 'layout', 'round']
+          },
+          {
+            title: 'Gap',
+            desc: 'Espacement entre les éléments enfants d\'un layout flex ou grid.',
+            context: 'Gap associé à la valeur de size, ex: md (medium)',
+            token: '$gap-md',
+            count: '10 tokens',
+            tokenValues: ['0px', '2px', '4px', '6px', '8px', '12px', '16px', '20px', '24px', '32px'],
+            names: ['none', '2xs', 'xs', 'sm', 'md', '2md', 'lg', 'xl', '2xl', '3xl']
+          },
+          {
+            title: 'Layout',
+            desc: 'Structure et espacement de la page. Ils définissent le positionnement des éléments pour garantir une cohérence visuelle sur l\'ensemble des pages.',
+            context: 'spacing-layout associé au nombre du layout',
+            token: '$spacing-layout-5',
+            count: '14 tokens',
+            tokenValues: ['0', '16px', '20px', '24px', '28px', '32px', '40px', '48px', '56px', '64px', '80px', '96px', '160px'],
+            names: ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13']
+          }
+        ].map((t) => (
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 flex flex-col">
+            <!-- Title -->
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg">{t.title}</h4>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-[#E9E8EA] my-3"></div>
+
+            <!-- Usage label -->
+            <span class="text-[#357E7D] font-semibold tracking-[.08em] uppercase text-sm leading-none mb-4">Usage</span>
+
+            <!-- Description -->
+            <p class="font-['Plus_Jakarta_Sans',sans-serif] text-sm leading-snug text-[#204140] mb-4">{t.desc}</p>
+
+            <!-- Naming (pink chips) -->
+            <div>
+              <span class="block text-[#656366] font-semibold tracking-[.08em] uppercase text-[11px] mb-2">Naming</span>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {t.names.map((n) => (
+                  <span class="bg-[#F8E2EA] rounded px-1.5 py-1 font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[11px] text-[#2B0815]">{n}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Token badge + visual indicator row -->
+            <div class="flex items-center gap-12 mb-4">
+              <div class="bg-[#F8E2EA] rounded px-2 py-1 inline-block">
+                <span class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[11px] text-[#2B0815]">{t.token}</span>
+              </div>
+              {t.title === 'Padding' && (
+                <div class="w-1.5 h-4 bg-[#E1F7F6] rounded-sm flex items-center justify-center">
+                  <span class="text-[#297473] text-xs leading-4 ml-2 whitespace-nowrap">8px</span>
+                </div>
+              )}
+              {t.title === 'Sizing' && (
+                <div class="w-6 h-7 bg-[#E1F7F6] rounded flex items-center justify-center">
+                  <span class="text-[#297473] text-xs leading-4">32px</span>
+                </div>
+              )}
+              {t.title === 'Border radius' && (
+                <div class="w-12 h-12 bg-white border border-[#DAD9DB] rounded-md flex items-center justify-center flex-shrink-0">
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[11px] text-[#1C2024]">8px</span>
+                </div>
+              )}
+              {t.title === 'Gap' && (
+                <div class="w-1.5 h-4 bg-[#E1F7F6] rounded-sm flex items-center justify-center">
+                  <span class="text-[#297473] text-xs leading-4 ml-2 whitespace-nowrap">8px</span>
+                </div>
+              )}
+              {t.title === 'Layout' && (
+                <div class="w-6 h-7 bg-[#E1F7F6] rounded flex items-center justify-center">
+                  <span class="text-[#297473] text-xs leading-4">32px</span>
+                </div>
+              )}
+            </div>
+
+            <!-- Context -->
+            <p class="text-xs leading-snug text-[#828183] mb-4">{t.context}</p>
+
+            <!-- Values (gray chips) -->
+            <div>
+              <span class="block text-[#656366] font-semibold tracking-[.08em] uppercase text-[11px] mb-2">valeurs</span>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                {t.tokenValues.map((v) => (
+                  <span class="bg-[#F1F0F1] rounded px-1.5 py-1 font-['Plus_Jakarta_Sans',sans-serif] text-[11px] text-[#656366]">{v}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Token count badge -->
+            <div class="mt-auto pt-2">
+              <div class="bg-[#E1F7F6] rounded-full px-3 py-1.5 inline-block">
+                <span class="font-['Lora',serif] font-bold text-sm text-[#204140]">{t.count}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== TYPOGRAPHIE ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-typo">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Typographie</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="grid md:grid-cols-2 gap-4 mb-12">
+        <div class="bg-[#E1F7F6] rounded-2xl p-6 text-center">
+          <span class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-2xl text-[#204140]">Font family : Lora</span>
+        </div>
+        <div class="bg-[#E1F7F6] rounded-2xl p-6 text-center">
+          <span class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-2xl text-[#204140]">Font family : Plus Jakarta Sans</span>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          {
+            title: 'Display',
+            desc: 'Utilisé pour les sections marketing à fort impact, les en-têtes principaux ou les titres des pages de destination.',
+            sizes: ['40px'],
+            weights: ['$.display-semi-bold', 'semi-bold', 'bold', 'extra-bold'],
+            samples: [
+              { text: 'Display-semi-bold', style: 'font-family:Lora,serif;font-weight:600;font-size:32px;line-height:1.2em' },
+              { text: 'Display-bold', style: 'font-family:Lora,serif;font-weight:700;font-size:32px;line-height:1.2em' },
+              { text: 'Display-extra-bold', style: 'font-family:Lora,serif;font-weight:700;font-size:32px;line-height:1.2em' }
+            ]
+          },
+          {
+            title: 'Heading',
+            desc: 'Utilisé pour les titres de page (lg), titres de section (md) et les sous-sections (sm)',
+            sizes: ['32px', '28px', '24px'],
+            weights: ['$.h3-semi-bold', 'semi-bold', 'bold', 'extra-bold'],
+            samples: [
+              { text: 'Heading-size-lg', style: 'font-family:Lora,serif;font-weight:700;font-size:32px;line-height:1.2em' },
+              { text: 'Heading-size-md', style: 'font-family:Lora,serif;font-weight:700;font-size:28px;line-height:1.2em' },
+              { text: 'Heading-size-sm', style: 'font-family:Lora,serif;font-weight:700;font-size:24px;line-height:1.2em' }
+            ]
+          },
+          {
+            title: 'Body',
+            desc: 'Textes longs ou paragraphes introductifs (lg), Texte standard de l\'interface (md) et Informations denses, encadrés ou descriptions secondaires (sm).',
+            sizes: ['20px', '16px', '14px'],
+            weights: ['$.bd-regular-lg', 'semi-bold', 'medium', 'bold', 'regular'],
+            samples: [
+              { text: 'Body-size-lg', style: 'font-family:Plus Jakarta Sans,sans-serif;font-weight:400;font-size:20px;line-height:1.5em' },
+              { text: 'Body-size-md', style: 'font-family:Plus Jakarta Sans,sans-serif;font-weight:400;font-size:16px;line-height:1.5em' },
+              { text: 'Body-size-sm', style: 'font-family:Plus Jakarta Sans,sans-serif;font-weight:400;font-size:14px;line-height:1.5em' }
+            ]
+          },
+          {
+            title: 'Caption',
+            desc: 'Utilisé pour les annotations, les indications de saisie, les en-têtes de tableau ou les métadonnées (comme les dates ou les petits badges).',
+            sizes: ['12px', '10px'],
+            weights: ['$.cap-regular-md', 'semi-bold', 'medium', 'regular'],
+            samples: [
+              { text: 'Caption-size-md', style: 'font-family:Plus Jakarta Sans,sans-serif;font-weight:400;font-size:12px;line-height:1em' },
+              { text: 'Caption-size-sm', style: 'font-family:Plus Jakarta Sans,sans-serif;font-weight:400;font-size:10px;line-height:1em' }
+            ]
+          }
+        ].map((t) => (
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 flex flex-col">
+            <!-- Title -->
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-2xl mb-2">{t.title}</h4>
+
+            <!-- Divider -->
+            <div class="w-full h-px bg-[#E9E8EA] my-3"></div>
+
+            <!-- Usage -->
+            <span class="text-[#357E7D] font-semibold tracking-[.08em] uppercase text-xl mb-4">Usage</span>
+
+            <!-- Description -->
+            <p class="font-['Plus_Jakarta_Sans',sans-serif] text-base leading-snug text-[#204140] mb-6">{t.desc}</p>
+
+            <!-- Size -->
+            <span class="text-[#656366] font-semibold tracking-[.08em] uppercase text-xs mb-2">Size</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {t.sizes.map((s) => (
+                <span class="bg-[#F1F0F1] rounded-md px-2 py-1.5 font-['Plus_Jakarta_Sans',sans-serif] text-[13px] text-[#656366]">{s}</span>
+              ))}
+            </div>
+
+            <!-- Graisse -->
+            <span class="text-[#656366] font-semibold tracking-[.08em] uppercase text-xs mb-2">graisse</span>
+            <div class="flex flex-wrap gap-2 mb-6">
+              {t.weights.map((w) => (
+                <span class="bg-[#F8E2EA] rounded px-2 py-1.5 font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-[13px] text-[#2B0815]">{w}</span>
+              ))}
+            </div>
+
+            <!-- Samples -->
+            <div class="space-y-3 mt-2">
+              {t.samples.map((s) => (
+                <div style={s.style} class="text-[#297473]">{s.text}</div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== COULEURS ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-couleurs">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Couleurs</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8 mb-8">
+        <p class="text-[#656366] leading-[1.5] mb-4">Un système de couleurs inspiré de Radix conçu pour offrir une flexibilité maximale tout en garantissant l'accessibilité WCAG AA/AAA.</p>
+        <p class="text-[#656366] leading-[1.5] mb-4">Une échelle de 12 niveaux où chacun a un rôle sémantique spécifique afin de maintenir la cohérence visuelle de l'interface.</p>
+        <p class="text-[#357E7D] font-medium">2 brand couleurs • Warning • infos • Error • Success • Neutral</p>
+      </div>
+
+      <!-- Semantic legend -->
+      <div class="flex flex-wrap gap-4 mb-8">
+        {[
+          { label: 'Background', range: '1-3', color: '#357E7D' },
+          { label: 'Solid-subtle', range: '4-5', color: '#357E7D' },
+          { label: 'Border', range: '6-8', color: '#357E7D' },
+          { label: 'Solid', range: '9-10', color: '#357E7D' },
+          { label: 'Text', range: '11-12', color: '#357E7D' }
+        ].map((sem) => (
+          <div class="bg-[#E1F7F6] rounded-full px-4 py-2 flex items-center gap-2">
+            <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-sm">{sem.label}</span>
+            <span class="text-[#357E7D] text-xs">({sem.range})</span>
+          </div>
+        ))}
+      </div>
+
+      <!-- Color scales -->
+      <div class="space-y-6">
+        <div>
+          <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-3">Primary brand (Teal)</h4>
+          <div class="flex flex-wrap gap-1 rounded-xl overflow-hidden">
+            {[
+              { n: 1, c: '#FEFCFB', sem: 'Background' }, { n: 2, c: '#F4FBFB', sem: 'Background' }, { n: 3, c: '#EAF7F5', sem: 'Background' },
+              { n: 4, c: '#D6F0EE', sem: 'Solid-subtle' }, { n: 5, c: '#B8E3E0', sem: 'Solid-subtle' },
+              { n: 6, c: '#93D0CC', sem: 'Border' }, { n: 7, c: '#6EB8B4', sem: 'Border' }, { n: 8, c: '#4A9C99', sem: 'Border' },
+              { n: 9, c: '#357E7D', sem: 'Solid' }, { n: 10, c: '#297473', sem: 'Solid' },
+              { n: 11, c: '#204140', sem: 'Text' }, { n: 12, c: '#0C1F1F', sem: 'Text' }
+            ].map((s) => (
+              <div class="flex-1 min-w-[80px] text-center py-4 text-xs font-semibold flex flex-col items-center gap-1" style={`background:${s.c};color:${s.n > 5 ? '#fff' : '#204140'}`}>
+                <span class="text-base font-bold">{s.n}</span>
+                <span class="text-[10px] opacity-80">{s.sem}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div>
+          <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-3">Secondary brand (Bordeaux)</h4>
+          <div class="flex flex-wrap gap-1 rounded-xl overflow-hidden">
+            {[
+              { n: 1, c: '#FEFCFD', sem: 'Background' }, { n: 2, c: '#FEF6F9', sem: 'Background' }, { n: 3, c: '#FDE8EF', sem: 'Background' },
+              { n: 4, c: '#FBD3E0', sem: 'Solid-subtle' }, { n: 5, c: '#F8B4C9', sem: 'Solid-subtle' },
+              { n: 6, c: '#F28BAE', sem: 'Border' }, { n: 7, c: '#E85F8A', sem: 'Border' }, { n: 8, c: '#D63D6E', sem: 'Border' },
+              { n: 9, c: '#993358', sem: 'Solid' }, { n: 10, c: '#7D193E', sem: 'Solid' },
+              { n: 11, c: '#4D0F26', sem: 'Text' }, { n: 12, c: '#2B0815', sem: 'Text' }
+            ].map((s) => (
+              <div class="flex-1 min-w-[80px] text-center py-4 text-xs font-semibold flex flex-col items-center gap-1" style={`background:${s.c};color:${s.n > 5 ? '#fff' : '#204140'}`}>
+                <span class="text-base font-bold">{s.n}</span>
+                <span class="text-[10px] opacity-80">{s.sem}</span>
+              </div>
+            ))}
+        </div>
+      </div>
+
+      <!-- Semantic color palettes -->
+      <div class="space-y-4 mt-16">
+        <div class="flex items-center gap-4">
+          <span class="text-[#222123] font-semibold text-sm w-24">Warning</span>
+          <img src="/images/palette-warning.svg" alt="Palette Warning" class="h-[48px] w-auto" loading="lazy" />
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-[#222123] font-semibold text-sm w-24">Info</span>
+          <img src="/images/palette-info.svg" alt="Palette Info" class="h-[48px] w-auto" loading="lazy" />
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-[#222123] font-semibold text-sm w-24">Error</span>
+          <img src="/images/palette-error.svg" alt="Palette Error" class="h-[48px] w-auto" loading="lazy" />
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-[#222123] font-semibold text-sm w-24">Success</span>
+          <img src="/images/palette-success.svg" alt="Palette Success" class="h-[48px] w-auto" loading="lazy" />
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-[#222123] font-semibold text-sm w-24">Neutral</span>
+          <img src="/images/palette-neutral.svg" alt="Palette Neutral" class="h-[48px] w-auto" loading="lazy" />
+        </div>
+      </div>
+
+      <!-- Token examples -->
+      <div class="mt-20">
+        <div class="bg-[#E1F7F6] rounded-xl px-6 py-4 mb-12 text-center">
+          <p class="font-['Plus_Jakarta_Sans',sans-serif] font-semibold text-lg text-[#204140]">L'usage est compris dans le nom du token pour aiguiller le designer</p>
+        </div>
+        <div class="grid md:grid-cols-2 gap-8">
+          <img src="/images/couleurs-tokens-1.png" alt="Exemple de tokens de couleurs" class="w-full h-auto rounded-xl" loading="lazy" />
+          <img src="/images/couleurs-tokens-2.png" alt="Application des tokens de couleurs" class="w-full h-auto rounded-xl" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== COMPOSANTS ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-composants">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Composants</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <p class="text-[1.5rem] leading-[1.4] text-[#222123] mb-12">17 composants de base avec leurs variantes</p>
+
+      <!-- Figma embed for components -->
+      <div class="rounded-2xl overflow-hidden mb-8" style="aspect-ratio:16/10">
+        <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/O0RW85bHRyA5jRRTfbgnzO/design-system-neutral?node-id=769-711" width="100%" height="100%" allowfullscreen class="border-0"></iframe>
+      </div>
+
+    </div>
+  </details>
+
+  <!-- ==================== DOCUMENTATION DES COMPOSANTS ==================== -->
+  <details open class="w-full subsection" id="sub-doc-composants" style="background:linear-gradient(45deg,#F4FBFB 0%,#FFFFFF 81%)">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 py-12 md:py-16 flex flex-col md:flex-row items-start gap-8">
+      <div class="min-w-0 flex-1 flex flex-col gap-6">
+        <h3 class="font-['Lora',serif] font-bold text-[2rem] md:text-[2.5rem] text-[#297473]">Documentation des composants</h3>
+        <p class="font-['Inter',sans-serif] text-[1.5rem] leading-[1.4] tracking-[-0.01em] text-black max-w-[550px]">
+          Les composants possède 3 tailles<br/>(small / compact / large)<br/>Et des fiches explicatives
+        </p>
+        <a href="https://www.figma.com/design/O0RW85bHRyA5jRRTfbgnzO/design-system-neutral?node-id=318-7771&m=dev" target="_blank" rel="noopener" class="inline-flex items-center gap-2 self-start bg-[#E1F7F6] rounded-2xl px-6 py-3 mt-4 no-underline hover:bg-[#D6F0EE] transition-colors">
+          <span class="font-['Lora',serif] font-bold text-[#204140] text-base">Voir le Design System complet</span>
+          <span class="text-[#204140] text-lg">→</span>
+        </a>
+      </div>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <div class="w-full md:w-[45%] md:max-w-[628px] flex-shrink-0">
+        <div class="rounded-2xl overflow-hidden" style="aspect-ratio:628/934">
+          <iframe src="https://www.figma.com/embed?embed_host=share&url=https://www.figma.com/design/O0RW85bHRyA5jRRTfbgnzO/design-system-neutral?node-id=221-383&t=rRLQMUY8krQJ3b1o-4" width="100%" height="100%" allowfullscreen class="border-0"></iframe>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== SECTION DIVIDER: TEST UTILISATEUR ==================== -->
+  <div id="section-tests" class="w-full py-16 md:py-20 text-center" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
+    <div class="max-w-[1200px] mx-auto px-6">
+      <h2 class="font-['Lora',serif] text-[3rem] md:text-[4rem] font-bold text-[#204140] tracking-[-0.02em] mb-4 max-sm:text-[2rem]">TEST UTILISATEUR</h2>
+      <p class="text-[1.5rem] md:text-[1.75rem] text-[#357E7D] leading-[1.4]">Passage et itérations</p>
+    </div>
+  </div>
+
+  <!-- ==================== CADRE & CONTEXTE ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-cadre">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Cadre & Contexte</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mb-6">Objectifs du test</h4>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        {[
+          { icon: '📚', title: 'Valorisation du catalogue', desc: 'Vérifier si l\'organisation visuelle et les métadonnées (couvertures, avis, badges) suscitent l\'intérêt et l\'envie d\'explorer.' },
+          { icon: '🔀', title: 'Évaluation de la découverte (Sérendipité)', desc: 'Mesurer la capacité à naviguer via suggestions et catégories sans avoir recours à la recherche textuelle.' },
+          { icon: '👆', title: 'Affordance', desc: 'Confirmer que les patterns de navigation (swipe, filtres, scan) sont intuitifs sans explication préalable.' },
+          { icon: '📷', title: 'Scan ISBN', desc: 'Valider l\'utilité du scan comme passerelle entre le monde physique de la bibliothèque et le service digital.' }
+        ].map((o) => (
+          <div class="bg-white border border-[#E9E8EA] rounded-2xl p-6">
+            <span class="text-3xl">{o.icon}</span>
+            <h5 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-base mt-3 mb-2">{o.title}</h5>
+            <p class="text-sm text-[#656366] leading-[1.4]">{o.desc}</p>
+          </div>
+        ))}
+      </div>
+
+      <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl mb-6">Méthodologie</h4>
+      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {[
+          { icon: '👁️', title: 'Test modéré en observation passive', desc: 'Aucune verbalisation demandée pendant les tâches. Comportement naturel, non biaisé.' },
+          { icon: '💬', title: 'Entretien rétrospectif', desc: 'Blocages et ressentis analysés après chaque scénario, avec des questions post tâche. Posture modérateur : neutre, aide exclue.' },
+          { icon: '⏱️', title: '45 minutes par session', desc: '6 scénarios couvrant l\'ensemble des parcours critiques de l\'application.' },
+          { icon: '🎯', title: 'Méthode Nielsen - 5 utilisateurs', desc: 'Seuil optimal identifiant ~85 % des problèmes d\'utilisabilité. Panel mixte en âge et profil.' }
+        ].map((m) => (
+          <div class="bg-[#E1F7F6] rounded-2xl p-6">
+            <span class="text-3xl">{m.icon}</span>
+            <h5 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-base mt-3 mb-2">{m.title}</h5>
+            <p class="text-sm text-[#656366] leading-[1.4]">{m.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== LES PARTICIPANTS ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-participants">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Les Participants</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+      <p class="text-[#828183] mb-12">5 utilisateurs · âges et profils mixtes · recrutement ciblé sur des usagers de bibliothèque</p>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+        {[
+          { num: '1', name: 'François-Xavier', date: '09 avril 2026', usage: 'Visiteur BM Bordeaux\nnon-utilisateur du site', type: 'Loisirs & domaine\nscientifique', freq: 'Occasionnel' },
+          { num: '2', name: 'Sofia Record', date: '24 avril 2026', usage: 'Connaît les lieux\nnon-utilisateur du site', type: 'Loisirs', freq: 'Occasionnel' },
+          { num: '3', name: 'Lucas Ferreira', date: '14 mai 2026', usage: 'Usager régulier BM + BU\nutilise le site web', type: 'Études & Loisirs', freq: 'Régulier' },
+          { num: '4', name: 'Géraldine Bamme', date: '17 mai 2026', usage: 'Bénévole bibliothèque\nusagère régulière de bibliothèque dans une autre région.', type: 'Loisirs & Professionnel', freq: 'Régulière' },
+          { num: '5', name: 'Arthur Pomme', date: '01 juin 2026', usage: 'Usager ponctuel (4 à 5 visites/an). Axé sur les services pratiques.', type: 'Travail & Étude (Loisirs au second plan).', freq: 'Occasionnel' }
+        ].map((p) => (
+          <div class="bg-white border border-[#E9E8EA] rounded-2xl p-6">
+            <div class="w-12 h-12 rounded-full bg-[#E1F7F6] flex items-center justify-center font-['Lora',serif] font-bold text-[#357E7D] text-lg mb-3">{p.num}</div>
+            <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">{p.name}</h4>
+            <span class="inline-block bg-[#E1F7F6] text-[#357E7D] text-xs font-semibold px-3 py-1 rounded-full mb-4">{p.date}</span>
+            <div class="space-y-3 text-sm">
+              <div>
+                <span class="block font-semibold text-[#204140] text-xs uppercase tracking-wider mb-1">Usage BM</span>
+                <span class="text-[#656366] whitespace-pre-line">{p.usage}</span>
+              </div>
+              <div class="border-t border-[#E9E8EA] pt-2">
+                <span class="block font-semibold text-[#204140] text-xs uppercase tracking-wider mb-1">Type de lecture</span>
+                <span class="text-[#656366]">{p.type}</span>
+              </div>
+              <div class="border-t border-[#E9E8EA] pt-2">
+                <span class="block font-semibold text-[#204140] text-xs uppercase tracking-wider mb-1">Fréquence</span>
+                <span class="text-[#656366]">{p.freq}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== RETOURS DES TESTS & ITÉRATIONS ==================== -->
+  <details open class="w-full py-16 md:py-24 subsection" id="sub-retours-tests" style="background:linear-gradient(45deg,#F4FBFB 0%,#FFFFFF 81%)">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retours des tests et Itérations</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="space-y-[72px]">
+        {[
+          {
+            scenario: 'S1', icon: '🏠', title: 'Accueil & Retards',
+            task: '"Vous avez emprunté des livres. Vérifiez si vous êtes en retard pour le retour ou si vous avez encore du temps."',
+            obs: 'Première impression · Visibilité des dates de retour · Étiquette de retard',
+            problems: [
+              'Conflit sémantique et visuel : la couleur de marque "bordeaux" appliquée aux dates est perçue comme un signal d\'alerte ou de retard.',
+              'Les retours pointent également des intitulés ambigus ("Prochain retour", "Raccourcis") qui rendent la distinction entre les différents services difficile.'
+            ],
+            fixes: [
+              'Passage à un bleu informatif neutre pour désamorcer la fausse alerte sur les dates.',
+              'L\'interface bénéficie d\'une refonte complète de l\'UX Writing : titres factuels (ex: "Emprunts en cours", "Livre numérique emprunté"), correction orthographique du menu ("Raccourcis"), et intégration de boutons d\'action plus précis (ex: "Liste emprunts en cours") pour mieux guider l\'usager.'
+            ]
+          },
+          {
+            scenario: 'S2', icon: '📚', title: 'Exploration du catalogue & Listes',
+            task: '"Vous n\'avez pas de livre précis en tête mais vous avez envie de découvrir quelque chose. Cherchez un livre qui vous donne envie de lire. Et trouvez un moyen de le garder de côté pour plus tard."',
+            obs: 'Utilisation des suggestions / filtre ou barre de recherche',
+            problems: [
+              'Absence d\'indicateur visuel empêche les profils non digitaux de comprendre qu\'ils peuvent faire défiler les suggestions horizontalement.',
+              'L\'action pour sauvegarder un livre manque d\'affordance : l\'icône seule est ambiguë et le terme initial ne correspond pas au standard attendu.',
+              'Absence de système de notation visible directement depuis la page d\'accueil.'
+            ],
+            fixes: [
+              'Création d\'un effet de débordement sur les carrousels (les cartes sont volontairement coupées sur le bord droit) pour inciter naturellement au balayage horizontal.',
+              'La note moyenne a été intégrée directement sous les couvertures.',
+              'L\'action de sauvegarde est clarifiée via l\'adoption du libellé universel "Favoris", soutenu par un bouton primaire explicite.'
+            ]
+          },
+          {
+            scenario: 'S3', icon: '🔍', title: 'Système de filtres & tri',
+            task: '"Vous cherchez un roman en français, disponible maintenant, pour une personne qui aime les thrillers. Utilisez les filtres pour affiner votre recherche."',
+            obs: 'Visibilité des filtres et tri - compréhension de l\'utilisation et pertinence des filtres',
+            problems: [
+              'Préférence pour le terme "Filtrer" plutôt que "recherche par critères" sur la page catalogue',
+              'Inadéquation de certains filtres (ex: "Thèse" ou "Carte" en BM) et préconisation d\'une structuration inspirée de la logique Dewey',
+              'Présence de termes en anglais, filtres manquant de pertinence (ex: bébé dans public) et bouton "Annuler" ambigu (effacer vs fermer)',
+              'Le filtre "bibliothèque favorite" fixe a été mal compris et semble peu utile'
+            ],
+            fixes: [
+              'Adoption du terme universel "Filtrer".',
+              'Création d\'un filtre Genre & Thématique avec classification inspirée de Dewey (Format, Genre, Thématique) avec sous-filtres pour les documentaires.',
+              'Les anglicismes sont traduits, certains filtres non pertinents retirés.',
+              'Le bouton secondaire est renommé "Réinitialiser" pour garantir une compréhension immédiate.'
+            ]
+          },
+          {
+            scenario: 'S4', icon: '📖', title: 'Recherche & Fiche des livres',
+            task: '"Rechercher le livre The condition of Will - Jessa Hastings. un livre que vous ne connaissez probablement pas. Rien qu\'avec cette fiche, est-ce qu\'elle vous donne envie de le lire ?"',
+            obs: 'Lecture des résultats ou clique direct - navigation fluide dans la fiche - les informations sont vues et comprises',
+            problems: [
+              'Demande de communication sur place un service proposé par la bibliothèque de Bordeaux est incompris pas tous',
+              'Le placement des boutons Réserver et favoris a été questionné, et le simple icône pour les favoris n\'a pas été compris une fois',
+              'Ajouterait sur la fiche : année de publication, éditeur, collection, thématique, genre, mots-clés',
+              'Souhait de plusieurs utilisateurs : "J\'aimerais pouvoir feuilleter quelques pages."'
+            ],
+            fixes: [
+              'La demande de communication sur place a été renommée et placée dans les services. Une explication claire est désormais disponible.',
+              'Le bouton "Favoris" est déplacé en haut de page pour une visibilité accrue. Le bouton réservé est maintenant directement intégré à la disponibilité de "où le trouver".',
+              'Des informations (publications, éditeurs etc.) ont été rajoutées.'
+            ]
+          },
+          {
+            scenario: 'S5', icon: '👤', title: 'Compréhension des termes et affordance',
+            task: '"Vous souhaitez vérifier où en sont vos emprunts et réservations en cours dans le détail. Utilisez l\'application pour vérifier cette information."',
+            obs: 'L\'utilisateur se rend dans mon espace · compréhension des cards et des listes',
+            problems: [
+              'Le bouton global "Annuler" / "Prolonger" etc, génère une incertitude sur son impact (un seul titre visé ou toute la liste ?).',
+              'Les usagers ont des doutes à différencier clairement les différentes catégories (prêt numérique, réservation, etc)',
+              'Hiérarchie visuelle : les titres devraient être plus mis en avant plutôt que le nombre d\'éléments dans la liste.',
+              'Déficit de détails : Les utilisateurs réclament des informations contextuelles précises (date d\'emprunt, délai de récupération).'
+            ],
+            fixes: [
+              'Suppression de l\'action globale. Intégration d\'une Bottom Sheet individuelle (via le menu "...") pour les actions.',
+              'Reformulation des titres et sous-titres pour plus de compréhension.',
+              'Rééquilibrage UI : La typographie et les espaces sont ajustés pour un design plus propre.',
+              'La Bottom Sheet permet l\'ajout de délais (ex: "Récupérez-la avant le...") et offre un raccourci vers la fiche détaillée.'
+            ]
+          },
+          {
+            scenario: 'S6', icon: '📷', title: 'L\'utilisation du scan ISBN',
+            task: '"Vous êtes chez un ami, vous voyez ce livre sur sa table, vous voulez savoir s\'il est disponible à la bibliothèque de Bordeaux là, à l\'aide du scan."',
+            obs: 'Affordance du scan ISBN - la fonctionnalité est jugée utile ou non',
+            problems: [
+              'L\'outil est qualifié de "très pratique, fluide, une nouvelle façon de chercher".',
+              'Le libellé "Scan ISBN" n\'est pas parlant pour le grand public, qui comprend mieux le terme de "code-barres".',
+              'Certains profils soulignent que la recherche textuelle classique doit rester accessible.',
+              'Un utilisateur suggéré que la première page de demande de confirmation pourrait contenir un tutoriel.'
+            ],
+            fixes: [
+              'Le terme technique est remplacé par le libellé "Scanner un livre", plus accessible dans la navigation.',
+              'La suggestion de tutoriel est gardée de côté pour une V3.'
+            ]
+          }
+        ].map((s) => (
+          <div class="flex flex-col md:flex-row md:flex-wrap md:items-start gap-8">
+            {/* Main content column */}
+            <div class="flex-1 min-w-0" style="max-width:790px">
+              {/* Scenario card - white */}
+              <div class="bg-white border border-[#E9E8EA] rounded-2xl p-5" style="padding:24px">
+                <div class="flex items-center gap-3 mb-4">
+                  <div class="flex items-center justify-center font-['Plus_Jakarta_Sans',sans-serif] font-bold text-white text-sm rounded-full flex-shrink-0" style="width:40px; height:40px; background:#357E7D">{s.scenario}</div>
+                  <span class="text-2xl">{s.icon}</span>
+                  <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-xl">{s.title}</h4>
+                </div>
+                <div style="width:100%; height:1px; background:#E9E8EA; margin-bottom:20px"></div>
+                <p class="text-[#656366] text-base leading-6 mb-6" style="font-family:'Plus Jakarta Sans',sans-serif">"{s.task.replace(/^"|"$/g, '')}"</p>
+                <p class="text-[#297473] text-sm leading-[21px]" style="font-family:'Plus Jakarta Sans',sans-serif">Observations : {s.obs}</p>
+              </div>
+
+              {/* Observations card - pink */}
+              <div class="mt-4 rounded-2xl p-6" style="background:#FEF6F9">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-2xl">👁️</span>
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#7D193E] text-xl">Observations</span>
+                </div>
+                <ul class="space-y-3" style="padding-left:0; list-style:none">
+                  {s.problems.map((p) => (
+                    <li class="text-[#000000] text-sm leading-[1.5] flex gap-2" style="font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-0.005em"><span class="text-[#7D193E] flex-shrink-0">−</span><span>{p}</span></li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Corrections card - green */}
+              <div class="mt-4 rounded-2xl p-6" style="background:#E1F7F6">
+                <div class="flex items-center gap-3 mb-4">
+                  <span class="text-2xl">👁️</span>
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-xl">Correction effectuée</span>
+                </div>
+                <ul class="space-y-3" style="padding-left:0; list-style:none">
+                  {s.fixes.map((f) => (
+                    <li class="text-[#000000] text-sm leading-[1.5] flex gap-2" style="font-family:'Plus Jakarta Sans',sans-serif; letter-spacing:-0.005em"><span class="text-[#25706F] flex-shrink-0">✓</span><span>{f}</span></li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* Phone screens - positioned outside the card, to the right */}
+            <div class="hidden md:flex gap-4 flex-shrink-0">
+              <div class="flex flex-col items-center">
+                {s.scenario === 'S6' ? (
+                  <div style="width:300px; background:#204140; border-radius:1.5rem; padding:6px; box-shadow:0 4px 24px rgba(0,0,0,0.12)">
+                    <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v1.mp4`} style="width:100%; height:auto; border-radius:1rem" autoplay loop muted playsinline preload="none" />
+                  </div>
+                ) : (
+                  <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v1.webm`} style="width:300px; height:auto; border-radius:16px" autoplay loop muted playsinline preload="none" />
+                )}
+                <div class="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full" style="background:#F8E2EA; border:1px solid #F4D2DE">
+                  <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Version 1</span>
+                </div>
+              </div>
+              <div class="flex flex-col items-center">
+                {s.scenario === 'S6' ? (
+                  <div style="width:300px; background:#204140; border-radius:1.5rem; padding:6px; box-shadow:0 4px 24px rgba(0,0,0,0.12)">
+                    <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v2.mp4`} style="width:100%; height:auto; border-radius:1rem" autoplay loop muted playsinline preload="none" />
+                  </div>
+                ) : (
+                  <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v2.webm`} style="width:300px; height:auto; border-radius:16px" autoplay loop muted playsinline preload="none" />
+                )}
+                <div class="inline-flex items-center justify-center mt-4 px-6 py-3 rounded-full" style="background:#F8E2EA; border:1px solid #F4D2DE">
+                  <span class="font-['Lora',serif] font-bold text-[#4D0F26] text-base">Version 2</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile: phone screens below the cards */}
+            <div class="md:hidden flex flex-wrap justify-center gap-4 mt-4">
+              <div class="text-center">
+                {s.scenario === 'S6' ? (
+                  <div style="width:160px; background:#204140; border-radius:1.5rem; padding:4px; box-shadow:0 4px 16px rgba(0,0,0,0.12)">
+                    <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v1.mp4`} style="width:100%; height:auto; border-radius:1rem" autoplay loop muted playsinline preload="none" />
+                  </div>
+                ) : (
+                  <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v1.webm`} style="width:160px; height:auto; border-radius:12px" autoplay loop muted playsinline preload="none" />
+                )}
+                <span class="block text-xs text-[#7D193E] font-semibold mt-2">Avant (V1)</span>
+              </div>
+              <div class="text-center">
+                {s.scenario === 'S6' ? (
+                  <div style="width:160px; background:#204140; border-radius:1.5rem; padding:4px; box-shadow:0 4px 16px rgba(0,0,0,0.12)">
+                    <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v2.mp4`} style="width:100%; height:auto; border-radius:1rem" autoplay loop muted playsinline preload="none" />
+                  </div>
+                ) : (
+                  <video src={`/videos/usertest/scena${s.scenario.slice(1)}-v2.webm`} style="width:160px; height:auto; border-radius:12px" autoplay loop muted playsinline preload="none" />
+                )}
+                <span class="block text-xs text-[#25706F] font-semibold mt-2">Après (V2)</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== RETOUR GLOBAL ==================== -->
+  <details open class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-retour-global">
+    <summary class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retour global en fin de tests</h3>
+      <svg class="subsection-chevron" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+    </summary>
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-[#FEF6F9] border border-[#F8E2EA] rounded-2xl p-8">
+          <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#7D193E] text-sm mb-4">Observations</span>
+          <ul class="space-y-3">
+            {[
+              'Validation : Architecture Mobile-First et fonctionnalité de Scan plébiscitées ; l\'App est une vraie alternative au site web.',
+              'Frictions sémantiques : Lexique institutionnel ("ISBN") ou ambigu ("Raccourcis")',
+              'Attentes marché : Manque d\'historique de recherche, et d\'aperçus de lecture et de notifications.'
+            ].map((item) => (
+              <li class="text-sm text-[#222123] leading-[1.4] flex gap-2"><span class="text-[#7D193E] mt-[2px]">−</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="bg-[#E1F7F6] rounded-2xl p-8">
+          <span class="block font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-sm mb-4">Priorisation V3</span>
+          <ol class="space-y-3">
+            {['Historique de recherche', 'Feuilletage des premières pages fonctionnel', 'La suggestion de tutoriel du Scan ISBN'].map((item, i) => (
+              <li class="text-sm text-[#222123] leading-[1.4] flex gap-2"><span class="font-bold text-[#25706F]">{i + 1}.</span>{item}</li>
+            ))}
+          </ol>
+        </div>
+      </div>
+    </div>
+  </details>
+
+  <!-- ==================== MERCI ==================== -->
+  <section class="w-full py-20 md:py-32 text-center" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
+    <div class="max-w-[800px] mx-auto px-6">
+      <h2 class="font-['Lora',serif] text-[3rem] md:text-[4rem] font-bold text-[#204140] tracking-[-0.02em] mb-4 max-sm:text-[2rem]">Merci pour votre lecture</h2>
+      <div class="flex flex-row flex-wrap justify-center items-center gap-4">
+        <a href="https://pfe-biblio.vercel.app/" target="_blank" rel="noopener" class="bg-[#E1F7F6] rounded-full px-8 py-3 no-underline">
+          <span class="font-['Lora',serif] font-bold text-[#204140] underline text-base">Lien de l'application V1</span>
+        </a>
+        <a href="https://pfe-biblio-v2.vercel.app/" target="_blank" rel="noopener" class="bg-[#E1F7F6] rounded-full px-8 py-3 no-underline">
+          <span class="font-['Lora',serif] font-bold text-[#204140] underline text-base">Lien de l'application V2</span>
+        </a>
+        <a href="https://pfe-biblio-web.vercel.app/" target="_blank" rel="noopener" class="bg-[#E1F7F6] rounded-full px-8 py-3 no-underline">
+          <span class="font-['Lora',serif] font-bold text-[#204140] underline text-base">Lien du site web</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== TABLE OF CONTENTS ==================== -->
+  <TableOfContents
+    client:load
+    sections={[
+      { id: 'section-hero', label: 'Vue d\'ensemble' },
+      { id: 'section-contexte', label: 'Contexte' },
+      { id: 'section-specs', label: 'Spécifications' },
+      { id: 'section-design', label: 'Design System' },
+      { id: 'section-tests', label: 'Tests Utilisateur' },
+    ]}
+    offset={300}
+  />
+
+  <style is:global>
+    .reveal-scroll {
+      opacity: 0;
+      transform: translateY(14px);
+      transition: opacity 0.45s ease-out, transform 0.45s ease-out;
+    }
+    .reveal-scroll.revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+
+  <script>
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -30px 0px' }
+    );
+
+    document.querySelectorAll('section, div, h1, h2, h3, h4, h5, p, img, ul, video').forEach((el) => {
+      if (!el.classList.contains('reveal-scroll')) {
+        el.classList.add('reveal-scroll');
+      }
+      observer.observe(el);
+    });
+
+    // Reveal elements already visible on load with stagger
+    window.addEventListener('load', () => {
+      const visible = Array.from(document.querySelectorAll('.reveal-scroll')).filter((el) => {
+        return el.getBoundingClientRect().top < window.innerHeight;
+      });
+      visible.forEach((el, i) => {
+        setTimeout(() => {
+          el.classList.add('revealed');
+        }, i * 60);
+      });
+    });
+  </script>
+
+  <script>
+    // Divulgation progressive : replié par défaut sur mobile (<768px), toujours
+    // ouvert à partir de la tablette. Piloté en JS car le masquage natif de
+    // <details> ne peut pas être surclassé de façon fiable en CSS seul.
+    function applyAccordionState() {
+      const isMobile = window.matchMedia('(max-width: 767px)').matches;
+      document.querySelectorAll('details.subsection').forEach((d) => {
+        if (isMobile) d.removeAttribute('open');
+        else d.setAttribute('open', '');
+      });
+    }
+    applyAccordionState();
+    window.addEventListener('resize', applyAccordionState);
+  </script>
+
+</CaseStudyLayout>

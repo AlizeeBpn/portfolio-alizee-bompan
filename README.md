@@ -1,63 +1,38 @@
-# Astro Starter Kit: Blog
+# Portfolio — Alizée Bompan
 
-```sh
-npm create astro@latest -- --template blog
-```
+Portfolio UX/UI construit avec [Astro](https://astro.build) et [Tailwind CSS v4](https://tailwindcss.com).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-Features:
-
-- ✅ Minimal styling (make it your own!)
-- ✅ 100/100 Lighthouse performance
-- ✅ SEO-friendly with canonical URLs and Open Graph data
-- ✅ Sitemap support
-- ✅ RSS Feed support
-- ✅ Markdown & MDX support
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
+## Structure du projet
 
 ```text
-├── public/
+├── public/                     # assets statiques servis tels quels (images, vidéos, CV, favicon)
 ├── src/
-│   ├── assets/
-│   ├── components/
-│   ├── content/
-│   ├── layouts/
-│   └── pages/
+│   ├── assets/                 # images/polices importées par le build (optimisées par Astro)
+│   ├── components/             # composants Astro/React (TableOfContents.tsx est le seul island React)
+│   ├── layouts/                # layouts partagés (BaseLayout, CaseStudyLayout)
+│   ├── lib/                    # utilitaires (ex: cn())
+│   ├── pages/
+│   │   ├── index.astro         # page d'accueil
+│   │   └── project-ux/         # études de cas (Initiative CRM, Bibliothèque de Bordeaux, Netflix, Reggae)
+│   └── styles/global.css       # styles globaux + reset
 ├── astro.config.mjs
-├── README.md
-├── package.json
-└── tsconfig.json
+├── tailwind.config.mjs
+└── package.json
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Commandes
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Toutes les commandes s'exécutent à la racine du projet :
 
-The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollection()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
+| Commande             | Action                                              |
+| :-------------------- | :--------------------------------------------------- |
+| `npm install`          | Installe les dépendances                              |
+| `npm run dev`          | Démarre le serveur local sur `localhost:4321`         |
+| `npm run build`        | Build de production dans `./dist/`                    |
+| `npm run preview`      | Prévisualise le build localement                      |
+| `npm run astro ...`    | Commandes CLI Astro (ex: `astro check`)               |
 
-Any static assets, like images, can be placed in the `public/` directory.
+## Notes
 
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Check out [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
-
-## Credit
-
-This theme is based off of the lovely [Bear Blog](https://github.com/HermanMartinus/bearblog/).
+- Pas de suite de tests automatisée : toute modification doit être vérifiée manuellement dans le navigateur, aux résolutions mobile/tablette/laptop/desktop.
+- Les breakpoints Tailwind sont les valeurs par défaut (`sm/md/lg/xl/2xl`) étendues avec `laptop` (1440px) et `3xl` (1920px) pour les grands écrans.
