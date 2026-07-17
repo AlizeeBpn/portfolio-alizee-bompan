@@ -19,19 +19,39 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
        ============================================================ -->
   <header class="w-full flex justify-center items-center">
     <nav class="z-[9999] fixed top-0 flex justify-center items-center gap-6 lg:gap-8 mx-auto mt-[.8rem] py-[.8rem] pl-6 lg:pl-8 pr-[.8rem] bg-[#f9f9fe0f] border border-[#b3b1b91f] rounded-full backdrop-blur-[15px] shadow-[0_2px_14px_-8px_#7659e952,inset_0_-6px_6px_-12px_#b09ccf33]">
-      <a href="#home" class="no-underline">
-        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Accueil</span>
-      </a>
-      <a href="#project" class="no-underline">
-        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Projets</span>
-      </a>
-      <a href="#expertise" class="no-underline">
-        <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] max-sm:text-[.75rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Expertises</span>
-      </a>
-      <a href="mailto:a.bpn148@gmail.com?subject=collaborons%20-" class="shimmer-btn relative z-10 flex justify-center items-center px-[1.7rem] py-[.8rem] rounded-[50vw] bg-brand-light no-underline overflow-hidden active:bg-brand-deep active:scale-[.97]">
-        <span class="relative z-10 font-['Plus_Jakarta_Sans',sans-serif] text-[1.1rem] font-normal text-surface-card">Collaborons</span>
+      <!-- Desktop nav links -->
+      <div class="hidden sm:flex items-center gap-6 lg:gap-8">
+        <a href="#home" class="no-underline">
+          <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Accueil</span>
+        </a>
+        <a href="#project" class="no-underline">
+          <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Projets</span>
+        </a>
+        <a href="#expertise" class="no-underline">
+          <span class="font-['Plus_Jakarta_Sans',sans-serif] max-md:text-[.85rem] text-[1.1rem] font-medium text-text-body hover:text-brand transition-colors active:text-brand-deep active:scale-95">Expertises</span>
+        </a>
+      </div>
+      <!-- Mobile hamburger -->
+      <button id="hamburger-btn" class="sm:hidden flex items-center justify-center w-10 h-10 text-text-body hover:text-brand transition-colors bg-transparent border-0 cursor-pointer" aria-label="Menu">
+        <svg id="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="hamburger-close" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+      <a href="mailto:a.bpn148@gmail.com?subject=collaborons%20-" class="shimmer-btn relative z-10 flex justify-center items-center px-[1.7rem] py-[.8rem] rounded-[50vw] bg-brand-light no-underline overflow-hidden active:bg-brand-deep active:scale-[.97] max-sm:px-[1.2rem] max-sm:py-[.6rem]">
+        <span class="relative z-10 font-['Plus_Jakarta_Sans',sans-serif] text-[1.1rem] max-sm:text-[.9rem] font-normal text-surface-card">Collaborons</span>
       </a>
     </nav>
+    <!-- Mobile dropdown menu -->
+    <div id="mobile-menu" class="z-[9998] fixed top-[4.5rem] left-1/2 -translate-x-1/2 w-[90vw] max-w-[300px] bg-[#f9f9fe] border border-[#b3b1b91f] rounded-2xl backdrop-blur-[15px] shadow-[0_8px_30px_-12px_#7659e952] py-4 px-2 flex-col items-center gap-2 hidden sm:hidden">
+      <a href="#home" class="mobile-nav-link no-underline block w-full text-center py-3 rounded-xl">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-medium text-text-body hover:text-brand transition-colors">Accueil</span>
+      </a>
+      <a href="#project" class="mobile-nav-link no-underline block w-full text-center py-3 rounded-xl">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-medium text-text-body hover:text-brand transition-colors">Projets</span>
+      </a>
+      <a href="#expertise" class="mobile-nav-link no-underline block w-full text-center py-3 rounded-xl">
+        <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-medium text-text-body hover:text-brand transition-colors">Expertises</span>
+      </a>
+    </div>
   </header>
 
   <main class="w-full">
@@ -117,16 +137,16 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
                     <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
                       <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">UX UI Designer — Alternance 2 ans</span>
-                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Initiative CRM</h2>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Initiative CRM</h2>
                     </div>
                     <div class="max-w-[500px]">
-                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[1rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
                         Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-end mt-6 max-sm:hidden">
                   <a href="/project-ux/initiative-crm" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
                     <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
                   </a>
@@ -138,6 +158,11 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-azure bg-cover bg-center" style={`background-image:url(${optIni2fa1.src})`}></div>
                 </div>
               </div>
+              <div class="flex justify-end mt-6 sm:hidden">
+                <a href="/project-ux/initiative-crm" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                </a>
+              </div>
             </article>
 
             <!-- Project 1: Bibliothèque de Bordeaux -->
@@ -147,16 +172,16 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
                     <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
                       <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">Projet de fin d'étude &nbsp;UX UI</span>
-                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.2] text-[#423e46]">Bibliothèque de Bordeaux</h2>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-[3rem] font-medium leading-[1.2] text-[#423e46]">Bibliothèque de Bordeaux</h2>
                     </div>
                     <div class="max-w-[500px]">
-                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[1rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
                         Faciliter le quotidien des abonnés avec un compagnon de service mobile : une interface pour explorer le catalogue, réserver un titre et suivre ses listes de lecture.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-end mt-6 max-sm:hidden">
                   <a href="/project-ux/application-bibliotheque-de-bordeaux" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
                     <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
                   </a>
@@ -170,6 +195,11 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="gsap-target relative z-10 flex-[0_auto] w-[35%] h-full mr-0 overflow-visible flex-shrink-0 bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69ea5923531fe6400e4f9e7e_Gemini_Generated_Image_bbupskbbupskbbup%20(1).png')"></div>
                 </div>
               </div>
+              <div class="flex justify-end mt-6 sm:hidden">
+                <a href="/project-ux/application-bibliotheque-de-bordeaux" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                </a>
+              </div>
             </article>
 
             <!-- Project 2: Netflix -->
@@ -179,16 +209,16 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
                     <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
                       <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">UX Research & Design — 2024</span>
-                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Netflix</h2>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Netflix</h2>
                     </div>
                     <div class="max-w-[500px]">
-                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[1rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
                         Safe N Chill, un dispositif UX permettant de filtrer l'exposition à la violence cinématographique, couplé à Chill N learn, un système d'apprentissage autonome pour approfondir ses connaissances.
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-end mt-6 max-sm:hidden">
                   <a href="/project-ux/netflix" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
                     <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
                   </a>
@@ -200,6 +230,11 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91918cae8f8256abc3fd9_f872ce224611677.Y3JvcCwxNDI0LDExMTQsNyww.png')"></div>
                 </div>
               </div>
+              <div class="flex justify-end mt-6 sm:hidden">
+                <a href="/project-ux/netflix" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                </a>
+              </div>
             </article>
 
             <!-- Project 3: Reggae Music -->
@@ -209,16 +244,16 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   <div class="grid grid-cols-1 gap-x-4 gap-y-[18px] max-w-[675px]">
                     <div class="flex flex-col gap-[1.2rem] max-lg:gap-y-6">
                       <span class="reveal-on-load w-full text-left font-['Plus_Jakarta_Sans',sans-serif] text-brand-light 2xl:text-[1.2rem] max-sm:text-[.85rem] text-[1rem]">Google UX Design — 2023</span>
-                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.4rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Billetterie en ligne Reggae</h2>
+                      <h2 class="reveal-on-load font-['Pphatton',Georgia,sans-serif] 2xl:text-[3.8rem] max-lg:text-[2.2rem] max-md:text-[1.8rem] max-sm:text-[1.5rem] text-[3rem] font-medium leading-[1.4] text-[#423e46]">Billetterie en ligne Reggae</h2>
                     </div>
                     <div class="max-w-[500px]">
-                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[.9rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
+                      <p class="split-words font-['Plus_Jakarta_Sans',sans-serif] 2xl:text-[1.3rem] max-md:text-[.95rem] max-sm:text-[1rem] max-sm:leading-[150%] text-[20px] leading-[140%] text-[#5f5969]">
                         Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae. Décliné sur trois devices (desktop, mobile, tablette).
                       </p>
                     </div>
                   </div>
                 </div>
-                <div class="flex justify-end mt-6">
+                <div class="flex justify-end mt-6 max-sm:hidden">
                   <a href="/project-ux/reggae-music-billetterie" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
                     <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
                   </a>
@@ -231,6 +266,11 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
                   </div>
                   <div class="gsap-target relative z-10 flex-[0_auto] w-[35%] h-full mr-0 overflow-visible flex-shrink-0 bg-accent-lavender bg-cover bg-center" style="background-image:url('https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png')"></div>
                 </div>
+              </div>
+              <div class="flex justify-end mt-6 sm:hidden">
+                <a href="/project-ux/reggae-music-billetterie" class="shimmer-btn no-underline relative overflow-hidden z-10 inline-flex justify-center items-center px-[1.5rem] py-[.7rem] rounded-[50vw] bg-brand-light active:bg-brand-deep active:scale-[.97]">
+                  <span class="font-['Plus_Jakarta_Sans',sans-serif] text-[1rem] font-normal text-surface-card">Voir le projet</span>
+                </a>
               </div>
             </article>
 
@@ -256,7 +296,7 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
         </div>
 
         <div class="grid grid-cols-1 gap-16 max-w-7xl w-full mt-8 mx-auto">
-          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
             <div class="relative flex-1 min-h-0 overflow-hidden">
               <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e67492dcd4d8d2526b81dd_desi-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="Design System" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb87548bba4bad1f468a5e_S%C3%A9quence%2001_4_1_poster.0000000.jpg">
@@ -270,7 +310,7 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
             </div>
           </article>
 
-          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
             <div class="relative flex-1 min-h-0 overflow-hidden">
               <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e67ac832a294fabca106af_uxres-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="UX Research" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8a79e5bb2f3f9c6f3f3e_S%C3%A9quence%2002_2_poster.0000000.jpg">
@@ -284,7 +324,7 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
             </div>
           </article>
 
-          <article class="expertise-card relative w-full h-[70vh] max-sm:h-[50vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
             <div class="relative flex-1 min-h-0 overflow-hidden">
               <img src="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e7d4e3fa55e49d03f6b0b0_Squence01_3-ezgif.com-video-to-gif-converter.gif" class="gsap-media w-full h-full object-cover scale-110" alt="AI-Driven" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69eb8b00b7dad6400aa45410_S%C3%A9quence%2001_3_poster.0000000.jpg">
@@ -437,6 +477,37 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
           stagger: 0.06,
           ease: 'power2.out',
           scrollTrigger: { trigger: diaEl, start: 'top 85%' }
+        });
+      }
+
+      // Mobile hamburger menu
+      var hamburgerBtn = document.getElementById('hamburger-btn');
+      var hamburgerIcon = document.getElementById('hamburger-icon');
+      var hamburgerClose = document.getElementById('hamburger-close');
+      var mobileMenu = document.getElementById('mobile-menu');
+      if (hamburgerBtn && mobileMenu) {
+        hamburgerBtn.addEventListener('click', function() {
+          var isOpen = !mobileMenu.classList.contains('hidden');
+          if (isOpen) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            hamburgerIcon.classList.remove('hidden');
+            hamburgerClose.classList.add('hidden');
+          } else {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            hamburgerIcon.classList.add('hidden');
+            hamburgerClose.classList.remove('hidden');
+          }
+        });
+        // Close menu when a link is clicked
+        mobileMenu.querySelectorAll('.mobile-nav-link').forEach(function(link) {
+          link.addEventListener('click', function() {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            hamburgerIcon.classList.remove('hidden');
+            hamburgerClose.classList.add('hidden');
+          });
         });
       }
 
