@@ -63,13 +63,13 @@ const projectsWithImages = [
     <div id="project-card" style="box-shadow:4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12);" class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 z-10 w-[300px] md:w-[360px] bg-white rounded-2xl shadow-2xl p-4 md:p-6 border border-gray-100 transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)] max-md:!relative max-md:!bottom-auto max-md:!left-auto max-md:!w-full max-md:!z-0 max-md:cursor-default">
       <div class="flex justify-between items-start mb-3">
         <div>
-          <h3 id="project-title" class="font-sans text-[22px] font-extrabold text-[#102848] mb-1 max-md:text-[18px]">Recherche globale</h3>
-          <p id="project-desc" class="font-sans text-[13px] font-medium text-[#0090FF]">CRM Initiative</p>
+          <h3 id="project-title" class="font-sans text-[24px] font-extrabold text-[#102848] mb-1 max-md:text-[20px]">Recherche globale</h3>
+          <p id="project-desc" class="font-sans text-[15px] font-medium text-[#0090FF]">CRM Initiative</p>
         </div>
         <span id="project-number" class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg" style="background-color:#0090FF1A;color:#0090FF">01</span>
       </div>
       <div id="separator" class="w-12 h-[3px] rounded-sm mb-4" style="background-color:#0090FF66"></div>
-      <p id="project-long" class="text-[#102848A6] text-[13px] leading-[20px] mb-4">
+      <p id="project-long" class="text-[#102848A6] text-[15px] leading-[22px] mb-4">
         Remplacement d'une page de résultats statiques par un affichage instantané sous la barre de recherche. Pour structurer l'interface, j'ai croisé l'analyse des données d'usage (priorisation des modules) avec un entretien commercial ciblé (choix des informations secondaires indispensables : statut, montant, contact). Résultat : l'utilisateur identifie immédiatement le bon élément dès la frappe, avec un taux de rétention à 7 jours maintenu au-dessus de 90%.
       </p>
       <div id="project-tags" class="flex flex-wrap gap-2 mb-5">
@@ -257,7 +257,7 @@ const projectsWithImages = [
           t.textContent = '';
           p.tags.forEach(function(tg){
             var tag = document.createElement('span');
-            tag.className = 'text-[11px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap';
+            tag.className = 'text-[13px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap';
             tag.style.background = p.color+'26';
             tag.style.color = p.color;
             tag.textContent = tg;
