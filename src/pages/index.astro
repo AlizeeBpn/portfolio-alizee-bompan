@@ -1,11 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getImage } from 'astro:assets';
-import iniSearch1 from '../assets/ini-search-1.png';
-import ini2fa1 from '../assets/ini-2fa-1.png';
+import projectIni1 from '../assets/project-ini-1.png';
+import projectIni2 from '../assets/project-ini-2.png';
 
-const [optIniSearch1, optIni2fa1] = await Promise.all(
-  [iniSearch1, ini2fa1].map((img) => getImage({ src: img, width: 800, format: 'webp' }))
+const [optProjectIni1, optProjectIni2] = await Promise.all(
+  [projectIni1, projectIni2].map((img) => getImage({ src: img, width: 800, format: 'webp' }))
 );
 ---
 
@@ -100,11 +100,11 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
               <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[.7rem] font-medium tracking-[.15em] uppercase">Ans d'exp.</span>
               <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
             </div>
-            <div class="flex flex-col justify-center items-center w-[6.5rem] h-[6.5rem] border border-[#cbccd65c] rounded-[.8rem] relative">
-              <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[2rem] font-extrabold leading-[1] tracking-[-.02em]">10+</span>
-              <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[.7rem] font-medium tracking-[.15em] uppercase">Projets</span>
+            <a href="/cv_alizeebompan.pdf" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center w-[6.5rem] h-[6.5rem] border border-[#cbccd65c] rounded-[.8rem] relative no-underline hover:border-[#7b4fd4] hover:shadow-[0_4px_20px_-4px_#7b4fd44d] transition-all duration-300">
+              <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[2rem] font-extrabold leading-[1] tracking-[-.02em]">CV</span>
+              <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[.7rem] font-medium tracking-[.15em] uppercase">PDF</span>
               <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
-            </div>
+            </a>
           </div>
         </div>
       </div>
@@ -154,8 +154,8 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
               </div>
               <div class="max-md:max-w-full max-md:overflow-hidden">
                 <div class="gsap-trigger-left h-[35vw] max-lg:h-[45vw] max-md:h-[60vw] max-sm:h-[55vw] 2xl:max-h-[650px] overflow-hidden flex flex-nowrap w-full relative">
-                  <div class="gsap-target relative z-10 flex-[0_auto] w-[40%] h-full mr-6 overflow-visible flex-shrink-0 bg-accent-peach bg-cover bg-center" style={`background-image:url(${optIniSearch1.src})`}></div>
-                  <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-azure bg-cover bg-center" style={`background-image:url(${optIni2fa1.src})`}></div>
+                  <div class="gsap-target relative z-10 flex-[0_auto] w-[40%] h-full mr-6 overflow-visible flex-shrink-0 bg-accent-peach bg-cover bg-center" style={`background-image:url(${optProjectIni1.src})`}></div>
+                  <div class="flex-1 w-[35%] h-full mr-0 relative overflow-hidden z-[1] bg-accent-azure bg-cover bg-center" style={`background-image:url(${optProjectIni2.src})`}></div>
                 </div>
               </div>
               <div class="flex justify-end mt-6 sm:hidden">
@@ -358,7 +358,7 @@ const [optIniSearch1, optIni2fa1] = await Promise.all(
           </a>
         </div>
         <p class="reveal-on-load text-center font-['Caveat',Georgia,sans-serif] text-[1rem] text-accent-lavender max-lg:text-center">
-          Designé avec du ☕ et trop de post-its<br/>Moi si j'étais vous, je passerais la souris sur les étoiles du hero. (Juste un indice...)
+          Designé avec du ☕ et trop de post-its.<br/>(D'ailleurs, il en reste quelques-uns collés tout en haut de la page, à découvrir au survol des étoiles...)
         </p>
       </div>
     </footer>

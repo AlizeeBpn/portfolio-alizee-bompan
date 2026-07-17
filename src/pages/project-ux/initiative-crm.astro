@@ -6,37 +6,42 @@ import iniSearch from '../../assets/project-ini-2.png';
 import iniSearch1 from '../../assets/ini-search-1.png';
 import ini2fa1 from '../../assets/ini-2fa-1.png';
 import iniShowcase from '../../assets/project-showcase-global-search.png';
+import teamsIaProject from '../../assets/teams-ia-project.png';
+import iniApp from '../../assets/ini-app.png';
+import buttonsImg from '../../assets/Buttons.png';
+import twofaImg from '../../assets/2fa.png';
+import sectionIni from '../../assets/section-ini.png.png';
 
 // Recompressées/redimensionnées au build via astro:assets — les sources d'origine
 // vont jusqu'à 3837×1965px et étaient envoyées telles quelles au mobile.
-const [optIni2fa, optIniSearch, optIniSearch1, optIni2fa1, optIniShowcase] = await Promise.all(
-  [ini2fa, iniSearch, iniSearch1, ini2fa1, iniShowcase].map((img) =>
+const [optIni2fa, optIniSearch, optIniSearch1, optIni2fa1, optIniShowcase, optTeamsIaProject, optIniApp, optButtons, optTwofa, optSectionIni] = await Promise.all(
+  [ini2fa, iniSearch, iniSearch1, ini2fa1, iniShowcase, teamsIaProject, iniApp, buttonsImg, twofaImg, sectionIni].map((img) =>
     getImage({ src: img, width: 900, format: 'webp' })
   )
 );
 
 const projectsWithImages = [
-  { img: optIniSearch1.src, title:'Recherche globale', id:'01', desc:'CRM Initiative', long:"Refonte d'une fonctionnalité de recherche globale vieillissante pour la recentrer sur les véritables usages de nos clients. En m'appuyant sur de la recherche utilisateur (questionnaires et entretiens), j'ai repensé l'architecture de l'information pour y intégrer des raccourcis stratégiques. Résultat : un parcours de recherche optimisé, plus intuitif, avec un taux de rétention à 7 jours maintenu au-dessus des 90%.", tags:['UX Research','Data','Architecture'], color:'#0090FF' },
-  { img: optIniSearch.src, title:'Comptes-rendus IA', id:'02', desc:'Réunions Teams • CRM Initiative', long:"Intégration de l'IA pour automatiser la création de comptes-rendus commerciaux. Participation au \"shaping\" du projet, rédaction de prompts, design des notifications et création de l'onboarding pour faciliter la découverte et l'adoption de cette nouvelle fonctionnalité.", tags:['IA','Shape Up','Onboarding'], color:'#12A594' },
-  { img: optIni2fa.src, title:'Refonte App Mobile', id:'03', desc:'Application Initiative • React Native', long:"Refonte UX/UI de l'application mobile en équipe. Réalisation d'un audit ergonomique, création de wireframes et utilisation d'un Design System React Native. Création rapide d'un prototype fonctionnel (V0) pour tester les flux utilisateurs, en intégrant des outils IA dans le processus de design.", tags:['Mobile','React Native','Prototype'], color:'#0090FF' },
-  { img: optIniSearch.src, title:'Design System', id:'04', desc:'Composants & Documentation • CRM Initiative', long:"Unification visuelle du CRM pour corriger les incohérences entre deux anciens designs coexistants. Création et migration des composants sur Figma, mise à jour des variables et synchronisation avec le Storybook. Rédaction d'une documentation claire pour rendre l'équipe autonome.", tags:['Figma','Storybook','Composants'], color:'#12A594' },
-  { img: optIni2fa1.src, title:'Parcours d\'activation 2FA', id:'05', desc:'Sécurité • CRM Initiative', long:"Conception du parcours d'activation de la double authentification. Un travail centré sur l'UX Writing et l'accompagnement via Product Fruits pour réduire la friction sur une étape souvent perçue comme contraignante. Résultat : une adoption réussie par 71% des utilisateurs actifs.", tags:['UX Writing','Friction UX','Sécurité'], color:'#0090FF' },
+{ img: optIniSearch1.src, title:'Recherche globale', id:'01', desc:'CRM Initiative', long:"Remplacement d'une page de résultats statiques par un affichage instantané sous la barre de recherche. Pour structurer l'interface, j'ai croisé l'analyse des données d'usage (priorisation des modules) avec un entretien commercial ciblé (choix des informations secondaires indispensables : statut, montant, contact). Résultat : l'utilisateur identifie immédiatement le bon élément dès la frappe, avec un taux de rétention à 7 jours maintenu au-dessus de 90%.", tags:['Recherche instantanée','Architecture de l\'info','Analyse d\'usage'], color:'#0090FF', objectPosition:'left top' },
+  { img: optTeamsIaProject.src, title:'Comptes-rendus IA', id:'02', desc:'Réunions Teams • CRM Initiative', long:"Intégration de l'IA pour l'automatisation des comptes-rendus de réunions. Après une phase de shaping et d'entretiens métiers pour cibler l'usage commercial, j'ai pris en charge le design de la fonctionnalité. Mon périmètre a couvert la matérialisation de l'expérience : participation à la rédaction des prompts, création de l'interface de notation des résultats IA, design des notifications et réalisation UI du FRE (First Run Experience) pour l'activation.", tags:['Interface IA','UX Writing','FRE UI'], color:'#12A594' },
+  { img: optIniApp.src, title:'Refonte App Mobile', id:'03', desc:'Application Initiative • React Native', long:"Refonte de l'application mobile. Partant d'un diagnostic de l'existant, j'ai entièrement restructuré l'architecture et les flux utilisateurs. J'ai conçu un design rapide en exploitant des composants React Native et des variables de style alignés sur les contraintes techniques. Pour valider concrètement les interactions, j'ai réalisé des prototypes fonctionnels via v0 et Bolt, permettant de tester les comportements de l'interface en conditions réelles.", tags:['Mobile','React Native','Prototype'], color:'#0090FF' },
+  { img: optButtons.src, title:'Design System', id:'04', desc:'Composants & Documentation • CRM Initiative', long:"Unification visuelle du CRM pour corriger les incohérences entre deux anciens designs coexistants. Création et migration des composants sur Figma, mise à jour des variables et synchronisation avec le Storybook. Rédaction d'une documentation claire pour rendre l'équipe autonome.", tags:['Figma','Storybook','Composants'], color:'#12A594' },
+  { img: optTwofa.src, title:'Parcours d\'activation 2FA', id:'05', desc:'Sécurité • CRM Initiative', long:"Conception du parcours d'activation de la double authentification. Un travail centré sur l'UX Writing et l'accompagnement via Product Fruits pour réduire la friction sur une étape souvent perçue comme contraignante. Résultat : une adoption réussie par 71% des utilisateurs actifs.", tags:['UX Writing','Friction UX','Sécurité'], color:'#0090FF' },
   { img: optIniShowcase.src, title:'Tableaux de suivi d\'activité', id:'06', desc:'Dashboards B2B • CRM Initiative', long:"Création d'un formulaire permettant aux managers commerciaux de configurer des tableaux de bord sur-mesure (plusieurs indicateurs et périodes). Mise en page pensée pour une lecture rapide des données, avec un fort accent sur la clarté visuelle et l'UX writing pour des utilisateurs non techniques.", tags:['Data','B2B','Interface'], color:'#0090FF' },
-  { img: optIniSearch.src, title:'Édition de devis', id:'07', desc:'Ajout de sections • CRM Initiative', long:"Conception d'un système d'ajout de sections personnalisées et de texte libre dans une interface de devis très dense. Travail d'audit et de \"shaping\" pour hiérarchiser l'information, suivi d'une livraison Figma claire pour faciliter l'intégration technique en autonomie.", tags:['UX Audit','Handoff','Structuration'], color:'#12A594' }
+  { img: optSectionIni.src, title:'Édition de devis', id:'07', desc:'Ajout de sections • CRM Initiative', long:"Conception d'un système d'ajout de sections personnalisées et de texte libre dans une interface de devis très dense. Travail d'audit et de \"shaping\" pour hiérarchiser l'information, suivi d'une livraison Figma claire pour faciliter l'intégration technique en autonomie.", tags:['UX Audit','Handoff','Structuration'], color:'#12A594' }
 ];
 ---
 
 <CaseStudyLayout title="Initiative CRM — Alizée Bompan" bodyClass="w-full bg-[#F8FAFA]">
 
   <main class="w-full">
-    <div class="flex flex-col gap-10 w-full max-w-[900px] mx-auto pt-8 pb-16 px-6 md:px-12">
+    <div class="flex flex-col gap-6 w-full max-w-[900px] mx-auto pt-4 pb-8 px-6 md:px-12">
       <span class="text-brand-light tracking-[.12em] uppercase text-xs font-medium">UX UI Designer — Alternance 2 ans</span>
-      <h1 class="font-['Pphatton',Georgia,sans-serif] max-lg:text-[3rem] max-md:text-[2.4rem] max-sm:text-[1.9rem] text-[4rem] font-extrabold leading-[1] text-text-heading">Initiative CRM</h1>
-      <p class="font-['Plus_Jakarta_Sans',sans-serif] text-text-muted max-lg:text-[1.2rem] max-md:text-[1.1rem] max-sm:text-[1rem] text-[1.4rem] leading-[1.6]">
+      <h1 class="font-['Pphatton',Georgia,sans-serif] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.6rem] text-[3.5rem] font-extrabold leading-[1] text-text-heading">Initiative CRM</h1>
+      <p class="font-['Plus_Jakarta_Sans',sans-serif] text-text-muted max-lg:text-[1.05rem] max-md:text-[1rem] max-sm:text-[.9rem] text-[1.2rem] leading-[1.5]">
         Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.
       </p>
       <hr class="border-[#00000012] w-full" />
-      <div class="flex flex-wrap gap-12 gap-y-6">
+      <div class="flex flex-wrap gap-8 gap-y-4">
         <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">2025 — En cours</span></div>
         <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">Figma, Shape Up, Design System</span></div>
         <div class="flex flex-col gap-1"><span class="text-[#bbb] tracking-[.1em] uppercase text-[.7rem]">initiative-crm</span></div>
@@ -45,52 +50,42 @@ const projectsWithImages = [
   </main>
 
   <!-- PROJECT STAGE -->
-  <div class="project-stage relative w-full max-w-5xl mx-auto mt-20 px-4 max-md:mt-10 max-md:flex max-md:flex-col max-md:gap-6">
+  <div class="project-stage relative w-full max-w-5xl mx-auto mt-8 lg:mt-12 px-4 max-md:mt-4 max-md:flex max-md:flex-col max-md:gap-4">
     <!-- Stage Frame (image) -->
-    <div id="stage-frame" style="border-color:#C2E5FF;box-shadow:4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12),inset 0px -6px 0px 0px rgba(0,0,51,0.06);" class="bg-blue-50 border rounded-3xl p-8 md:p-12 relative overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)] cursor-pointer max-md:!p-4 max-md:cursor-default">
+    <div id="stage-frame" style="border-color:#C2E5FF;box-shadow:4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12),inset 0px -6px 0px 0px rgba(0,0,51,0.06);" class="bg-blue-50 border rounded-3xl p-4 md:p-6 lg:p-8 relative overflow-hidden transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)] cursor-pointer max-md:!p-2 max-md:cursor-default">
       <div id="project-img-wrapper" class="rounded-2xl overflow-hidden border border-[#C2E5FF]">
-        <img id="project-main-img" src={optIniSearch1.src} width={optIniSearch1.attributes.width} height={optIniSearch1.attributes.height} class="w-full h-auto object-contain aspect-[4/3]" alt="Project mockup" />
+        <img id="project-main-img" src={optIniSearch1.src} width={optIniSearch1.attributes.width} height={optIniSearch1.attributes.height} class="w-full h-auto object-cover aspect-[16/10]" style="object-position:left top" alt="Project mockup" />
       </div>
       <div id="watermark" class="absolute top-4 left-8 text-[120px] font-extrabold font-sans leading-none select-none pointer-events-none z-0 max-md:text-[60px] max-md:top-2 max-md:left-4" style="color:#0090FF12">01</div>
     </div>
 
     <!-- Project Card (desktop: absolute overlay, mobile: static below image) -->
-    <div id="project-card" style="box-shadow:4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12);" class="absolute -bottom-10 -left-6 md:-left-10 z-10 w-[340px] md:w-[400px] bg-white rounded-2xl shadow-2xl p-6 md:p-8 border border-gray-100 transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)] max-md:!relative max-md:!bottom-auto max-md:!left-auto max-md:!w-full max-md:!z-0 max-md:cursor-default">
-      <div class="flex justify-between items-start mb-4">
+    <div id="project-card" style="box-shadow:4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12);" class="absolute -bottom-6 -left-4 md:-bottom-8 md:-left-8 z-10 w-[300px] md:w-[360px] bg-white rounded-2xl shadow-2xl p-4 md:p-6 border border-gray-100 transition-all duration-400 ease-[cubic-bezier(0.33,1,0.68,1)] max-md:!relative max-md:!bottom-auto max-md:!left-auto max-md:!w-full max-md:!z-0 max-md:cursor-default">
+      <div class="flex justify-between items-start mb-3">
         <div>
-          <h3 id="project-title" class="font-sans text-[28px] font-extrabold text-[#102848] mb-1 max-md:text-[22px]">Recherche globale</h3>
+          <h3 id="project-title" class="font-sans text-[22px] font-extrabold text-[#102848] mb-1 max-md:text-[18px]">Recherche globale</h3>
           <p id="project-desc" class="font-sans text-[13px] font-medium text-[#0090FF]">CRM Initiative</p>
         </div>
         <span id="project-number" class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg" style="background-color:#0090FF1A;color:#0090FF">01</span>
       </div>
       <div id="separator" class="w-12 h-[3px] rounded-sm mb-4" style="background-color:#0090FF66"></div>
-      <p id="project-long" class="text-[#102848A6] text-sm leading-[22px] mb-6">
-        Refonte d'une fonctionnalité de recherche globale vieillissante pour la recentrer sur les véritables usages de nos clients. En m'appuyant sur de la recherche utilisateur (questionnaires et entretiens), j'ai repensé l'architecture de l'information pour y intégrer des raccourcis stratégiques. Résultat : un parcours de recherche optimisé, plus intuitif, avec un taux de rétention à 7 jours maintenu au-dessus des 90%.
+      <p id="project-long" class="text-[#102848A6] text-[13px] leading-[20px] mb-4">
+        Remplacement d'une page de résultats statiques par un affichage instantané sous la barre de recherche. Pour structurer l'interface, j'ai croisé l'analyse des données d'usage (priorisation des modules) avec un entretien commercial ciblé (choix des informations secondaires indispensables : statut, montant, contact). Résultat : l'utilisateur identifie immédiatement le bon élément dès la frappe, avec un taux de rétention à 7 jours maintenu au-dessus de 90%.
       </p>
-      <div id="project-tags" class="flex gap-2 mb-5">
-        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium" style="background:#0090FF26;color:#0090FF">UX Research</span>
-        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium" style="background:#0090FF26;color:#0090FF">Data</span>
-        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium" style="background:#0090FF26;color:#0090FF">Architecture</span>
+      <div id="project-tags" class="flex flex-wrap gap-2 mb-5">
+        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap" style="background:#0090FF26;color:#0090FF">Recherche instantanée</span>
+        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap" style="background:#0090FF26;color:#0090FF">Architecture de l'info</span>
+        <span class="text-[11px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap" style="background:#0090FF26;color:#0090FF">Analyse d'usage</span>
       </div>
     </div>
 
-    <!-- Mobile navigation arrows + indicator -->
-    <div class="hidden max-md:flex items-center justify-center gap-4 py-2">
-      <button id="mobile-prev" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 active:scale-95 transition-transform shadow-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#102848" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-      </button>
-      <span id="mobile-indicator" class="font-sans font-bold text-[#102848] text-sm">1 / 7</span>
-      <button id="mobile-next" class="w-10 h-10 rounded-full bg-white border border-gray-200 flex items-center justify-center hover:bg-gray-50 active:scale-95 transition-transform shadow-sm">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#102848" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>
-      </button>
-    </div>
   </div>
 
   <!-- TIMELINE NAVIGATION -->
-  <div class="sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-6 z-40 mt-20">
-    <div class="w-full px-8 overflow-x-auto">
-      <div id="timeline-row" class="relative flex flex-nowrap items-start w-max mx-auto gap-[70px] max-md:gap-8" style="padding-top:6px;padding-bottom:6px">
-        <div class="absolute left-0 right-0 h-px border-0 pointer-events-none" style="top:97px;background:repeating-linear-gradient(to right, #12A594 0, #12A594 4px, transparent 4px, transparent 8px)"></div>
+  <div class="sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-4 z-40 mt-8 lg:mt-12 relative">
+    <div class="absolute left-0 right-0 h-px border-0 pointer-events-none" style="top:108px;background:repeating-linear-gradient(to right, #12A594 0, #12A594 4px, transparent 4px, transparent 8px)"></div>
+    <div class="w-full px-6 overflow-x-auto">
+      <div id="timeline-row" class="relative flex flex-nowrap items-start w-max mx-auto gap-[50px] max-md:gap-6" style="padding-top:6px;padding-bottom:6px">
         {projectsWithImages.map((p, i) => (
           <div id={`step-${i}`} class="timeline-step flex flex-col items-center cursor-pointer relative z-10 flex-shrink-0 w-[156px] gap-[9px]">
             <span class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg"
@@ -155,18 +150,6 @@ const projectsWithImages = [
         el.style.cursor = 'grabbing';
       });
 
-      el.addEventListener('touchstart', function(e) {
-        if (isAnimating) return;
-        if (e.touches.length !== 1) return;
-        var t = e.touches[0];
-        dragTarget = el;
-        dragged = false;
-        dragStartX = t.clientX;
-        dragStartY = t.clientY;
-        elemStartX = dragOffsets[key].x;
-        elemStartY = dragOffsets[key].y;
-        el.style.transition = 'none';
-      }, { passive: false });
     }
 
     function onMove(e) {
@@ -195,8 +178,31 @@ const projectsWithImages = [
     makeDraggable(stageFrame, 'stage');
     document.addEventListener('mousemove', onMove);
     document.addEventListener('mouseup', onUp);
-    document.addEventListener('touchmove', onMove, { passive: false });
-    document.addEventListener('touchend', onUp);
+
+    // ── Swipe on timeline (mobile/tablet) to switch projects ──
+    var timelineRow = document.querySelector('#timeline-row');
+    if (timelineRow) {
+      var touchStartX = 0, touchStartY = 0;
+      timelineRow.addEventListener('touchstart', function(e) {
+        if (isAnimating || e.touches.length !== 1) return;
+        touchStartX = e.touches[0].clientX;
+        touchStartY = e.touches[0].clientY;
+      }, { passive: true });
+
+      timelineRow.addEventListener('touchend', function(e) {
+        if (isAnimating || !touchStartX) return;
+        var deltaX = (e.changedTouches[0] ? e.changedTouches[0].clientX : touchStartX) - touchStartX;
+        var deltaY = (e.changedTouches[0] ? e.changedTouches[0].clientY : touchStartY) - touchStartY;
+        if (Math.abs(deltaX) > 50 && Math.abs(deltaX) > Math.abs(deltaY)) {
+          if (deltaX < 0) {
+            switchProject(currentIndex + 1 >= totalProjects ? 0 : currentIndex + 1);
+          } else {
+            switchProject(currentIndex - 1 < 0 ? totalProjects - 1 : currentIndex - 1);
+          }
+        }
+        touchStartX = 0; touchStartY = 0;
+      });
+    }
 
     // ── Z-index swap (only on non-drag clicks) ──
     stageFrame.addEventListener('click', function(e){
@@ -234,6 +240,7 @@ const projectsWithImages = [
       setTimeout(function(){
         // Phase 2: swap content
         document.querySelector('#project-main-img').src = p.img;
+        document.querySelector('#project-main-img').style.objectPosition = p.objectPosition || 'center';
         document.querySelector('#project-title').textContent = p.title;
         var n = document.querySelector('#project-number');
         if(n){ n.textContent = p.id; n.style.backgroundColor = p.color+'1A'; n.style.color = p.color; }
@@ -250,7 +257,7 @@ const projectsWithImages = [
           t.textContent = '';
           p.tags.forEach(function(tg){
             var tag = document.createElement('span');
-            tag.className = 'text-[11px] px-[10px] py-1 rounded-full font-medium';
+            tag.className = 'text-[11px] px-[10px] py-1 rounded-full font-medium whitespace-nowrap';
             tag.style.background = p.color+'26';
             tag.style.color = p.color;
             tag.textContent = tg;
@@ -293,37 +300,5 @@ const projectsWithImages = [
       })(i);
     }
 
-    // ── Update mobile indicator ──
-    function updateMobileIndicator(idx) {
-      var indicator = document.getElementById('mobile-indicator');
-      if (indicator) {
-        indicator.textContent = (idx + 1) + ' / ' + totalProjects;
-      }
-    }
-
-    // ── Mobile prev/next buttons ──
-    var mobilePrev = document.getElementById('mobile-prev');
-    var mobileNext = document.getElementById('mobile-next');
-    if (mobilePrev) {
-      mobilePrev.addEventListener('click', function() {
-        var newIdx = currentIndex - 1;
-        if (newIdx < 0) newIdx = totalProjects - 1;
-        switchProject(newIdx);
-      });
-    }
-    if (mobileNext) {
-      mobileNext.addEventListener('click', function() {
-        var newIdx = currentIndex + 1;
-        if (newIdx >= totalProjects) newIdx = 0;
-        switchProject(newIdx);
-      });
-    }
-
-    // ── Override switchProject to also update mobile indicator ──
-    var originalSwitchProject = switchProject;
-    switchProject = function(idx) {
-      originalSwitchProject(idx);
-      updateMobileIndicator(idx);
-    };
   </script>
 </CaseStudyLayout>
