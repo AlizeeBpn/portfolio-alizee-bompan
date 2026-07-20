@@ -1,10 +1,7 @@
 ---
 import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
 import { getImage } from 'astro:assets';
-import ini2fa from '../../assets/project-ini-1.png';
-import iniSearch from '../../assets/project-ini-2.png';
 import iniSearch1 from '../../assets/ini-search-1.png';
-import ini2fa1 from '../../assets/ini-2fa-1.png';
 import iniShowcase from '../../assets/project-showcase-global-search.png';
 import teamsIaProject from '../../assets/teams-ia-project.png';
 import iniApp from '../../assets/ini-app.png';
@@ -14,9 +11,9 @@ import sectionIni from '../../assets/section-ini.png.png';
 
 // Recompressées/redimensionnées au build via astro:assets — les sources d'origine
 // vont jusqu'à 3837×1965px et étaient envoyées telles quelles au mobile.
-const [optIni2fa, optIniSearch, optIniSearch1, optIni2fa1, optIniShowcase, optTeamsIaProject, optIniApp, optButtons, optTwofa, optSectionIni] = await Promise.all(
-  [ini2fa, iniSearch, iniSearch1, ini2fa1, iniShowcase, teamsIaProject, iniApp, buttonsImg, twofaImg, sectionIni].map((img) =>
-    getImage({ src: img, width: 900, format: 'webp' })
+const [optIniSearch1, optIniShowcase, optTeamsIaProject, optIniApp, optButtons, optTwofa, optSectionIni] = await Promise.all(
+  [iniSearch1, iniShowcase, teamsIaProject, iniApp, buttonsImg, twofaImg, sectionIni].map((img) =>
+    getImage({ src: img, width: 2000, format: 'webp', quality: 85 })
   )
 );
 
