@@ -1,6 +1,29 @@
 ---
 import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
 import TableOfContents from '../../components/TableOfContents.tsx';
+import ProjectNavCards from '../../components/ProjectNavCards.astro';
+import projectIniThumb from '../../assets/project-ini-1.png';
+
+const otherProjects = [
+  {
+    url: '/project-ux/initiative-crm',
+    thumbnail: projectIniThumb.src,
+    title: 'Initiative CRM',
+    description: "Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.",
+  },
+  {
+    url: '/project-ux/netflix',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91832f91f6186e60d2768_behance-680e7adfc558d_pages-to-jpg-0065.jpg',
+    title: 'Netflix — Safe N Chill',
+    description: "Safe N Chill, un dispositif UX permettant de filtrer l'exposition à la violence cinématographique, couplé à Chill N learn, un système d'apprentissage autonome.",
+  },
+  {
+    url: '/project-ux/reggae-music-billetterie',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png',
+    title: 'Billetterie en ligne Reggae',
+    description: "Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae — identité visuelle chaleureuse, expérience d'achat fluide et immersive.",
+  },
+];
 ---
 
 <CaseStudyLayout
@@ -65,12 +88,12 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== LE RÉSEAU : UN PILIER CULTUREL ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-reseau">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4">
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4 max-sm:justify-center">
       <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Le Réseau : Un Pilier Culturel</h3>
       
     </div>
-    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
-      <p class="text-[1.25rem] md:text-[1.5rem] leading-[1.5] text-[#222123] mb-12 max-w-[900px] max-sm:text-[1rem]">
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16 max-sm:text-center">
+      <p class="text-[1.25rem] md:text-[1.5rem] leading-[1.5] text-[#222123] mb-12 max-w-[900px] max-sm:text-[1rem] max-sm:mx-auto">
         Le réseau des bibliothèques de Bordeaux est le premier acteur culturel de proximité, desservant <strong>261 000 habitants.</strong>
       </p>
 
@@ -106,7 +129,7 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== DIAGNOSTIC UX ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-diagnostic">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4 max-sm:justify-center">
       <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Diagnostic UX : Complexité & Défis</h3>
       
     </div>
@@ -137,14 +160,14 @@ import TableOfContents from '../../components/TableOfContents.tsx';
           </div>
         </div>
         <!-- Mockup image on the right -->
-        <img src="/images/image-pc-desktop.png" alt="Mockup desktop et mobile du site Bibliothèques de Bordeaux" class="w-full h-auto rounded-xl" loading="lazy" />
+        <img src="/images/image-pc-desktop.png" alt="Mockup desktop et mobile du site Bibliothèques de Bordeaux" class="w-full h-auto rounded-xl max-sm:mx-auto" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- ==================== CIBLES & PROFILS ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-cibles">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4 max-sm:justify-center">
       <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Cibles & Profils Utilisateurs</h3>
       
     </div>
@@ -190,7 +213,7 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== FRUSTRATIONS UTILISATEURS ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-frustrations">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
       <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Les frustrations Utilisateurs</h3>
       
     </div>
@@ -223,8 +246,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== LA PROBLÉMATIQUE ==================== -->
   <section class="w-full py-20 md:py-32 text-center subsection" id="sub-problematique">
-    <div class="subsection-summary max-w-[1000px] mx-auto px-6 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">La Problématique</h3>
+<div class="subsection-summary max-w-[1000px] mx-auto px-6 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">La Problématique</h3>
       
     </div>
     <div class="subsection-content max-w-[1000px] mx-auto px-6">
@@ -236,13 +259,13 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== STRATÉGIE DIGITALE HYBRIDE ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-strategie">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Une Stratégie Digitale Hybride</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Une Stratégie Digitale Hybride</h3>
       
     </div>
-    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16 max-sm:text-center">
 
-      <div class="grid md:grid-cols-3 gap-6 items-start max-sm:grid-cols-1">
+      <div class="grid md:grid-cols-3 gap-6 items-start max-sm:grid-cols-1 max-sm:place-items-center">
         <!-- Stratégie hybride card -->
         <div class="bg-[#E1F7F6] rounded-2xl p-8 self-center">
           <span class="text-4xl">💡</span>
@@ -286,11 +309,11 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== FONCTIONNALITÉS DE L'APPLICATION ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-fonctionnalites" style="background:linear-gradient(45deg,#F4FBFB 0%,#FCFCFD 100%)">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Fonctionnalités de l'Application</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Fonctionnalités de l'Application</h3>
       
     </div>
-    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16 max-sm:text-center">
 
       <div class="space-y-[72px]">
         {[
@@ -319,8 +342,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
             imgs: ['/images/bibliotheque-bordeaux/isbn_scan.png']
           }
         ].map((feat) => (
-<div class="flex flex-row gap-10 items-start flex-wrap">
-          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8 md:w-[400px]">
+<div class="flex flex-row gap-10 items-start flex-wrap max-sm:justify-center">
+          <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-8 md:w-[400px] max-sm:w-full">
             <div class="flex items-center gap-3 mb-4">
               <span class="w-12 h-12 bg-[#E1F7F6] rounded-xl flex items-center justify-center text-2xl">{feat.icon}</span>
               <span class="text-[#357E7D] font-semibold text-sm">{feat.num}</span>
@@ -333,7 +356,7 @@ import TableOfContents from '../../components/TableOfContents.tsx';
               </ul>
             </div>
             {feat.imgs && feat.imgs.length > 0 && (
-              <div class="flex flex-wrap gap-4">
+              <div class="flex flex-wrap gap-4 max-sm:justify-center">
                 {feat.imgs.map((img) => (
                   (img.includes('fonct_agenda') || img.includes('page_acceuil') || img.includes('recherhce_') || img.includes('recherche_1') || img.includes('service') || img.includes('espace_') || img.includes('isbn_scan')) ? (
                     <img src={img} alt={feat.title} class="w-[260px] h-auto rounded-xl" loading="lazy" />
@@ -353,11 +376,11 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== SYSTÈME DE FILTRAGE & TRI ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-filtrage">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Système de Filtrage & Tri</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473] max-sm:text-[1.5rem]">Système de Filtrage & Tri</h3>
       
     </div>
-    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
+    <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16 max-sm:text-center">
       <div class="inline-block bg-[#E1F7F6] rounded-full px-6 py-2 mb-12">
         <span class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-sm">Logique de filtrage en cascade</span>
       </div>
@@ -370,14 +393,14 @@ import TableOfContents from '../../components/TableOfContents.tsx';
           { title: 'Bibliothèque', desc: '9 bibliothèques physiques + ressources numériques. Sélectionner "Titre numérique" désactive automatiquement les bibliothèques physiques.', img: '/images/bibliotheque/filter-3.png' },
           { title: 'Plus de filtres', desc: 'Disponibilité, Public (Enfant/Ados/Adulte), Accessibilité (Braille, FALC, LSF…), Année de publication (9 périodes), Langue (12 options).', img: '/images/bibliotheque/filter-4.png' }
         ].map((f) => (
-<div class="flex flex-row gap-10 items-start flex-wrap">
-            <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 md:w-[400px]">
+<div class="flex flex-row gap-10 items-start flex-wrap max-sm:justify-center">
+            <div class="bg-[#F9F9FA] border border-[#E9E8EA] rounded-2xl p-6 md:w-[400px] max-sm:w-full">
               <h4 class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#204140] text-lg mb-2">{f.title}</h4>
               <div class="w-full h-px bg-[#E9E8EA] mb-3"></div>
               <p class="text-sm text-[#656366] leading-[1.5]">{f.desc}</p>
             </div>
-            <div>
-              <img src={f.img} alt={f.title} class="w-[260px] h-auto rounded-xl" loading="lazy" />
+            <div class="max-sm:flex max-sm:justify-center max-sm:w-full">
+              <img src={f.img} alt={f.title} class="w-[260px] max-sm:w-[240px] h-auto rounded-xl" loading="lazy" />
             </div>
           </div>
         ))}
@@ -387,8 +410,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== ARBORESCENCE & NAVIGATION ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-arborescence">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Arborescence de l'application & Navigation</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-8 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Arborescence de l'application & Navigation</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -399,15 +422,15 @@ import TableOfContents from '../../components/TableOfContents.tsx';
         <div class="bg-[#E1F7F6] rounded-2xl px-4 sm:px-6 flex items-center justify-center h-full">
           <p class="font-['Plus_Jakarta_Sans',sans-serif] font-bold text-[#25706F] text-xs sm:text-sm md:text-base text-center leading-tight">Une barre de navigation en bas pour accéder aux pages les plus importantes</p>
         </div>
-        <img src="/images/bibliotheque/arborescence-2.png" alt="Barre de navigation basse" class="h-full w-auto rounded-xl" loading="lazy" />
+        <img src="/images/bibliotheque/arborescence-2.png" alt="Barre de navigation basse" class="h-full max-sm:h-auto max-sm:w-[240px] max-sm:mx-auto w-auto rounded-xl" loading="lazy" />
       </div>
     </div>
   </section>
 
   <!-- ==================== PARCOURS : RÉSERVER UN LIVRE ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-parcours">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Parcours : Réserver un livre disponible</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Parcours : Réserver un livre disponible</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -419,8 +442,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== ACCESSIBILITÉ & SEO ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-accessibilite">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Accessibilité (RGAA) & SEO</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Accessibilité (RGAA) & SEO</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -492,8 +515,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== RGPD & COMPATIBILITÉ ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-rgpd">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">RGPD & Compatibilité</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">RGPD & Compatibilité</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -566,15 +589,15 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== SITE RESPONSIVE ==================== -->
   <section class="w-full py-16 md:py-24 bg-white subsection" id="sub-responsive">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Un site responsive</h3>
+<div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Un site responsive</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
       <div class="bg-[#E1F7F6] rounded-2xl p-6 mb-8">
         <p class="text-[#204140] text-base text-center">L'URL actuelle resterait inchangée : https://bibliotheque.bordeaux.fr/</p>
       </div>
-      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6 items-end mt-8">
+      <div class="flex flex-col sm:flex-row flex-wrap justify-center gap-6 items-end max-sm:items-center mt-8">
         <!-- Desktop -->
         <div class="text-center">
           <video src="/videos/macbook-responsive.webm" class="w-[85vw] max-w-[350px] sm:max-w-[600px] md:w-[700px] h-auto rounded-xl" autoplay loop muted playsinline preload="none" />
@@ -604,8 +627,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== IDENTITÉ DE MARQUE ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-identite">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Identité de marque</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Identité de marque</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -742,8 +765,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== PRINCIPES & FONDATIONS ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-principes">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Principes & Fondations</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Principes & Fondations</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -775,8 +798,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== NUMBERS (TOKENS) ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-numbers">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Numbers</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Numbers</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -914,8 +937,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== TYPOGRAPHIE ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-typo">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Typographie</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-6 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Typographie</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1017,8 +1040,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== COULEURS ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-couleurs">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Couleurs</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Couleurs</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1030,7 +1053,7 @@ import TableOfContents from '../../components/TableOfContents.tsx';
       </div>
 
       <!-- Semantic legend -->
-      <div class="flex flex-wrap gap-4 mb-8">
+      <div class="flex flex-wrap gap-4 mb-8 max-sm:overflow-x-auto max-sm:flex-nowrap max-sm:pb-2">
         {[
           { label: 'Background', range: '1-3', color: '#357E7D' },
           { label: 'Solid-subtle', range: '4-5', color: '#357E7D' },
@@ -1121,8 +1144,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== COMPOSANTS ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-composants">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Composants</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Composants</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1170,8 +1193,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== CADRE & CONTEXTE ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-cadre">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Cadre & Contexte</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Cadre & Contexte</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1212,8 +1235,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== LES PARTICIPANTS ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-participants">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Les Participants</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-4 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Les Participants</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1253,8 +1276,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== RETOURS DES TESTS & ITÉRATIONS ==================== -->
   <section class="w-full py-16 md:py-24 subsection" id="sub-retours-tests" style="background:linear-gradient(45deg,#F4FBFB 0%,#FFFFFF 81%)">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retours des tests et Itérations</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retours des tests et Itérations</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1456,8 +1479,8 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   <!-- ==================== RETOUR GLOBAL ==================== -->
   <section class="w-full py-16 md:py-24 bg-[#FAFEFD] subsection" id="sub-retour-global">
-    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4">
-      <h3 class="font-['Lora',serif] text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retour global en fin de tests</h3>
+    <div class="subsection-summary max-w-[1400px] mx-auto px-6 md:px-16 mb-12 flex items-center justify-between gap-4 max-sm:justify-center">
+      <h3 class="font-['Lora',serif] text-center text-[2rem] md:text-[2.5rem] font-bold text-[#297473]">Retour global en fin de tests</h3>
       
     </div>
     <div class="subsection-content max-w-[1400px] mx-auto px-6 md:px-16">
@@ -1568,5 +1591,5 @@ import TableOfContents from '../../components/TableOfContents.tsx';
 
   
 
-
+  <ProjectNavCards projects={otherProjects} />
 </CaseStudyLayout>
