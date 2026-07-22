@@ -8,7 +8,7 @@ import iniApp from '../../assets/ini-app.png';
 import buttonsImg from '../../assets/Buttons.png';
 import badgeImg from '../../assets/Badge.png';
 import twofaImg from '../../assets/2fa.png';
-import sectionIni from '../../assets/section-ini.png.png';
+import sectionIni from '../../assets/section-ini.png';
 
 // Recompressées/redimensionnées au build via astro:assets — les sources d'origine
 // vont jusqu'à 3837×1965px et étaient envoyées telles quelles au mobile.
@@ -81,21 +81,23 @@ const projectsWithImages = [
 
   <!-- TIMELINE NAVIGATION -->
   <style>
-    .timeline-step::after {
+    #timeline-row::before {
       content: '';
       position: absolute;
-      top: calc(48px + 9px + 1.1em + 9px + 8px); /* badge + gap + title ~line-height + gap + half-dot */
+      bottom: 15px;
       left: 50%;
-      height: 3px;
-      background: #12A594;
-      /* Each dot connects to the next — width spans the gap */
-      width: calc(100% + 50px);
+      height: 2px;
+      width: 100vw;
+      transform: translateX(-50%);
+      background-image: repeating-linear-gradient(
+        to right,
+        #12A594 0,
+        #12A594 8px,
+        transparent 8px,
+        transparent 20px
+      );
       pointer-events: none;
       z-index: 0;
-    }
-    /* The last step doesn't need a connector */
-    .timeline-step:last-child::after {
-      display: none;
     }
     .timeline-step span,
     .timeline-step .w-12,
