@@ -57,6 +57,29 @@ const images = [
 ];
 
 import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import ProjectNavCards from '../../components/ProjectNavCards.astro';
+import projectIniThumb from '../../assets/project-ini-1.png';
+
+const otherProjects = [
+  {
+    url: '/project-ux/initiative-crm',
+    thumbnail: projectIniThumb.src,
+    title: 'Initiative CRM',
+    description: "Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.",
+  },
+  {
+    url: '/project-ux/application-bibliotheque-de-bordeaux',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69ea58e02e8f820ce139a897_bibliomoque%20(1).png',
+    title: 'Bibliothèque de Bordeaux',
+    description: "Faciliter le quotidien des abonnés avec un compagnon de service mobile : une interface pour explorer le catalogue, réserver un titre et suivre ses listes de lecture.",
+  },
+  {
+    url: '/project-ux/reggae-music-billetterie',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png',
+    title: 'Billetterie en ligne Reggae',
+    description: "Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae — identité visuelle chaleureuse, expérience d'achat fluide et immersive. Décliné sur trois devices.",
+  },
+];
 ---
 
 <CaseStudyLayout title="Netflix — Safe N Chill — Alizée Bompan">
@@ -87,4 +110,5 @@ import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
       ))}
     </div>
   </main>
+  <ProjectNavCards projects={otherProjects} />
 </CaseStudyLayout>

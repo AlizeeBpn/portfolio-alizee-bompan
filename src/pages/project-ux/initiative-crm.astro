@@ -1,5 +1,6 @@
 ---
 import CaseStudyLayout from '../../layouts/CaseStudyLayout.astro';
+import ProjectNavCards from '../../components/ProjectNavCards.astro';
 import { getImage } from 'astro:assets';
 import iniSearch1 from '../../assets/ini-search-1.png';
 import iniShowcase from '../../assets/project-showcase-global-search.png';
@@ -22,10 +23,31 @@ const projectsWithImages = [
 { img: optIniSearch1.src, title:'Recherche globale', id:'01', desc:'CRM Initiative', long:"Remplacement d'une page de résultats statiques par un affichage instantané sous la barre de recherche. Pour structurer l'interface, j'ai croisé l'analyse des données d'usage (priorisation des modules) avec un entretien commercial ciblé (choix des informations secondaires indispensables : statut, montant, contact). Résultat : l'utilisateur identifie immédiatement le bon élément dès la frappe, avec un taux de rétention à 7 jours maintenu au-dessus de 90%.", tags:['Recherche instantanée','Architecture de l\'info','Analyse d\'usage'], color:'#0090FF', objectPosition:'left top' },
   { img: optTeamsIaProject.src, title:'Comptes-rendus IA', id:'02', desc:'Réunions Teams • CRM Initiative', long:"Intégration de l'IA pour l'automatisation des comptes-rendus de réunions. Après une phase de shaping et d'entretiens métiers pour cibler l'usage commercial, j'ai pris en charge le design de la fonctionnalité. Mon périmètre a couvert la matérialisation de l'expérience : participation à la rédaction des prompts, création de l'interface de notation des résultats IA, design des notifications et réalisation UI du FRE (First Run Experience) pour l'activation.", tags:['Interface IA','UX Writing','FRE UI'], color:'#12A594' },
   { img: optIniApp.src, title:'Refonte App Mobile', id:'03', desc:'Application Initiative • React Native', long:"Refonte de l'application mobile. Partant d'un diagnostic de l'existant, j'ai entièrement restructuré l'architecture et les flux utilisateurs. J'ai conçu un design rapide en exploitant des composants React Native et des variables de style alignés sur les contraintes techniques. Pour valider concrètement les interactions, j'ai réalisé des prototypes fonctionnels via v0 et Bolt, permettant de tester les comportements de l'interface en conditions réelles.", tags:['Mobile','React Native','Prototype'], color:'#0090FF' },
-  { img: optBadge.src, title:'Design System', id:'04', desc:'Restructuration du Design System : mise au propre de la librairie et unification des anciens et nouveaux designs. Création de la documentation pour l\'équipe et maintenance continue des composants au quotidien.', long:"Unification visuelle du CRM pour corriger les incohérences entre deux anciens designs coexistants. Création et migration des composants sur Figma, mise à jour des variables et synchronisation avec le Storybook. Rédaction d'une documentation claire pour rendre l'équipe autonome.", tags:['Figma','Storybook','Composants'], color:'#12A594' },
+  { img: optBadge.src, title:'Design System', id:'04', desc:'Maintenance UI • Scalabilité UI', long:"Restructuration du Design System : mise au propre de la librairie et unification des anciens et nouveaux designs. Création de la documentation pour l'équipe et maintenance continue des composants au quotidien.", tags:['Figma','Storybook','Composants'], color:'#12A594' },
   { img: optTwofa.src, title:'Parcours d\'activation 2FA', id:'05', desc:'Sécurité • CRM Initiative', long:"Conception du parcours d'activation de la double authentification. Un travail centré sur l'UX Writing et la clarté de l'interface pour réduire la friction sur une étape souvent perçue comme contraignante. Résultat : une adoption réussie par 71% des utilisateurs actifs.", tags:['UX Writing','Friction UX','Sécurité'], color:'#0090FF' },
-  { img: optIniShowcase.src, title:'Tableaux de suivi d\'activité', id:'06', desc:'Dashboards B2B • CRM Initiative', long:"Création d'un formulaire permettant aux managers commerciaux de configurer des tableaux de bord sur-mesure (plusieurs indicateurs et périodes). Mise en page pensée pour une lecture rapide des données, avec un fort accent sur la clarté visuelle et l'UX writing pour des utilisateurs non techniques.", tags:['Data','B2B','Interface'], color:'#0090FF' },
+  { img: optIniShowcase.src, title:'Tableaux de suivi d\'activité', id:'06', desc:'Dashboards B2B • CRM Initiative', long:"Création d'un formulaire permettant aux managers commerciaux de configurer des tableaux de bord sur-mesure (plusieurs indicateurs et périodes). Mise en page pensée pour une lecture rapide des données, avec un fort accent sur la clarté visuelle et l'UX writing pour traduire des champs issus d'une architecture legacy en langage métier compréhensible.", tags:['Data','B2B','Interface'], color:'#0090FF' },
   { img: optSectionIni.src, title:'Édition de devis', id:'07', desc:'Ajout de sections • CRM Initiative', long:"Conception d'un système d'ajout de sections personnalisées et de texte libre dans une interface de devis très dense. Travail d'audit et de \"shaping\" pour hiérarchiser l'information, suivi d'une livraison Figma claire pour faciliter l'intégration technique en autonomie.", tags:['UX Audit','Handoff','Structuration'], color:'#12A594' }
+];
+
+const otherProjects = [
+  {
+    url: '/project-ux/application-bibliotheque-de-bordeaux',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69ea58e02e8f820ce139a897_bibliomoque%20(1).png',
+    title: 'Bibliothèque de Bordeaux',
+    description: "Faciliter le quotidien des abonnés avec un compagnon de service mobile : interface pour explorer le catalogue, réserver un titre et suivre ses listes de lecture.",
+  },
+  {
+    url: '/project-ux/netflix',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91832f91f6186e60d2768_behance-680e7adfc558d_pages-to-jpg-0065.jpg',
+    title: 'Netflix — Safe N Chill',
+    description: "Safe N Chill, un dispositif UX permettant de filtrer l'exposition à la violence cinématographique, couplé à Chill N learn, un système d'apprentissage autonome.",
+  },
+  {
+    url: '/project-ux/reggae-music-billetterie',
+    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png',
+    title: 'Billetterie en ligne Reggae',
+    description: "Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae — identité visuelle chaleureuse, expérience d'achat fluide et immersive.",
+  },
 ];
 ---
 
@@ -36,7 +58,7 @@ const projectsWithImages = [
       <span class="text-brand-light tracking-[.12em] uppercase text-xs font-medium">UX UI Designer — Alternance 2 ans</span>
       <h1 class="font-['Pphatton',Georgia,sans-serif] max-lg:text-[2.5rem] max-md:text-[2rem] max-sm:text-[1.6rem] text-[3.5rem] font-extrabold leading-[1] text-text-heading">Initiative CRM</h1>
       <p class="font-['Plus_Jakarta_Sans',sans-serif] text-text-muted max-lg:text-[1.05rem] max-md:text-[1rem] max-sm:text-[.9rem] text-[1.2rem] leading-[1.5]">
-        Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis les parcours de nouvelles fonctionnalités et je modernise la plateforme via un Design System.
+        Design UX/UI d'un SaaS B2B complexe en méthodologie Shape Up. Du cadrage au handoff technique, je construis le parcours des nouvelles fonctionnalités et leur design. Ainsi que maintenance et contribution en continue du Design System.
       </p>
       <hr class="border-[#00000012] w-full" />
       <div class="flex flex-wrap gap-8 gap-y-4">
@@ -84,17 +106,17 @@ const projectsWithImages = [
     #timeline-row::before {
       content: '';
       position: absolute;
-      bottom: 15px;
+      bottom: 13px;
       left: 50%;
       height: 2px;
-      width: 100vw;
+      width: 100%;
       transform: translateX(-50%);
       background-image: repeating-linear-gradient(
         to right,
         #12A594 0,
-        #12A594 8px,
-        transparent 8px,
-        transparent 20px
+        #12A594 6px,
+        transparent 6px,
+        transparent 12px
       );
       pointer-events: none;
       z-index: 0;
@@ -106,9 +128,9 @@ const projectsWithImages = [
       position: relative;
     }
   </style>
-  <div class="sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-4 z-40 mt-8 lg:mt-12">
-    <div class="w-full px-6 overflow-x-auto">
-      <div id="timeline-row" class="relative flex flex-nowrap items-start w-max mx-auto gap-[50px] max-md:gap-6" style="padding-top:6px;padding-bottom:6px">
+  <div class="sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-4 z-40 mt-8 lg:mt-12 overflow-x-hidden">
+    <div class="w-full">
+      <div id="timeline-row" class="relative flex flex-nowrap items-end justify-center w-full gap-[50px] max-md:gap-6" style="padding-top:6px;padding-bottom:6px">
         {projectsWithImages.map((p, i) => (
           <div id={`step-${i}`} class="timeline-step flex flex-col items-center cursor-pointer relative flex-shrink-0 w-[156px] gap-[9px]">
             <span class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg"
@@ -324,4 +346,5 @@ const projectsWithImages = [
     }
 
   </script>
+  <ProjectNavCards projects={otherProjects} />
 </CaseStudyLayout>
