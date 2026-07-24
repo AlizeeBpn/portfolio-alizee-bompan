@@ -151,7 +151,7 @@ const otherProjects = [
   </div>
 
   <!-- Mobile: Prev/Next buttons -->
-  <div class="md:hidden sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-3 z-40 mt-4">
+  <div class="md:hidden sticky bottom-0 w-full bg-[#F8FAFA] border-t border-gray-100 py-3 z-40 mt-4">
     <div id="mobile-nav" class="flex items-center justify-between w-full px-4 gap-3">
       <button id="mobile-prev-btn" class="flex items-center justify-center gap-2 flex-1 py-3 px-4 rounded-xl border border-[#0090FF] bg-white text-[#0090FF] font-semibold text-sm active:scale-[0.97] transition-transform">
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
@@ -163,6 +163,14 @@ const otherProjects = [
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
       </button>
     </div>
+  </div>
+
+  <!-- Mobile: Image lightbox overlay -->
+  <div id="image-lightbox" class="md:hidden fixed inset-0 z-[9999] bg-black/95 hidden flex-col items-center justify-center" style="touch-action: manipulation;">
+    <button id="lightbox-close" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-white/20 text-white flex items-center justify-center z-10 active:scale-90 transition-transform">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+    <img id="lightbox-img" src="" alt="Aperçu plein écran" class="max-w-[95vw] max-h-[90vh] object-contain rounded-lg" />
   </div>
 
   <!-- Injecter les données côté serveur → client via define:vars -->
@@ -361,6 +369,45 @@ const otherProjects = [
         var el = document.getElementById('step-'+idx);
         if(el) el.addEventListener('click', function(){ switchProject(idx); });
       })(i);
+    }
+
+    // ── Mobile: Image lightbox (tap to view fullscreen) ──
+    var projectMainImg = document.querySelector('#project-main-img');
+    var lightbox = document.getElementById('image-lightbox');
+    var lightboxImg = document.getElementById('lightbox-img');
+    var lightboxClose = document.getElementById('lightbox-close');
+
+    function openLightbox(src) {
+      if (!lightbox || !lightboxImg) return;
+      lightboxImg.src = src;
+      lightbox.classList.remove('hidden');
+      lightbox.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      if (!lightbox) return;
+      lightbox.classList.add('hidden');
+      lightbox.classList.remove('flex');
+      document.body.style.overflow = '';
+    }
+
+    if (projectMainImg && window.innerWidth < 768) {
+      projectMainImg.addEventListener('click', function(e) {
+        if (dragged || isAnimating) { dragged = false; return; }
+        e.stopPropagation();
+        openLightbox(projectMainImg.src);
+      });
+    }
+
+    if (lightboxClose) {
+      lightboxClose.addEventListener('click', closeLightbox);
+    }
+
+    if (lightbox) {
+      lightbox.addEventListener('click', function(e) {
+        if (e.target === lightbox) closeLightbox();
+      });
     }
 
     // ── Mobile Prev/Next buttons ──
