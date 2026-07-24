@@ -500,6 +500,21 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         });
       }
 
+      // Smooth scroll to top for Accueil link (because hero is sticky)
+      document.querySelectorAll('a[href="#home"]').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          // Close mobile menu if open
+          if (mobileMenu) {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            hamburgerIcon.classList.remove('hidden');
+            hamburgerClose.classList.add('hidden');
+          }
+        });
+      });
+
       // Mobile hamburger menu
       var hamburgerBtn = document.getElementById('hamburger-btn');
       var hamburgerIcon = document.getElementById('hamburger-icon');
