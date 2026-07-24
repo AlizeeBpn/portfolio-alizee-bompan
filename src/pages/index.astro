@@ -290,7 +290,7 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
           <h2 class="reveal-on-load text-center font-['Pphatton',Georgia,sans-serif] 2xl:text-[4rem] max-md:text-[2.5rem] max-sm:text-[1.8rem] text-[2.8rem] font-extrabold leading-[1.1] text-text-primary">
             Design & Stratégie Produit
           </h2>
-          <p class="split-words text-center w-full font-['Plus_Jakarta_Sans',sans-serif] text-text-muted 2xl:text-[1.2rem] max-sm:text-[.9rem] text-[1.1rem] leading-[140%]">
+          <p class="split-words text-center w-full font-['Plus_Jakarta_Sans',sans-serif] text-text-muted 2xl:text-[1.4rem] max-sm:text-[1.05rem] text-[1.25rem] leading-[140%]">
             De la recherche utilisateur au design system, j'accompagne chaque étape de la conception avec rigueur et des outils modernes.
           </p>
         </div>
@@ -365,22 +365,22 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
   </main>
 
   <style>
-    /* Project descriptions → same style as expertise card descriptions */
-    #project article p {
+    /* Expertise card descriptions → same style as project descriptions */
+    #expertise .expertise-card p {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.1rem;
-      line-height: 1.4;
-      color: #475467;
+      font-size: 20px;
+      line-height: 140%;
+      color: #5f5969;
     }
     @media (min-width: 1536px) {
-      #project article p {
-        font-size: 1.2rem;
+      #expertise .expertise-card p {
+        font-size: 1.3rem;
       }
     }
     @media (max-width: 767px) {
-      #project article p {
-        font-size: .9rem;
-        line-height: 1.5;
+      #expertise .expertise-card p {
+        font-size: 1rem;
+        line-height: 150%;
       }
       /* Project names → take the "Design & Stratégie Produit" section title style */
       #project h2 {
