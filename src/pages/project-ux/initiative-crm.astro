@@ -103,23 +103,25 @@ const otherProjects = [
 
   <!-- TIMELINE NAVIGATION -->
   <style>
-    #timeline-row::before {
-      content: '';
-      position: absolute;
-      bottom: 13px;
-      left: 50%;
-      height: 2px;
-      width: 100%;
-      transform: translateX(-50%);
-      background-image: repeating-linear-gradient(
-        to right,
-        #12A594 0,
-        #12A594 6px,
-        transparent 6px,
-        transparent 12px
-      );
-      pointer-events: none;
-      z-index: 0;
+    @media (min-width: 768px) {
+      #timeline-row::before {
+        content: '';
+        position: absolute;
+        bottom: 13px;
+        left: 50%;
+        height: 2px;
+        width: 100%;
+        transform: translateX(-50%);
+        background-image: repeating-linear-gradient(
+          to right,
+          #12A594 0,
+          #12A594 6px,
+          transparent 6px,
+          transparent 12px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
     }
     .timeline-step span,
     .timeline-step .w-12,
@@ -128,9 +130,10 @@ const otherProjects = [
       position: relative;
     }
   </style>
-  <div class="sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-4 z-40 mt-8 lg:mt-12 overflow-x-hidden">
+  <!-- Desktop: Timeline with dashed line -->
+  <div class="hidden md:block sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-4 z-40 mt-8 lg:mt-12 overflow-x-auto">
     <div class="w-full">
-      <div id="timeline-row" class="relative flex flex-nowrap items-end justify-center w-full gap-[50px] max-md:gap-6" style="padding-top:6px;padding-bottom:6px">
+      <div id="timeline-row" class="relative flex flex-nowrap items-end justify-center w-full gap-[50px] min-w-max px-4" style="padding-top:6px;padding-bottom:6px">
         {projectsWithImages.map((p, i) => (
           <div id={`step-${i}`} class="timeline-step flex flex-col items-center cursor-pointer relative flex-shrink-0 w-[156px] gap-[9px]">
             <span class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg"
@@ -144,6 +147,21 @@ const otherProjects = [
           </div>
         ))}
       </div>
+    </div>
+  </div>
+
+  <!-- Mobile: Prev/Next buttons -->
+  <div class="md:hidden sticky bottom-0 w-full bg-white/80 backdrop-blur-md border-t border-gray-100 py-3 z-40 mt-4">
+    <div id="mobile-nav" class="flex items-center justify-between w-full px-4 gap-3">
+      <button id="mobile-prev-btn" class="flex items-center justify-center gap-2 flex-1 py-3 px-4 rounded-xl border border-[#0090FF] bg-white text-[#0090FF] font-semibold text-sm active:scale-[0.97] transition-transform">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        Précédent
+      </button>
+      <span id="mobile-step-indicator" class="text-xs font-semibold text-[#102848] whitespace-nowrap">01 / 07</span>
+      <button id="mobile-next-btn" class="flex items-center justify-center gap-2 flex-1 py-3 px-4 rounded-xl border border-[#0090FF] bg-[#0090FF] text-white font-semibold text-sm active:scale-[0.97] transition-transform">
+        Suivant
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
     </div>
   </div>
 
@@ -344,6 +362,41 @@ const otherProjects = [
         if(el) el.addEventListener('click', function(){ switchProject(idx); });
       })(i);
     }
+
+    // ── Mobile Prev/Next buttons ──
+    var mobilePrevBtn = document.getElementById('mobile-prev-btn');
+    var mobileNextBtn = document.getElementById('mobile-next-btn');
+    var mobileIndicator = document.getElementById('mobile-step-indicator');
+
+    function updateMobileIndicator() {
+      if (mobileIndicator) {
+        var num = currentIndex + 1;
+        var padded = num < 10 ? '0' + num : num;
+        var totalPadded = totalProjects < 10 ? '0' + totalProjects : totalProjects;
+        mobileIndicator.textContent = padded + ' / ' + totalPadded;
+      }
+    }
+
+    if (mobilePrevBtn) {
+      mobilePrevBtn.addEventListener('click', function() {
+        var newIdx = currentIndex - 1 < 0 ? totalProjects - 1 : currentIndex - 1;
+        switchProject(newIdx);
+      });
+    }
+
+    if (mobileNextBtn) {
+      mobileNextBtn.addEventListener('click', function() {
+        var newIdx = currentIndex + 1 >= totalProjects ? 0 : currentIndex + 1;
+        switchProject(newIdx);
+      });
+    }
+
+    // Override switchProject to also update mobile indicator
+    var originalSwitchProject = switchProject;
+    switchProject = function(idx) {
+      originalSwitchProject(idx);
+      updateMobileIndicator();
+    };
 
   </script>
   <ProjectNavCards projects={otherProjects} />
