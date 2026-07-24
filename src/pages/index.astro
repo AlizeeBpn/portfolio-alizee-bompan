@@ -364,6 +364,25 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
     </footer>
   </main>
 
+  <style>
+    @media (max-width: 767px) {
+      /* Project names → take the "Design & Stratégie Produit" section title style */
+      #project h2 {
+        font-size: 1.8rem;
+        font-weight: 800;
+        line-height: 1.1;
+        color: #1a1425;
+      }
+      /* Expertise card titles → take the project name style */
+      #expertise .expertise-card h3 {
+        font-size: 1.5rem;
+        font-weight: 500;
+        line-height: 1.4;
+        color: #423e46;
+      }
+    }
+  </style>
+
   <script>
     // @ts-nocheck
     import gsap from 'gsap';
