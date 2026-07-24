@@ -365,7 +365,23 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
   </main>
 
   <style>
+    /* Project descriptions → same style as expertise card descriptions */
+    #project article p {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.4;
+      color: #475467;
+    }
+    @media (min-width: 1536px) {
+      #project article p {
+        font-size: 1.2rem;
+      }
+    }
     @media (max-width: 767px) {
+      #project article p {
+        font-size: .9rem;
+        line-height: 1.5;
+      }
       /* Project names → take the "Design & Stratégie Produit" section title style */
       #project h2 {
         font-size: 1.8rem;
