@@ -253,14 +253,15 @@ const otherProjects = [
 
     function onUp() {
       if (!dragTarget) return;
-      var key = dragTarget === card ? 'card' : 'stage';
-      dragTarget.style.transition = 'transform 0.4s cubic-bezier(0.33,1,0.68,1)';
-      dragTarget.style.cursor = '';
+      var el = dragTarget;
+      var key = el === card ? 'card' : 'stage';
+      el.style.transition = 'transform 0.4s cubic-bezier(0.33,1,0.68,1)';
+      el.style.cursor = '';
       // Reset inline transform after animation so CSS hover can work again
       setTimeout(function(){
         dragOffsets[key] = { x: 0, y: 0 };
-        dragTarget.style.transform = '';
-        dragTarget.style.transition = '';
+        el.style.transform = '';
+        el.style.transition = '';
       }, 400);
       dragTarget = null;
     }
