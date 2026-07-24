@@ -134,14 +134,6 @@ const otherProjects = [
       #project-card {
         transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease !important;
       }
-      #stage-frame:hover {
-        transform: scale(1.03);
-        box-shadow: 4px 4px 0px 0px #0090FF, 0px 18px 40px 0px rgba(142,200,246,0.22), inset 0px -6px 0px 0px rgba(0,0,51,0.06) !important;
-      }
-      #project-card:hover {
-        transform: scale(1.03);
-        box-shadow: 4px 4px 0px 0px #0090FF, 0px 18px 40px 0px rgba(142,200,246,0.22) !important;
-      }
     }
   </style>
   <!-- Desktop: Timeline with dashed line -->
@@ -253,16 +245,9 @@ const otherProjects = [
 
     function onUp() {
       if (!dragTarget) return;
-      var el = dragTarget;
-      var key = el === card ? 'card' : 'stage';
-      el.style.transition = 'transform 0.4s cubic-bezier(0.33,1,0.68,1)';
-      el.style.cursor = '';
-      // Reset inline transform after animation so CSS hover can work again
-      setTimeout(function(){
-        dragOffsets[key] = { x: 0, y: 0 };
-        el.style.transform = '';
-        el.style.transition = '';
-      }, 400);
+      var key = dragTarget === card ? 'card' : 'stage';
+      dragTarget.style.transition = 'transform 0.4s cubic-bezier(0.33,1,0.68,1)';
+      dragTarget.style.cursor = '';
       dragTarget = null;
     }
 
@@ -458,6 +443,30 @@ const otherProjects = [
       mobileNextBtn.addEventListener('click', function() {
         var newIdx = currentIndex + 1 >= totalProjects ? 0 : currentIndex + 1;
         switchProject(newIdx);
+      });
+    }
+
+    // ── Desktop hover bounce effect (JS, preserves drag position) ──
+    if (window.innerWidth >= 768) {
+      [card, stageFrame].forEach(function(el) {
+        var isHovered = false;
+        el.addEventListener('mouseenter', function() {
+          if (isAnimating || dragged || dragTarget) return;
+          isHovered = true;
+          var key = el === card ? 'card' : 'stage';
+          var o = dragOffsets[key];
+          el.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease';
+          el.style.transform = 'translate(' + o.x + 'px, ' + o.y + 'px) scale(1.03)';
+          el.style.boxShadow = '4px 4px 0px 0px #0090FF, 0px 18px 40px 0px rgba(142,200,246,0.22)' + (el === stageFrame ? ', inset 0px -6px 0px 0px rgba(0,0,51,0.06)' : '');
+        });
+        el.addEventListener('mouseleave', function() {
+          isHovered = false;
+          var key = el === card ? 'card' : 'stage';
+          var o = dragOffsets[key];
+          el.style.transition = 'transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease';
+          el.style.transform = 'translate(' + o.x + 'px, ' + o.y + 'px) scale(1)';
+          el.style.boxShadow = el === stageFrame ? stageFrame.getAttribute('data-original-shadow') || '4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12),inset 0px -6px 0px 0px rgba(0,0,51,0.06)' : '4px 4px 0px 0px rgba(0,144,255,1),0px 12px 32px 0px rgba(142,200,246,0.12)';
+        });
       });
     }
 
