@@ -86,7 +86,7 @@ const otherProjects = [
           <h3 id="project-title" class="font-sans text-[24px] font-extrabold text-[#102848] mb-1 max-md:text-[20px]">Recherche globale</h3>
           <p id="project-desc" class="font-sans text-[15px] font-medium text-[#0090FF]">CRM Initiative</p>
         </div>
-        <span id="project-number" class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg" style="background-color:#0090FF1A;color:#0090FF">01</span>
+        <span id="project-number" class="w-10 h-10 rounded-lg flex items-center justify-center font-extrabold text-base" style="background-color:#0090FF1A;color:#0090FF">01</span>
       </div>
       <div id="separator" class="w-12 h-[3px] rounded-sm mb-4" style="background-color:#0090FF66"></div>
       <p id="project-long" class="text-[#102848A6] text-[15px] leading-[22px] mb-4">
@@ -103,26 +103,6 @@ const otherProjects = [
 
   <!-- TIMELINE NAVIGATION -->
   <style>
-    @media (min-width: 768px) {
-      #timeline-row::before {
-        content: '';
-        position: absolute;
-        bottom: 13px;
-        left: 50%;
-        height: 2px;
-        width: 100%;
-        transform: translateX(-50%);
-        background-image: repeating-linear-gradient(
-          to right,
-          #12A594 0,
-          #12A594 6px,
-          transparent 6px,
-          transparent 12px
-        );
-        pointer-events: none;
-        z-index: 0;
-      }
-    }
     .timeline-step span,
     .timeline-step .w-12,
     .timeline-step .w-4 {
@@ -141,8 +121,8 @@ const otherProjects = [
     <div class="w-full">
       <div id="timeline-row" class="relative flex flex-nowrap items-end justify-center w-full gap-[50px] min-w-max px-4" style="padding-top:6px;padding-bottom:6px">
         {projectsWithImages.map((p, i) => (
-          <div id={`step-${i}`} class="timeline-step flex flex-col items-center cursor-pointer relative flex-shrink-0 w-[156px] gap-[9px]">
-            <span class="w-12 h-12 rounded-xl flex items-center justify-center font-extrabold text-lg"
+          <div id={`step-${i}`} class="timeline-step flex flex-col items-center cursor-pointer relative flex-shrink-0 w-[130px] gap-[7px]">
+            <span class="w-10 h-10 rounded-lg flex items-center justify-center font-extrabold text-base"
                   style={i === 0
                     ? "font-weight:800;background-color:#12A59426;color:#0E9888;border:1px dashed #12A594;box-shadow:0px 3px 20px 0px rgba(18,165,148,0.15)"
                     : "font-weight:800;background-color:#0090FF1A;color:#0090FF;border:none;box-shadow:none"}>
