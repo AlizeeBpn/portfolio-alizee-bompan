@@ -279,6 +279,16 @@ const otherProjects = [
     });
 
     // ── Project switcher (resets drag positions) ──
+    function updateMobileIndicator() {
+      if (mobileIndicator) {
+        var nextIdx = typeof arguments[0] === 'number' ? arguments[0] : currentIndex;
+        var num = nextIdx + 1;
+        var padded = num < 10 ? '0' + num : num;
+        var totalPadded = totalProjects < 10 ? '0' + totalProjects : totalProjects;
+        mobileIndicator.textContent = padded + ' / ' + totalPadded;
+      }
+    }
+
     function switchProject(idx) {
       if (idx === currentIndex || isAnimating) return;
       isAnimating = true;
@@ -293,6 +303,9 @@ const otherProjects = [
       stageFrame.style.transition = 'transform 0.25s cubic-bezier(0.33,1,0.68,1)';
       card.style.transform = 'scale(0.97) translateY(6px)';
       stageFrame.style.transform = 'scale(0.98) translateY(4px)';
+
+      // Update indicator immediately so it doesn't lag behind
+      updateMobileIndicator(idx);
 
       setTimeout(function(){
         // Phase 2: swap content
@@ -403,15 +416,6 @@ const otherProjects = [
     var mobileNextBtn = document.getElementById('mobile-next-btn');
     var mobileIndicator = document.getElementById('mobile-step-indicator');
 
-    function updateMobileIndicator() {
-      if (mobileIndicator) {
-        var num = currentIndex + 1;
-        var padded = num < 10 ? '0' + num : num;
-        var totalPadded = totalProjects < 10 ? '0' + totalProjects : totalProjects;
-        mobileIndicator.textContent = padded + ' / ' + totalPadded;
-      }
-    }
-
     if (mobilePrevBtn) {
       mobilePrevBtn.addEventListener('click', function() {
         var newIdx = currentIndex - 1 < 0 ? totalProjects - 1 : currentIndex - 1;
@@ -450,12 +454,6 @@ const otherProjects = [
       });
     }
 
-    // Override switchProject to also update mobile indicator
-    var originalSwitchProject = switchProject;
-    switchProject = function(idx) {
-      originalSwitchProject(idx);
-      updateMobileIndicator();
-    };
 
   </script>
   <ProjectNavCards projects={otherProjects} />
