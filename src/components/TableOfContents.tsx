@@ -28,6 +28,7 @@ const progressTrackStyle: React.CSSProperties = {
   height: "200px",
   position: "relative",
   backgroundColor: "#E9E8EA",
+  opacity: 1,
 };
 
 const progressFillStyle: React.CSSProperties = {
@@ -38,6 +39,7 @@ const progressFillStyle: React.CSSProperties = {
   borderRadius: "9999px",
   backgroundColor: "#357E7D",
   transition: "height 300ms ease-out",
+  opacity: 1,
 };
 
 export default function TableOfContents({
@@ -142,18 +144,12 @@ export default function TableOfContents({
   const progressPct = Math.round(scrollProgress * 100);
 
   return (
-    <nav className="toc-nav" style={navStyle} aria-label="Table des matières">
-      <style>{`
-        .toc-nav { display: none; }
-        @media (min-width: 1024px) {
-          .toc-nav { display: flex; }
-        }
-      `}</style>
+    <nav className="toc-nav hidden lg:flex" style={navStyle} aria-label="Table des matières">
       <div style={progressTrackStyle}>
         <div style={{ ...progressFillStyle, height: `${progressPct}%` }} />
       </div>
 
-      <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <div style={{ display: "flex", flexDirection: "column", gap: "4px", opacity: 1 }}>
         {sections.map((section) => {
           const isActive = activeId === section.id;
           const isHovered = hoveredId === section.id;

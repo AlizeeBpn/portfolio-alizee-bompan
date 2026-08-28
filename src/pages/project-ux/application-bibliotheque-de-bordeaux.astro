@@ -13,13 +13,13 @@ const otherProjects = [
   },
   {
     url: '/project-ux/netflix',
-    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e91832f91f6186e60d2768_behance-680e7adfc558d_pages-to-jpg-0065.jpg',
+    thumbnail: '/images/netflix-1.jpg',
     title: 'Netflix — Safe N Chill',
     description: "Safe N Chill, un dispositif UX permettant de filtrer l'exposition à la violence cinématographique, couplé à Chill N learn, un système d'apprentissage autonome.",
   },
   {
     url: '/project-ux/reggae-music-billetterie',
-    thumbnail: 'https://cdn.prod.website-files.com/69aaefbda0cd3c8e21a062de/69e4e06c23f73e0e88ed455d_OLEVNP1%201.png',
+    thumbnail: '/images/reggae-2.png',
     title: 'Billetterie en ligne Reggae',
     description: "Conception d'une plateforme de billetterie en ligne dédiée à la culture reggae — identité visuelle chaleureuse, expérience d'achat fluide et immersive.",
   },
@@ -1140,6 +1140,7 @@ const otherProjects = [
         </div>
       </div>
     </div>
+    </div>
   </section>
 
   <!-- ==================== COMPOSANTS ==================== -->
@@ -1569,6 +1570,7 @@ const otherProjects = [
     );
 
     document.querySelectorAll('section, div, h1, h2, h3, h4, h5, p, img, ul, video').forEach((el) => {
+      if (el.closest('.toc-nav')) return; // la table des matières reste toujours visible
       if (!el.classList.contains('reveal-scroll')) {
         el.classList.add('reveal-scroll');
       }
