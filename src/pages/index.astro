@@ -58,7 +58,7 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
     <!-- ============================================================
          HERO SECTION
          ============================================================ -->
-    <section id="home" class="z-[1] sticky top-0 w-full h-screen overflow-hidden bg-[url('/images/image-fond-mesh.svg')] bg-cover bg-[0_0]">
+    <section id="home" class="z-[1] sticky top-0 w-full h-screen overflow-hidden will-change-transform bg-[url('/images/image-fond-mesh.svg')] bg-cover bg-[0_0]">
 
       <div id="cursor-light" class="fixed w-[300px] h-[300px] rounded-full pointer-events-none z-50" style="background:radial-gradient(circle,rgba(131,78,255,0.45) 0%,transparent 70%);transform:translate(-50%,-50%);mix-blend-mode:screen;"></div>
 
@@ -95,12 +95,12 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
 
         <div class="flex flex-col">
           <div class="reveal-on-load flex gap-[clamp(1rem,2.2vw,3.5rem)] max-md:justify-center max-md:items-center">
-            <div class="reveal-on-load flex flex-col justify-center items-center w-[clamp(4.2rem,6.2vw,6.8rem)] h-[clamp(4.2rem,6.2vw,6.8rem)] border border-[#cbccd65c] rounded-[clamp(0.5rem,0.7vw,0.8rem)] relative">
+            <div class="reveal-on-load flex flex-col justify-center items-center w-[clamp(4.8rem,7vw,7.6rem)] h-[clamp(4.8rem,7vw,7.6rem)] border border-[#cbccd65c] rounded-[clamp(0.5rem,0.7vw,0.8rem)] relative">
               <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[clamp(1.3rem,2vw,2.1rem)] font-extrabold leading-[1] tracking-[-.02em]">2+</span>
               <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[clamp(0.5rem,0.6vw,0.72rem)] font-medium tracking-[.15em] uppercase">Ans d'exp.</span>
               <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
             </div>
-            <a href="/CV_AlizeeBompan.pdf" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center w-[clamp(4.2rem,6.2vw,6.8rem)] h-[clamp(4.2rem,6.2vw,6.8rem)] border border-[#cbccd65c] rounded-[clamp(0.5rem,0.7vw,0.8rem)] relative no-underline hover:border-[#7b4fd4] hover:shadow-[0_4px_20px_-4px_#7b4fd44d] transition-all duration-300">
+            <a href="/CV_AlizeeBompan.pdf" target="_blank" rel="noopener noreferrer" class="flex flex-col justify-center items-center w-[clamp(4.8rem,7vw,7.6rem)] h-[clamp(4.8rem,7vw,7.6rem)] border border-[#cbccd65c] rounded-[clamp(0.5rem,0.7vw,0.8rem)] relative no-underline hover:border-[#7b4fd4] hover:shadow-[0_4px_20px_-4px_#7b4fd44d] transition-all duration-300">
               <span class="z-[2] relative font-['Plus_Jakarta_Sans',sans-serif] text-[#1a1425] text-[clamp(1.3rem,2vw,2.1rem)] font-extrabold leading-[1] tracking-[-.02em]">CV</span>
               <span class="z-[2] relative mt-1 font-['Plus_Jakarta_Sans',sans-serif] text-[#8b7fa8] text-[clamp(0.5rem,0.6vw,0.72rem)] font-medium tracking-[.15em] uppercase">PDF</span>
               <div class="z-[1] absolute inset-0 bg-[#f6f3fd8a] blur-[15px]"></div>
@@ -117,7 +117,7 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
       </div>
 
       <a id="cat-cv-link" href="/CV_AlizeeBompan.pdf" target="_blank" class="z-[2] absolute bottom-[2%] right-[5%] max-sm:hidden" style="pointer-events: none; cursor: pointer;" rel="noopener noreferrer">
-        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[6vw] min-w-[44px] max-w-[80px] h-auto opacity-100 max-sm:hidden" style="visibility: hidden;" />
+        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[7vw] min-w-[50px] max-w-[90px] h-auto opacity-100 max-sm:hidden" style="visibility: hidden;" />
       </a>
     </section>
 
@@ -394,6 +394,16 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         color: #1a1425;
       }
     }
+    /* Fluidité du défilement : isole les éléments animés au scroll sur un layer dédié */
+    nav {
+      will-change: backdrop-filter;
+    }
+    #project .gsap-target {
+      will-change: width;
+    }
+    #expertise .gsap-media {
+      will-change: transform;
+    }
   </style>
 
   <script>
@@ -476,12 +486,12 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
       gsap.utils.toArray('.gsap-trigger-right').forEach(function(section) {
         var target = section.querySelector('.gsap-target');
         if (!target) return;
-        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: true } });
+        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: 0.8 } });
       });
       gsap.utils.toArray('.gsap-trigger-left').forEach(function(section) {
         var target = section.querySelector('.gsap-target');
         if (!target) return;
-        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: true } });
+        gsap.to(target, { width: '65%', ease: 'none', scrollTrigger: { trigger: section, start: 'top 80%', end: 'bottom 20%', scrub: 0.8 } });
       });
 
       gsap.utils.toArray('.expertise-card').forEach(function(card) {
