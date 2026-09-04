@@ -103,6 +103,26 @@ const otherProjects = [
 
   <!-- TIMELINE NAVIGATION -->
   <style>
+    @media (min-width: 768px) {
+      #timeline-row::before {
+        content: '';
+        position: absolute;
+        bottom: 13px;
+        left: 50%;
+        height: 2px;
+        width: 100%;
+        transform: translateX(-50%);
+        background-image: repeating-linear-gradient(
+          to right,
+          #12A594 0,
+          #12A594 6px,
+          transparent 6px,
+          transparent 12px
+        );
+        pointer-events: none;
+        z-index: 0;
+      }
+    }
     .timeline-step span,
     .timeline-step .w-12,
     .timeline-step .w-4 {
