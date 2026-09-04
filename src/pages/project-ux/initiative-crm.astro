@@ -109,15 +109,15 @@ const otherProjects = [
         position: absolute;
         bottom: 13px;
         left: 50%;
-        height: 2px;
+        height: 1px;
         width: 100%;
         transform: translateX(-50%);
         background-image: repeating-linear-gradient(
           to right,
           #12A594 0,
-          #12A594 6px,
-          transparent 6px,
-          transparent 12px
+          #12A594 4px,
+          transparent 4px,
+          transparent 8px
         );
         pointer-events: none;
         z-index: 0;
@@ -148,7 +148,7 @@ const otherProjects = [
                     : "font-weight:800;background-color:#0090FF1A;color:#0090FF;border:none;box-shadow:none"}>
               {p.id}
             </span>
-            <span class="text-[11px] font-semibold whitespace-nowrap text-[#102848]">{p.title}</span>
+            <span class="text-[13px] font-semibold whitespace-nowrap text-[#102848]">{p.title}</span>
             <span class="w-4 h-4 bg-[#12A594] rounded-full flex-shrink-0" style="box-shadow:0 0 6px 2px rgba(83,185,171,0.5)"></span>
           </div>
         ))}
