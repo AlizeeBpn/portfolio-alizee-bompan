@@ -1,24 +1,19 @@
 // Hébergeur vidéo : Cloudinary.
 //
-// Le "cloud name" Cloudinary n'est pas un secret : il est exposé côté client via la
-// variable d'environnement publique PUBLIC_CLOUDINARY_CLOUD_NAME (convention Astro/Vite).
-// Définissez-la dans un fichier .env à la racine du projet :
+// Le "cloud name" Cloudinary N'EST PAS un secret : il apparaît dans toutes les URLs
+// publiques des médias. Sa valeur par défaut est donc définie ici pour simplifier le
+// déploiement. Elle peut être surchargée (optionnel) par la variable d'environnement
+// PUBLIC_CLOUDINARY_CLOUD_NAME.
 //
-//   PUBLIC_CLOUDINARY_CLOUD_NAME=votre_cloud_name
-//
-// Aucune clé API / API Secret Cloudinary ne doit figurer dans le code frontend.
+// Aucune clé API / API Secret Cloudinary ne doit figurer dans ce fichier.
 
-const CLOUDINARY_CLOUD_NAME = import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME;
+const CLOUDINARY_CLOUD_NAME =
+  import.meta.env.PUBLIC_CLOUDINARY_CLOUD_NAME || 'jalpv37v';
 
 /**
  * Transforme un chemin vidéo relatif (ex: 'videos/usertest/scena1-v1.mp4')
  * en URL Cloudinary publique.
  */
 export function videoUrl(path: string): string {
-  if (!CLOUDINARY_CLOUD_NAME) {
-    throw new Error(
-      'PUBLIC_CLOUDINARY_CLOUD_NAME est manquant. Définissez-le dans le fichier .env à la racine du projet (voir .env.example).'
-    );
-  }
   return `https://res.cloudinary.com/${CLOUDINARY_CLOUD_NAME}/video/upload/${path}`;
 }
