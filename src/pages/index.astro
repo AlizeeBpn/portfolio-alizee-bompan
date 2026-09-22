@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { videoUrl } from '../lib/video';
 import { getImage } from 'astro:assets';
 import projectIni1 from '../assets/project-ini-1.png';
 import projectIni2 from '../assets/project-ini-2.png';
@@ -117,7 +118,7 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
       </div>
 
       <a id="cat-cv-link" href="/CV_AlizeeBompan.pdf" target="_blank" class="z-[2] absolute bottom-[2%] right-[5%] max-sm:hidden" style="pointer-events: none; cursor: pointer;" rel="noopener noreferrer">
-        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[7vw] min-w-[50px] max-w-[90px] h-auto opacity-100 max-sm:hidden" style="visibility: hidden;" />
+        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[6vw] min-w-[40px] max-w-[90px] h-auto opacity-100 max-sm:hidden" style="visibility: hidden;" />
       </a>
     </section>
 
@@ -296,11 +297,11 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         </div>
 
         <div class="grid grid-cols-1 gap-16 max-w-7xl w-full mt-8 mx-auto">
-          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
-            <div class="relative flex-1 min-h-0 overflow-hidden">
+          <article class="expertise-card relative w-full rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative aspect-video overflow-hidden">
               <img src="/images/design-system.gif" class="gsap-media w-full h-full object-cover scale-110" alt="Design System" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="/images/poster-design-system.jpg">
-                <source src="/videos/video-design_system.mp4" type="video/mp4" />
+                <source src={videoUrl('videos/video-design_system.mp4')} type="video/mp4" />
               </video>
             </div>
             <div class="gsap-text-box p-8 md:p-10 bg-white">
@@ -309,11 +310,11 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
             </div>
           </article>
 
-          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
-            <div class="relative flex-1 min-h-0 overflow-hidden">
+          <article class="expertise-card relative w-full rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative aspect-video overflow-hidden">
               <img src="/images/ux-research.gif" class="gsap-media w-full h-full object-cover scale-110" alt="UX Research" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="/images/poster-ux-research.jpg">
-                <source src="/videos/ux-research.mp4" type="video/mp4" />
+                <source src={videoUrl('videos/ux-research.mp4')} type="video/mp4" />
               </video>
             </div>
             <div class="gsap-text-box p-8 md:p-10 bg-white">
@@ -322,11 +323,11 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
             </div>
           </article>
 
-          <article class="expertise-card relative w-full h-[85vh] max-sm:h-[65vh] rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
-            <div class="relative flex-1 min-h-0 overflow-hidden">
+          <article class="expertise-card relative w-full rounded-[32px] overflow-hidden flex flex-col min-h-0 bg-[#fbfaff] shadow-[0_0_13px_2px_#c5aaf433]">
+            <div class="relative aspect-video overflow-hidden">
               <img src="/images/ai-driven.gif" class="gsap-media w-full h-full object-cover scale-110" alt="AI-Driven" />
               <video autoplay loop muted playsinline preload="none" class="gsap-media w-full h-full object-cover scale-110 absolute inset-0 hidden laptop:block" poster="/images/poster-ai-driven.jpg">
-                <source src="/videos/video-ui_vibecoding.mp4" type="video/mp4" />
+                <source src={videoUrl('videos/video-ui_vibecoding.mp4')} type="video/mp4" />
               </video>
             </div>
             <div class="gsap-text-box p-8 md:p-10 bg-white">
@@ -403,6 +404,7 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
     }
     #expertise .gsap-media {
       will-change: transform;
+      height: 100%;
     }
   </style>
 
@@ -438,11 +440,11 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
           y: 0,
           opacity: 1,
           rotation: 5,
-          duration: 1.5,
+          duration: 1.8,
           ease: 'bounce.out',
           delay: 2,
           repeat: 7,
-          repeatDelay: 4,
+          repeatDelay: 8,
           onStart: function() {
             catImg.style.visibility = 'visible';
           },
