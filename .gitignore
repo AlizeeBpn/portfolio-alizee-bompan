@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# sauvegarde videos locales (non deployees sur Vercel)
+videos-backup/
