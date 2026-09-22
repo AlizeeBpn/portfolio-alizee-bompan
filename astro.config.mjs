@@ -8,7 +8,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://alizeebompan.vercel.app',
+  site: 'https://portfolio-alizee-bompan.vercel.app',
   integrations: [sitemap(), react()],
 
   // Pphatton est chargée via @font-face dans src/styles/global.css : les templates
