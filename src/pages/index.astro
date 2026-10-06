@@ -432,85 +432,120 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         y: 30, opacity: 0, filter: 'blur(15px)', duration: 0.8, ease: 'power3.out', stagger: 0.1
       });
 
-      // Cat CV animation: 8 lives (falls 8 times with Squash & Stretch, stays on the 8th)
+      // Cat CV animation: 1st life = drop. Lives 2-7 = balanced mix of Bottom, Left, and Right walls! Life 8 = stays at bottom-right.
       var catLink = document.getElementById('cat-cv-link');
       var catImg = document.getElementById('cat-cv-img');
 
       if (catLink && catImg) {
         var livesLeft = 8;
+        var currentAnim;
+        var isFirstPeek = true;
 
-        var catTl = gsap.timeline({
-          repeat: 7, // 1 chute initiale + 7 répétitions = 8 chutes au total
-          repeatDelay: 0.5,
-          delay: 2,
-          onStart: function() {
-            catImg.style.visibility = 'visible';
-          }
-        });
+        // Liste équilibrée pour les vies 2 à 7 (3 fois en bas, 2 à droite, 1 à gauche) mélangée aléatoirement
+        var sidesDeck = gsap.utils.shuffle(["bottom", "bottom", "bottom", "right", "right", "left"]);
 
-        // 1. Position de départ en haut (étiré par la vitesse)
-        catTl.set(catLink, {
+        // Initialisation Vie 1 : en haut à droite
+        gsap.set(catLink, {
+          top: "auto",
+          left: "auto",
+          bottom: "2%",
+          right: "5%",
+          xPercent: 0,
+          yPercent: 0,
           y: -window.innerHeight,
-          opacity: 1,
           rotation: -8,
           scaleX: 0.85,
           scaleY: 1.15,
-          transformOrigin: "bottom center"
-        })
-        // 2. Chute libre avec vraie gravité
-        .to(catLink, {
-          y: 0,
-          rotation: 3,
-          duration: 0.65,
-          ease: "power2.in"
-        })
-        // 3. Impact au sol (Squash : il s'écrase sur ses pattes)
-        .to(catLink, {
-          scaleX: 1.22,
-          scaleY: 0.78,
-          rotation: -2,
-          duration: 0.12,
-          ease: "power1.out"
-        })
-        // 4. Rebond élastique
-        .to(catLink, {
-          y: -28,
-          scaleX: 0.94,
-          scaleY: 1.06,
-          rotation: 4,
-          duration: 0.25,
-          ease: "power2.out"
-        })
-        // 5. Atterrissage final et stabilisation
-        .to(catLink, {
-          y: 0,
-          scaleX: 1,
-          scaleY: 1,
-          rotation: 2,
-          duration: 0.45,
-          ease: "bounce.out",
-          onComplete: function() {
-            livesLeft--;
-            // S'il a consommé ses 8 vies, on coupe la timeline ici pour qu'il reste affiché !
-            if (livesLeft === 0) {
-              catTl.pause();
-            }
-          }
-        })
-        // 6. Pause de 8s en bas puis sortie douce (uniquement pour les vies 1 à 7)
-        .to(catLink, {
-          y: 120,
-          opacity: 0,
-          rotation: 10,
-          duration: 0.4,
-          ease: "back.in(1.7)",
-          delay: 8
+          transformOrigin: "center center"
         });
+        gsap.set(catImg, { visibility: 'visible', opacity: 1 });
 
-        // Pause au survol pour que l'utilisateur puisse cliquer facilement
-        catLink.addEventListener('mouseenter', function() { catTl.pause(); });
+        function playNextPeek() {
+          livesLeft--;
+          if (livesLeft <= 0) return;
+
+          var isLastLife = (livesLeft === 1);
+          // Sur la 8ème vie, il revient obligatoirement en bas à droite. Sinon on pioche dans le paquet mélangé !
+          var side = isLastLife ? "bottom" : (sidesDeck.pop() || "bottom");
+
+          // Pause équilibrée en cachette : entre 6 et 10 secondes (mais le 1er retour est plus rapide)
+          currentAnim = gsap.timeline({
+            delay: isFirstPeek ? 2 : gsap.utils.random(6, 10)
+          });
+          isFirstPeek = false;
+
+          if (side === "bottom") {
+            var posRight = isLastLife ? "5%" : gsap.utils.random(10, 75, 1) + "%";
+            currentAnim
+              .set(catLink, {
+                top: "auto", left: "auto", bottom: "0%", right: posRight,
+                x: 0, y: 0, xPercent: 0, yPercent: 130,
+                rotation: gsap.utils.random(-6, 6)
+              })
+              // 1. Sort bien la tête et les pattes du bas
+              .to(catLink, { yPercent: 45, duration: 0.35, ease: "power2.out" })
+              // 2. Sort en entier avec la pancarte bien visible
+              .to(catLink, { yPercent: -8, rotation: gsap.utils.random(-3, 3), duration: 0.35, ease: "back.out(1.8)", delay: 0.45 });
+
+            if (!isLastLife) {
+              currentAnim.to(catLink, {
+                yPercent: 130, duration: 0.4, ease: "back.in(1.4)", delay: 1.8, onComplete: playNextPeek
+              });
+            }
+
+          } else if (side === "right") {
+            var posBottomR = gsap.utils.random(15, 65, 1) + "%";
+            currentAnim
+              .set(catLink, {
+                top: "auto", left: "auto", right: "0%", bottom: posBottomR,
+                x: 0, y: 0, xPercent: 140, yPercent: 0,
+                rotation: -65
+              })
+              .to(catLink, { xPercent: 45, duration: 0.35, ease: "power2.out" })
+              .to(catLink, { xPercent: -10, rotation: -45, duration: 0.35, ease: "back.out(1.8)", delay: 0.45 })
+              .to(catLink, {
+                xPercent: 140, rotation: -70, duration: 0.4, ease: "back.in(1.4)", delay: 1.8, onComplete: playNextPeek
+              });
+
+          } else if (side === "left") {
+            var posBottomL = gsap.utils.random(15, 65, 1) + "%";
+            currentAnim
+              .set(catLink, {
+                top: "auto", right: "auto", left: "0%", bottom: posBottomL,
+                x: 0, y: 0, xPercent: -140, yPercent: 0,
+                rotation: 65
+              })
+              .to(catLink, { xPercent: -45, duration: 0.35, ease: "power2.out" })
+              .to(catLink, { xPercent: 10, rotation: 45, duration: 0.35, ease: "back.out(1.8)", delay: 0.45 })
+              .to(catLink, {
+                xPercent: -140, rotation: 70, duration: 0.4, ease: "back.in(1.4)", delay: 1.8, onComplete: playNextPeek
+              });
+          }
+        }
+
+        // --- VIE 1 : La chute initiale ---
+        currentAnim = gsap.timeline({ delay: 1.5 });
+        currentAnim
+          .to(catLink, { y: 0, rotation: 3, duration: 0.6, ease: "power2.in" })
+          .to(catLink, { scaleX: 1.2, scaleY: 0.8, rotation: -2, duration: 0.1, ease: "power1.out" })
+          .to(catLink, { y: 0, scaleX: 1, scaleY: 1, rotation: 2, duration: 0.4, ease: "elastic.out(1.2, 0.4)" })
+          .to(catLink, {
+            yPercent: 130,
+            rotation: 8,
+            duration: 0.35,
+            ease: "back.in(1.4)",
+            delay: 2,
+            onComplete: playNextPeek
+          });
+
+        // Pause au survol
+        catLink.addEventListener('mouseenter', function() {
+          if (currentAnim) currentAnim.pause();
+          gsap.to(catLink, { scaleX: 1.08, scaleY: 1.08, duration: 0.2, overwrite: "auto" });
+        });
         catLink.addEventListener('mouseleave', function() {
-          if (livesLeft > 0) catTl.resume();
+          gsap.to(catLink, { scaleX: 1, scaleY: 1, duration: 0.2 });
+          if (currentAnim && livesLeft > 0) currentAnim.resume();
         });
       }
 
