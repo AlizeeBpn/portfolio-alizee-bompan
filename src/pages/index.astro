@@ -117,8 +117,12 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         </div>
       </div>
 
-      <a id="cat-cv-link" href="/CV_AlizeeBompan.pdf" target="_blank" class="z-[2] absolute bottom-[2%] right-[5%] max-sm:hidden" style="pointer-events: none; cursor: pointer;" rel="noopener noreferrer">
-        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat" class="img pointer-events-auto cursor-pointer object-contain block w-[6vw] min-w-[40px] max-w-[90px] h-auto opacity-100 max-sm:hidden" style="visibility: hidden;" />
+      <a id="cat-cv-link" href="/CV_AlizeeBompan.pdf" target="_blank"
+         class="z-[2] absolute bottom-[2%] right-[5%] max-sm:hidden origin-bottom cursor-pointer"
+         rel="noopener noreferrer">
+        <img id="cat-cv-img" src="/images/chat-cv.png" alt="chat"
+             class="pointer-events-auto cursor-pointer object-contain block w-[6vw] min-w-[40px] max-w-[90px] h-auto max-sm:hidden"
+             style="visibility: hidden;" />
       </a>
     </section>
 
@@ -428,29 +432,85 @@ const [optProjectIni1, optProjectIni2] = await Promise.all(
         y: 30, opacity: 0, filter: 'blur(15px)', duration: 0.8, ease: 'power3.out', stagger: 0.1
       });
 
-      // Cat CV animation: fall from top with bounce & rotation, loop 8x
+      // Cat CV animation: 8 lives (falls 8 times with Squash & Stretch, stays on the 8th)
       var catLink = document.getElementById('cat-cv-link');
       var catImg = document.getElementById('cat-cv-img');
-      if (catLink && catImg) {
-        // Set initial state: well above viewport, rotated, invisible
-        gsap.set(catLink, { y: -window.innerHeight, opacity: 0, rotation: -8 });
 
-        // Animate: fall across the whole screen with natural bounce, slight rotation — loop 8 times
-        gsap.to(catLink, {
-          y: 0,
-          opacity: 1,
-          rotation: 5,
-          duration: 1.8,
-          ease: 'bounce.out',
+      if (catLink && catImg) {
+        var livesLeft = 8;
+
+        var catTl = gsap.timeline({
+          repeat: 7, // 1 chute initiale + 7 répétitions = 8 chutes au total
+          repeatDelay: 0.5,
           delay: 2,
-          repeat: 7,
-          repeatDelay: 8,
           onStart: function() {
             catImg.style.visibility = 'visible';
-          },
-          onComplete: function() {
-            catLink.style.pointerEvents = 'auto';
           }
+        });
+
+        // 1. Position de départ en haut (étiré par la vitesse)
+        catTl.set(catLink, {
+          y: -window.innerHeight,
+          opacity: 1,
+          rotation: -8,
+          scaleX: 0.85,
+          scaleY: 1.15,
+          transformOrigin: "bottom center"
+        })
+        // 2. Chute libre avec vraie gravité
+        .to(catLink, {
+          y: 0,
+          rotation: 3,
+          duration: 0.65,
+          ease: "power2.in"
+        })
+        // 3. Impact au sol (Squash : il s'écrase sur ses pattes)
+        .to(catLink, {
+          scaleX: 1.22,
+          scaleY: 0.78,
+          rotation: -2,
+          duration: 0.12,
+          ease: "power1.out"
+        })
+        // 4. Rebond élastique
+        .to(catLink, {
+          y: -28,
+          scaleX: 0.94,
+          scaleY: 1.06,
+          rotation: 4,
+          duration: 0.25,
+          ease: "power2.out"
+        })
+        // 5. Atterrissage final et stabilisation
+        .to(catLink, {
+          y: 0,
+          scaleX: 1,
+          scaleY: 1,
+          rotation: 2,
+          duration: 0.45,
+          ease: "bounce.out",
+          onComplete: function() {
+            livesLeft--;
+            // S'il a consommé ses 8 vies, on coupe la timeline ici pour qu'il reste affiché !
+            if (livesLeft === 0) {
+              catTl.pause();
+            }
+          }
+        })
+        // 6. Pause de 8s en bas puis sortie douce (uniquement pour les vies 1 à 7)
+        .to(catLink, {
+          y: 120,
+          opacity: 0,
+          rotation: 10,
+          duration: 0.4,
+          ease: "back.in(1.7)",
+          delay: 8
+        });
+
+        // Pause au survol pour que l'utilisateur puisse cliquer facilement
+        catLink.addEventListener('mouseenter', function() { catTl.pause(); });
+        catLink.addEventListener('mouseleave', function() {
+          if (livesLeft > 0) catTl.resume();
         });
       }
 
